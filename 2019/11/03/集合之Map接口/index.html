@@ -24,7 +24,7 @@
 <link rel="shortcut icon" href="/images/favicon.png">
 
 
-<title>Archives - Hexo</title>
+<title>集合之map接口 - Hexo</title>
 
 <meta name="keywords" content="">
 
@@ -112,8 +112,10 @@
 
             <div class="page-title">
     <ul>
-        <li><a href="/" data-name="Home" title="Back Home">Home</a></li>
-        <li><a href="/tags" data-name="Tag Cloud" title="Tag Cloud">Tags</a></li>
+        <li><a href="/">Recent Posts</a></li>
+        
+        
+        
         <li class="page-search">
     <form id="search" class="search-form">
         <input type="text"
@@ -129,87 +131,66 @@
 <div class="main-inner">
     <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
         <div class="post-header">
-            <h3 class="post-title">Nice 🥳 7 posts in total. Keep on posting.</h3>
-        </div>
-        
-
-        <div class="post-content markdown-body" itemprop="articleBody">
-            <div class="archives">
-                
-                
-                
-                
-                
-                <div class="archives-item">
-                    <h2>2019年11月</h2>
-                    <ul class="archives_list">
-                        
-                        <li>03日15:53:18
-                            <a href="/2019/11/03/%E6%B7%B1%E5%85%A5-Java-%E9%9B%86%E5%90%88%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97-%E4%B8%80-%EF%BC%9AHashMap-%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/">深入 Java 集合学习系列(一)：HashMap 的实现原理</a>
-                            
-                        </li>
-                        
-                
-                
-                
-                        <li>03日15:53:01
-                            <a href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BMap%E6%8E%A5%E5%8F%A3/">集合之Map接口</a>
-                            
-                        </li>
-                        
-                
-                
-                
-                        <li>03日15:52:34
-                            <a href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BSet%E6%8E%A5%E5%8F%A3/">集合之Set接口</a>
-                            
-                        </li>
-                        
-                
-                
-                
-                        <li>03日15:52:24
-                            <a href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BCollection%E6%8E%A5%E5%8F%A3/">集合之Collection接口</a>
-                            
-                        </li>
-                        
-                
-                
-                
-                        <li>02日16:54:40
-                            <a href="/2019/11/02/hexo-github%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">hexo+github博客搭建</a>
-                            
-                        </li>
-                        
-                
-                
-                
-                        <li>02日13:26:08
-                            <a href="/2019/11/02/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AE%B2%E8%A7%A32/">多线程讲解2</a>
-                            
-                        </li>
-                        
-                
-                
-                
-                        <li>02日13:26:03
-                            <a href="/2019/11/02/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AE%B2%E8%A7%A31/">多线程讲解1</a>
-                            
-                        </li>
-                        
-                    </ul>
-                </div>
-                
-                
+            <div class="post-author clearfix">
+                <a class="avatar fleft" href="https://shuoit.net"
+                   target="_blank">
+                    <img width="48" src="/images/favicon.png" alt="avatar"/>
+                </a>
+                <p><span class="label">Author</span>
+                    <a href="https://shuoit.net"
+                       target="_blank">纠结伦</a>
+                    <span title="Last edited at&nbsp;2019-11-03">2019-11-03</span>
+                </p>
+                <p>一个搬🧱的劳斯基😁️️</p>
+            </div>
+            <h2 class="post-title">集合之Map接口</h2>
+            <div class="post-meta">
+                emm... 434 words in the article |
+                you are the&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>th friend who reading now
             </div>
         </div>
+        <div class="post-content markdown-body">
+            <h2 id="Map接口"><a href="#Map接口" class="headerlink" title="Map接口"></a>Map接口</h2><p><img src="https://pic.superbed.cn/item/5dbe41f48e0e2e3ee9d43727.png" alt></p>
+<h4 id="Map接口概述"><a href="#Map接口概述" class="headerlink" title="Map接口概述"></a>Map接口概述</h4><p>1.Map与Collection并列存在。用于保存具有映射关系的数据:key-value<br>2.Map 中的 key 和 value 都可以是任何引用类型的数据<br>3.Map 中的 key 用Set来存放，不允许重复，即同一个 Map 对象所对应<br>的类，须重写hashCode()和equals()方法<br>4.常用String类作为Map的“键”<br>5.key 和 value 之间存在单向一对一关系，即通过指定的 key 总能找到<br>唯一的、确定的 value<br>6.Map接口的常用实现类：HashMap、TreeMap、LinkedHashMap和Properties。其中，HashMap是 Map 接口使用频率最高的实现类<br><img src="https://pic.superbed.cn/item/5dbe42018e0e2e3ee9d438c8.png" alt></p>
+<h4 id="Map接口：常用方法"><a href="#Map接口：常用方法" class="headerlink" title="Map接口：常用方法"></a>Map接口：常用方法</h4><p><img src="https://pic.superbed.cn/item/5dbe43638e0e2e3ee9d47009.png" alt><br><img src="https://pic.superbed.cn/item/5dbe43718e0e2e3ee9d471ca.png" alt><br><img src="https://pic.superbed.cn/item/5dbe437e8e0e2e3ee9d4734e.png" alt><br><img src="https://pic.superbed.cn/item/5dbe43898e0e2e3ee9d47579.png" alt></p>
+<h3 id="Map实现类之一：HashMap"><a href="#Map实现类之一：HashMap" class="headerlink" title="Map实现类之一：HashMap"></a>Map实现类之一：HashMap</h3><p><img src="https://pic.superbed.cn/item/5dbe43e48e0e2e3ee9d47eb5.png" alt>  </p>
+<h3 id="Map实现类之三：TreeMap"><a href="#Map实现类之三：TreeMap" class="headerlink" title="Map实现类之三：TreeMap"></a>Map实现类之三：TreeMap</h3><p><img src="https://pic.superbed.cn/item/5dbe44aa8e0e2e3ee9d48a44.png" alt></p>
+<h5 id="自然排序（Comparable接口）"><a href="#自然排序（Comparable接口）" class="headerlink" title="自然排序（Comparable接口）"></a>自然排序（Comparable接口）</h5><p><img src="https://pic.superbed.cn/item/5dbe45f58e0e2e3ee9d4a0bf.png" alt><br><img src="https://pic.superbed.cn/item/5dbe46018e0e2e3ee9d4a19e.png" alt></p>
+<h5 id="定制排序（Comparator-）"><a href="#定制排序（Comparator-）" class="headerlink" title="定制排序（Comparator()）"></a>定制排序（Comparator()）</h5><p><img src="https://pic.superbed.cn/item/5dbe46768e0e2e3ee9d4a8cc.png" alt></p>
+<h2 id="Collections工具类"><a href="#Collections工具类" class="headerlink" title="Collections工具类"></a>Collections工具类</h2><p><img src="https://pic.superbed.cn/item/5dbe47018e0e2e3ee9d4b229.png" alt></p>
+<h5 id="Collections常用方法"><a href="#Collections常用方法" class="headerlink" title="Collections常用方法"></a>Collections常用方法</h5><p><img src="https://pic.superbed.cn/item/5dbe47318e0e2e3ee9d4b633.png" alt><br><img src="https://pic.superbed.cn/item/5dbe47908e0e2e3ee9d4c84d.png" alt><br><img src="https://pic.superbed.cn/item/5dbe47908e0e2e3ee9d4c853.png" alt></p>
+<p><img src="https://ae01.alicdn.com/kf/H0714c9ed1c3a413ab35a71a56739eb82i.png" alt><br><img src="https://pic.superbed.cn/item/5dbe5b9e8e0e2e3ee9d60243.png" alt><br><img src="https://pic.superbed.cn/item/5dbe4bda8e0e2e3ee9d5198b.png" alt><br><img src="https://pic.superbed.cn/item/5dbe4bda8e0e2e3ee9d51991.png" alt><br><img src="https://pic.superbed.cn/item/5dbe4c208e0e2e3ee9d522b0.png" alt></p>
+
+            
+                
+
+            
+        </div>
+        <div class="post-tool">
+            <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
+                <i class="fa fa-thumbs-up" aria-hidden="true"></i> Donate
+            </a>
+        </div>
+        
+        <div class="post-tags">Tags：
+            
+        </div>
+        
     </article>
+    
+        <p style="text-align: center">This article just represents my own viewpoint. If there is something wrong, please correct me.</p>
+    
+    
+    
+
 </div>
+<script src="/js/busuanzi.pure.mini.js"></script>
+
 
         </div><!-- end #main-->
     </div><!-- end #body -->
     <footer class="footer">
-    <div class="footer-inner" style="text-align: left">
+    <div class="footer-inner" style="text-align: center">
         <p>
             <a href="/about"  title="About">About</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
             <!-- 自定义链接 -->
