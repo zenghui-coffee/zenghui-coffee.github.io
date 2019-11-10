@@ -13,7 +13,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
   <title>
     
-      集合之Collection接口 | Hexo
+      的实现原理 | Hexo
     
   </title>
   <meta name="author" content="John Doe">
@@ -160,7 +160,7 @@
 	<!-- Page title -->
 	<p>
 		
-			Current post&nbsp;:&nbsp;《集合之Collection接口》
+			Current post&nbsp;:&nbsp;《的实现原理》
 		
 	</p>
 
@@ -258,18 +258,6 @@
 		插件作者：KELEN
 		插件来源: https://github.com/KELEN/katelog
 -->
-
-	
-		<div class="layout-toc">
-			<div id="layout-toc">
-				<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
-			</div>
-		</div>
-
-		
-		<script src="/plugin/toc/katelog.min.js"></script>
-
-		
 	 
 
 <div class="layout-post">
@@ -277,8 +265,8 @@
 	<div class="article-title">
 		<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
 		
-	<a href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BCollection%E6%8E%A5%E5%8F%A3/" itemprop="url">
-		集合之Collection接口
+	<a href="/2019/11/10/%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/" itemprop="url">
+		的实现原理
 	</a>
 
 	</div>
@@ -291,9 +279,9 @@
 
 	Posted on
 
-	<a href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BCollection%E6%8E%A5%E5%8F%A3/" itemprop="url">
-		<time datetime="2019-11-03T07:52:24.000Z" itemprop="datePublished">
-	  		2019-11-03
+	<a href="/2019/11/10/%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/" itemprop="url">
+		<time datetime="2019-11-10T12:15:25.000Z" itemprop="datePublished">
+	  		2019-11-10
 	  </time>
 	</a>
 	&nbsp;
@@ -309,9 +297,9 @@
 
 	Updated on
 
-	<a href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BCollection%E6%8E%A5%E5%8F%A3/" itemprop="url">
-		<time datetime="2019-11-03T07:52:24.000Z" itemprop="dateUpdated">
-	  		2019-11-03
+	<a href="/2019/11/10/%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/" itemprop="url">
+		<time datetime="2019-11-10T12:15:25.000Z" itemprop="dateUpdated">
+	  		2019-11-10
 	  </time>
 	</a> 
 
@@ -330,41 +318,7 @@
 	</div>
 
 	<div class="article-content" id="article-content">
-		<h2 id="Java-集合框架概述"><a href="#Java-集合框架概述" class="headerlink" title="Java 集合框架概述"></a>Java 集合框架概述</h2><p>一方面， 面向对象语言对事物的体现都是以对象的形式，为了方便对多个对象<br>的操作，就要对对象进行存储。另一方面，使用Array存储对象方面具有一些弊<br>端，而Java 集合就像一种容器，可以动态地把多个对象的引用放入容器中。  </p>
-<h5 id="数组在内存存储方面的特点："><a href="#数组在内存存储方面的特点：" class="headerlink" title="数组在内存存储方面的特点："></a>数组在内存存储方面的特点：</h5><pre><code>数组初始化以后，长度就确定了。  
-数组声明的类型，就决定了进行元素初始化时的类型</code></pre><h5 id="数组在存储数据方面的弊端："><a href="#数组在存储数据方面的弊端：" class="headerlink" title="数组在存储数据方面的弊端："></a>数组在存储数据方面的弊端：</h5><pre><code>数组初始化以后，长度就不可变了，不便于扩展  
-数组中提供的属性和方法少，不便于进行添加、删除、插入等操作，且效率不高。同时无法直接获取存储元素的个数  
-数组存储的数据是有序的、可以重复的。----&gt;存储数据的特点单一  </code></pre><p><strong>Java 集合类可以用于存储数量不等的多个对象，还可用于保存具有映射关系的关联数组。</strong></p>
-<h6 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h6><p><img src="https://pic.superbed.cn/item/5dbd4e90bd461d945af059aa.png" alt=""></p>
-<h3 id="Java-集合可分为-Collection-和-Map-两种体系"><a href="#Java-集合可分为-Collection-和-Map-两种体系" class="headerlink" title="Java 集合可分为 Collection 和 Map 两种体系"></a>Java 集合可分为 Collection 和 Map 两种体系</h3><h6 id="Collection接口：单列数据，定义了存取一组对象的方法的集合"><a href="#Collection接口：单列数据，定义了存取一组对象的方法的集合" class="headerlink" title="Collection接口：单列数据，定义了存取一组对象的方法的集合"></a>Collection接口：单列数据，定义了存取一组对象的方法的集合</h6><pre><code>List：元素有序、可重复的集合  
-Set：元素无序、不可重复的集合</code></pre><h6 id="Map接口：双列数据，保存具有映射关系“key-value对”的集合"><a href="#Map接口：双列数据，保存具有映射关系“key-value对”的集合" class="headerlink" title="Map接口：双列数据，保存具有映射关系“key-value对”的集合"></a>Map接口：双列数据，保存具有映射关系“key-value对”的集合</h6><h3 id="Collection接口继承树"><a href="#Collection接口继承树" class="headerlink" title="Collection接口继承树"></a>Collection接口继承树</h3><p><img src="https://pic.superbed.cn/item/5dbd4f61bd461d945af06385.png" alt=""></p>
-<h1 id="Collection接口方法"><a href="#Collection接口方法" class="headerlink" title="Collection接口方法"></a>Collection接口方法</h1><h3 id="Collection-接口"><a href="#Collection-接口" class="headerlink" title="Collection 接口"></a>Collection 接口</h3><p>Collection 接口是 List、Set 和 Queue 接口的父接口，该接口里定义的方法<br>既可用于操作 Set 集合，也可用于操作 List 和 Queue 集合。  </p>
-<p>JDK不提供此接口的任何直接实现，而是提供更具体的子接口(如：Set和List)<br>实现。  </p>
-<p>在 Java5 之前，Java 集合会丢失容器中所有对象的数据类型，把所有对象都<br>当成 Object 类型处理；从 JDK 5.0 增加了泛型以后，Java 集合可以记住容<br>器中对象的数据类型。<br><img src="https://pic.superbed.cn/item/5dbd50b3bd461d945af074b1.png" alt=""><br><img src="https://pic.superbed.cn/item/5dbd50bcbd461d945af07604.png" alt=""></p>
-<h6 id="代码演示"><a href="#代码演示" class="headerlink" title="代码演示"></a>代码演示</h6><p><img src="https://pic.superbed.cn/item/5dbd50c5bd461d945af077ac.png" alt=""><br><img src="https://pic.superbed.cn/item/5dbd50d1bd461d945af07840.png" alt=""><br><img src="https://pic.superbed.cn/item/5dbd50d7bd461d945af07898.png" alt=""></p>
-<h1 id="Iterator迭代器接口"><a href="#Iterator迭代器接口" class="headerlink" title="Iterator迭代器接口"></a>Iterator迭代器接口</h1><h3 id="使用-Iterator-接口遍历集合元素"><a href="#使用-Iterator-接口遍历集合元素" class="headerlink" title="使用 Iterator 接口遍历集合元素"></a>使用 Iterator 接口遍历集合元素</h3><pre><code>Iterator对象称为迭代器(设计模式的一种)，主要用于遍历Collection集合中的元素。   
-
-GOF给迭代器模式的定义为：提供一种方法访问一个容器(container)对象中各个元素，而又不需暴露该对象的内部细节。迭代器模式，就是为容器而生。类似于“公交车上的售票员”、“火车上的乘务员”、“空姐”。 
-
-Collection接口继承了java.lang.Iterable接口，该接口有一个iterator()方法，那么所有实现了Collection接口的集合类都有一个iterator()方法，用以返回一个实现了Iterator接口的对象。
-
-Iterator 仅用于遍历集合，Iterator本身并不提供承装对象的能力。如果需要创建Iterator对象，则必须有一个被迭代的集合.    
-
-集合对象每次调用iterator()方法都得到一个全新的迭代器对象，默认游标都在集合的第一个元素之前。</code></pre><h3 id="Iterator接口的方法"><a href="#Iterator接口的方法" class="headerlink" title="Iterator接口的方法"></a>Iterator接口的方法</h3><p><img src="https://pic.superbed.cn/item/5dbd557bbd461d945af0c7df.png" alt=""><br><img src="https://pic.superbed.cn/item/5dbd5584bd461d945af0c864.png" alt=""><br><img src="https://pic.superbed.cn/item/5dbd7c47bd461d945af295e1.png" alt=""></p>
-<h2 id="Iterator接口remove-方法"><a href="#Iterator接口remove-方法" class="headerlink" title="Iterator接口remove()方法"></a>Iterator接口remove()方法</h2><p><img src="https://pic.superbed.cn/item/5dbd6c1bbd461d945af1d675.png" alt=""></p>
-<h3 id="使用-foreach-循环遍历集合元素"><a href="#使用-foreach-循环遍历集合元素" class="headerlink" title="使用 foreach 循环遍历集合元素"></a>使用 foreach 循环遍历集合元素</h3><pre><code>1.Java 5.0 提供了 foreach 循环迭代访问 Collection和数组。
-2.遍历操作不需获取Collection或数组的长度，无需使用索引访问元素。
-3.遍历集合的底层调用Iterator完成操作。
-4.foreach还可以用来遍历数组。</code></pre><h6 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">String[] str = new String[5];</span><br><span class="line">for (String myStr : str) &#123;</span><br><span class="line">myStr = &quot;atguigu&quot;;</span><br><span class="line">System.out.println(myStr);</span><br><span class="line">&#125;</span><br><span class="line">for (int i = 0; i &lt; str.length; i++) &#123;</span><br><span class="line">System.out.println(str[i]);</span><br><span class="line">&#125; &#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://pic.superbed.cn/item/5dbd6e3fbd461d945af1efee.png" alt=""></p>
-<h1 id="Collection子接口之一：List接口"><a href="#Collection子接口之一：List接口" class="headerlink" title="Collection子接口之一：List接口"></a>Collection子接口之一：List接口</h1><h3 id="List接口概述"><a href="#List接口概述" class="headerlink" title="List接口概述"></a>List接口概述</h3><p>1.鉴于Java中数组用来存储数据的局限性，我们通常使用List替代数组<br>2.list集合类中元素有序、且可重复，集合中的每个元素都有其对应的顺序索引。<br>3.List容器中的元素都对应一个整数型的序号记载其在容器中的位置，可以根据序号存取容器中的元素。<br>4.JDK API中List接口的实现类常用的有：ArrayList、LinkedList和Vector。</p>
-<p><img src="https://pic.superbed.cn/item/5dbd70a9bd461d945af214c6.png" alt=""><br><img src="https://pic.superbed.cn/item/5dbd7decbd461d945af2a746.png" alt=""><br><img src="https://pic.superbed.cn/item/5dbd7df7bd461d945af2a82d.png" alt=""><br><img src="https://pic.superbed.cn/item/5dbd7dffbd461d945af2a8b2.png" alt=""></p>
-<h2 id="List实现类之一：ArrayList"><a href="#List实现类之一：ArrayList" class="headerlink" title="List实现类之一：ArrayList"></a>List实现类之一：ArrayList</h2><h6 id="ArrayList-是-List-接口的典型实现类、主要实现类"><a href="#ArrayList-是-List-接口的典型实现类、主要实现类" class="headerlink" title="ArrayList 是 List 接口的典型实现类、主要实现类"></a>ArrayList 是 List 接口的典型实现类、主要实现类</h6><h6 id="本质上，ArrayList是对象引用的一个”变长”数组"><a href="#本质上，ArrayList是对象引用的一个”变长”数组" class="headerlink" title="本质上，ArrayList是对象引用的一个”变长”数组"></a>本质上，ArrayList是对象引用的一个”变长”数组</h6><h6 id="ArrayList的JDK1-8之前与之后的实现区别？"><a href="#ArrayList的JDK1-8之前与之后的实现区别？" class="headerlink" title="ArrayList的JDK1.8之前与之后的实现区别？"></a>ArrayList的JDK1.8之前与之后的实现区别？</h6><pre><code>JDK1.7：ArrayList像饿汉式，直接创建一个初始容量为10的数组  
-JDK1.8：ArrayList像懒汉式，一开始创建一个长度为0的数组，当添加第一个元
-素时再创建一个始容量为10的数组</code></pre><p>Arrays.asList(…) 方法返回的 List 集合，既不是 ArrayList 实例，也不是Vector 实例。 Arrays.asList(…) 返回值是一个固定长度的 List 集合<br><img src="https://pic.superbed.cn/item/5dbd7eabbd461d945af2ba2a.png" alt=""></p>
-<h2 id="List实现类之二：LinkedList"><a href="#List实现类之二：LinkedList" class="headerlink" title="List实现类之二：LinkedList"></a>List实现类之二：LinkedList</h2><h6 id="LinkedList：-双向链表-，内部没有声明数组，而是定义了Node类型的first和last，用于记录首末元素。同时，定义内部类Node，作为LinkedList中保存数据的基本结构。Node除了保存数据，还定义了两个变量："><a href="#LinkedList：-双向链表-，内部没有声明数组，而是定义了Node类型的first和last，用于记录首末元素。同时，定义内部类Node，作为LinkedList中保存数据的基本结构。Node除了保存数据，还定义了两个变量：" class="headerlink" title="LinkedList：==双向链表==，内部没有声明数组，而是定义了Node类型的first和last，用于记录首末元素。同时，定义内部类Node，作为LinkedList中保存数据的基本结构。Node除了保存数据，还定义了两个变量："></a>LinkedList：==双向链表==，内部没有声明数组，而是定义了Node类型的first和last，用于记录首末元素。同时，定义内部类Node，作为LinkedList中保存数据的基本结构。Node除了保存数据，还定义了两个变量：</h6><pre><code>prev变量记录前一个元素的位置  
-next变量记录下一个元素的位置</code></pre><p><img src="https://pic.superbed.cn/item/5dbd7f20bd461d945af2c42a.png" alt=""><br><img src="https://pic.superbed.cn/item/5dbd7fc2bd461d945af2cd79.png" alt=""></p>
-	
+			
 	</div>
 	
 	<div id="current-post-cover" data-scr="/img/cart_cover.jpg"></div>
@@ -382,12 +336,8 @@ next变量记录下一个元素的位置</code></pre><p><img src="https://pic.su
 	<span>
 		<a href="javascript: window.scrollTo(0, 0);">To Top</a>
 		
-			<a href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BSet%E6%8E%A5%E5%8F%A3/" title="集合之Set接口" rel="prev">
-				&laquo;Pre post
-			</a>
 		
-		
-			<a href="/2019/11/02/hexo-github%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" title="hexo+github博客搭建" rel="next">
+			<a href="/2019/11/09/%E6%B7%B1%E5%85%A5Java-%E9%9B%86%E5%90%88%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97-%E4%B8%80-%EF%BC%9AHashMap-%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/" title="深入Java 集合学习系列(一)：HashMap 的实现原理" rel="next">
 				Next post&raquo;
 			</a>
 			
@@ -405,29 +355,6 @@ next变量记录下一个元素的位置</code></pre><p><img src="https://pic.su
 <div class="relate-post">
 	
 		<ul>
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2019/11/10/%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/" title="的实现原理">
-								的实现原理			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十一月 10日, 2019				
-							</p>
-							<p class="relate-post-content">
-								
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2019/11/10/%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/" title="的实现原理">				
-								
-								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="的实现原理"/>
-							</a>
-						</div>
-					</li>											
-			
 			
 					<li>
 						<div class="relate-post-text">
@@ -495,6 +422,29 @@ Map接口概述1.Map与Collection并列存在。用于保存具有映射关系�
 							<a href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BSet%E6%8E%A5%E5%8F%A3/" title="集合之Set接口">				
 								
 								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="集合之Set接口"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BCollection%E6%8E%A5%E5%8F%A3/" title="集合之Collection接口">
+								集合之Collection接口			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 3日, 2019				
+							</p>
+							<p class="relate-post-content">
+								Java 集合框架概述一方面， 面向对象语言对事物的体现都是以对象的形式，为了方便对多个对象的操作，就要对对象进行存储。另一方面，使用Array存储对象方面具有一些弊端，而Java 集合就像一种容器，可以动态地把多个对象的引用放入容器...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BCollection%E6%8E%A5%E5%8F%A3/" title="集合之Collection接口">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="集合之Collection接口"/>
 							</a>
 						</div>
 					</li>											
