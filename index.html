@@ -1,389 +1,814 @@
-<!DOCTYPE HTML>
-<html class="no-js" lang="zh-CN">
+<!--
+	作者：Sariay
+	时间：2018-09-25
+	描述：There may be a bug, but don't worry, QiLing(器灵) says that it can work normally!
+-->
+<!DOCTYPE html>
+<html class="html-loading">
+		
+
 <head>
-    <!--[if lte IE 9]>
-<meta http-equiv="refresh" content="0;url=http://yoursite.com/warn.html">
-<![endif]-->
-<meta charset="utf-8">
-<meta http-equiv="X-DNS-Prefetch-Control" content="on">
-<link rel="dns-prefetch" href="http://yoursite.com">
-<link rel="dns-prefetch" href="//www.google-analytics.com">
-<link rel="prefetch" href="http://yoursite.com">
-<link rel="prefetch" href="//www.google-analytics.com">
-
-
-<link rel="prerender" href="http://yoursite.com">
-
-<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-<meta name="renderer" content="webkit">
-<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
-<meta http-equiv="mobile-agent" content="format=html5; url=http://yoursite.com">
-<meta name="author" content="John Doe">
-<link rel="stylesheet" href="/css/JSimple.css">
-
-<link rel="shortcut icon" href="/images/favicon.png">
-
-
-<title>Hexo - </title>
-
-<meta name="keywords" content="">
-
-<meta name="description " content="">
-
-    <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({
-            tex2jax: {
-                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-                processEscapes: true
-            }
-        });
-    </script>
-
-
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <title>
     
-
+      Hexo
     
+  </title>
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+	<!-- favicon -->
+  <link rel="shortcut icon" href="/img/favicon.ico">
 
+  <!-- css -->
+  <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/Annie.css">
+  
+  <!-- jquery -->
+	<script src="/js/jquery.min.js"></script>
+
+  <!-- leancloud -->
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+<script src="/js/leancloud.js"></script>
 </head>
-<body>
-<div id="nav">
-    <nav class="nav-menu">
-        <a class="site-name current" href="/" title="说">说</a>
-        <a class="site-index current" href="/"><i class="fa fa-home"></i><span>Home</span></a>
-        <a href="/archives" title="Archives"><i class="fa fa-archives"></i><span>Archives</span></a>
-        <a href="/tags" title="Tags"><i class="fa fa-tags"></i><span>Tags</span></a>
-        <!-- custom single page of menus -->
-        
-        
-        <a href="/help" title="帮助">
-            <i class="fa fa-question-circle"></i>
-            <span>帮助</span>
-        </a>
-        
-    </nav>
+	<body>
+		<!-- Preloader -->
+
+	<div id="preloader">
+		<div class="pre-container">
+			
+				<div class="spinner">
+					<div class="double-bounce1"></div>
+					<div class="double-bounce2"></div>
+				</div>
+						
+		</div>
+	</div>
+
+
+<!-- header -->
+<header class="fixbackground" data-img-mode="normal" data-normal-src="/img/1.jpg" data-random-max="110" data-random-src="https://sariay.github.io/Random-img/">
+	<div class="mask">
+		<!-- Logo and navigation -->
+		<div class="h-header">
+			<div id="logo">
+				<a href="/">
+						
+						<img src="/img/logo.png" alt="Logo">
+					
+				</a>
+			</div>
+			
+			<div id="navigation-show">
+				<ul>
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home">Home</a>
+		</li>
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive">Archive</a>
+		</li>
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories">Category</a>
+		</li>
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags">Tag</a>
+		</li>
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about">About</a>
+		</li>
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery">Gallery</a>
+		</li>
+	
+
+	
+</ul>
+			</div>				
+		</div>
+
+		<!-- motto -->
+		<div class="h-body">	
+			
+				<p class="motto"></p>
+			
+		</div>
+		
+		<!-- others: such as time... -->			
+		<div class="h-footer">
+			<a href="javascript:;" id="read-more"><i class="fa fa-angle-double-down" aria-hidden="true"></i>
+			</a>
+
+			
+				<!-- 
+	This is only a demo, please go to "https://time.is" to set your city time! 
+-->
+<style type="text/css">
+	.header-date {
+		font-size: 1.6rem;
+		color: #fff;
+		position: absolute;
+		bottom: 5px;
+		right: 1rem;
+		writing-mode: tb-rl;
+	}	
+	
+	.header-date a {
+		border-bottom: none;
+	}
+
+	@media only screen and (max-width: 768 ) {
+		.header-date {
+			font-size: 1rem;
+		}			
+	}
+</style>
+<div class="header-date">
+	<a href="https://time.is/Beijing" target="_blank" id="time_is_link" rel="nofollow noopener" ></a>
+	<span id="Beijing_z43d"></span>
 </div>
-
-<div class="nav-user">
-    <a class="btn-search" href="#"><i class="fa fa-search"></i></a>
-    <a class="btn-read-mode" href="#"><i class="fa fa-sun-o"></i></a>
-    <a class="btn-sns-qr" href="javascript:"><i class="fa fa-telegram"></i></a>
-</div>
-
-<div id="wrapper" class="clearfix">
-    <div id="body">
-        <div class="main" id="main">
-            <div id="cover">
-    <div class="cover-img"></div>
-    <div class="cover-info">
-        
-        <h1 class="cover-siteName">说IT</h1>
-        <h3 class="cover-siteTitle">用代码摇滚这个世界</h3>
-        <p class="cover-siteDesc">一个关注技术与人文的IT博客</p>
-        <div class="cover-sns">
-            
-    &nbsp;&nbsp;<div class="btn btn-telegram">
-        <a href="http://t.me/kunyintang" target="_blank" title="telegram" ref="friend">
-            <i class="fa fa-telegram"></i>
-        </a>
-    </div>
-
-    &nbsp;&nbsp;<div class="btn btn-instagram">
-        <a href="https://www.instagram.com/mtangsir/" target="_blank" title="instagram" ref="friend">
-            <i class="fa fa-instagram"></i>
-        </a>
-    </div>
-
-    &nbsp;&nbsp;<div class="btn btn-twitter">
-        <a href="https://twitter.com/tangkunyin" target="_blank" title="twitter" ref="friend">
-            <i class="fa fa-twitter"></i>
-        </a>
-    </div>
-
-    &nbsp;&nbsp;<div class="btn btn-github">
-        <a href="https://github.com/tangkunyin" target="_blank" title="github" ref="friend">
-            <i class="fa fa-github"></i>
-        </a>
-    </div>
-
-
-        </div>
-    </div>
-</div>
-
-            <div class="page-title">
-    <ul>
-        <li class="active">
-            <a href="/" data-name="Recent Posts">Recent Posts</a>
-        </li>
-        
-        <li class="">
-            <a href="/categories/tech-notes" data-name="技术">技术</a>
-        </li>
-        
-        <li class="">
-            <a href="/categories/humanities" data-name="人文">人文</a>
-        </li>
-        
-        <li class="">
-            <a href="/categories/others" data-name="其他">其他</a>
-        </li>
-        
-        <li class="page-search">
-    <form id="search" class="search-form">
-        <input type="text"
-               readonly="readonly"
-               id="local-search-input-tip"
-               placeholder="click to search..." />
-        <button type="button" disabled="disabled" class="search-form-submit"><i class="fa fa-search"></i></button>
-    </form>
-</li>
-
-    </ul>
-</div>
-<div class="main-inner">
-    
-        
-            
-<article class="post">
-    
-    <div class="post-header">
-        <div class="post-meta">
-            <a href="https://shuoit.net" target="_blank">
-                <strong>纠结伦</strong>
-            </a>
-            <em>·</em>2019-11-09
-            
-        </div>
-        <a class="post-title" href="/2019/11/09/%E6%B7%B1%E5%85%A5Java-%E9%9B%86%E5%90%88%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97-%E4%B8%80-%EF%BC%9AHashMap-%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/" target="_blank" title="深入Java 集合学习系列(一)：HashMap 的实现原理">深入Java 集合学习系列(一)：HashMap 的实现原理</a>
-        <div class="post-meta">
-            <a href="/tags" target="_blank"><i class="fa fa-tags"></i></a>
-            
-        </div>
-    </div>
-    <div class="post-desc">
-        深入Java 集合学习系列(一)：HashMap 的实现原理
-    </div>
-</article>
-
-
-
-        
-            
-<article class="post">
-    
-    <div class="post-header">
-        <div class="post-meta">
-            <a href="https://shuoit.net" target="_blank">
-                <strong>纠结伦</strong>
-            </a>
-            <em>·</em>2019-11-03
-            
-        </div>
-        <a class="post-title" href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BMap%E6%8E%A5%E5%8F%A3/" target="_blank" title="集合之Map接口">集合之Map接口</a>
-        <div class="post-meta">
-            <a href="/tags" target="_blank"><i class="fa fa-tags"></i></a>
-            
-        </div>
-    </div>
-    <div class="post-desc">
-        集合之Map接口
-    </div>
-</article>
-
-
-
-        
-            
-<article class="post">
-    
-    <div class="post-header">
-        <div class="post-meta">
-            <a href="https://shuoit.net" target="_blank">
-                <strong>纠结伦</strong>
-            </a>
-            <em>·</em>2019-11-03
-            
-        </div>
-        <a class="post-title" href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BSet%E6%8E%A5%E5%8F%A3/" target="_blank" title="集合之Set接口">集合之Set接口</a>
-        <div class="post-meta">
-            <a href="/tags" target="_blank"><i class="fa fa-tags"></i></a>
-            
-        </div>
-    </div>
-    <div class="post-desc">
-        集合之Set接口
-    </div>
-</article>
-
-
-
-        
-            
-<article class="post">
-    
-    <div class="post-header">
-        <div class="post-meta">
-            <a href="https://shuoit.net" target="_blank">
-                <strong>纠结伦</strong>
-            </a>
-            <em>·</em>2019-11-03
-            
-        </div>
-        <a class="post-title" href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BCollection%E6%8E%A5%E5%8F%A3/" target="_blank" title="集合之Collection接口">集合之Collection接口</a>
-        <div class="post-meta">
-            <a href="/tags" target="_blank"><i class="fa fa-tags"></i></a>
-            
-        </div>
-    </div>
-    <div class="post-desc">
-        集合之Collection接口
-    </div>
-</article>
-
-
-
-        
-            
-<article class="post">
-    
-    <div class="post-header">
-        <div class="post-meta">
-            <a href="https://shuoit.net" target="_blank">
-                <strong>纠结伦</strong>
-            </a>
-            <em>·</em>2019-11-02
-            
-        </div>
-        <a class="post-title" href="/2019/11/02/hexo-github%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" target="_blank" title="hexo+github博客搭建">hexo+github博客搭建</a>
-        <div class="post-meta">
-            <a href="/tags" target="_blank"><i class="fa fa-tags"></i></a>
-            
-                <em>·</em>
-                <a href="http://yoursite.com/tags/%E5%8D%9A%E5%AE%A2/" target="_blank">博客</a>
-            
-        </div>
-    </div>
-    <div class="post-desc">
-        hexo+github博客搭建
-    </div>
-</article>
-
-
-
-        
-            
-<article class="post">
-    
-    <div class="post-header">
-        <div class="post-meta">
-            <a href="https://shuoit.net" target="_blank">
-                <strong>纠结伦</strong>
-            </a>
-            <em>·</em>2019-11-02
-            
-        </div>
-        <a class="post-title" href="/2019/11/02/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AE%B2%E8%A7%A32/" target="_blank" title="多线程讲解2">多线程讲解2</a>
-        <div class="post-meta">
-            <a href="/tags" target="_blank"><i class="fa fa-tags"></i></a>
-            
-        </div>
-    </div>
-    <div class="post-desc">
-        多线程讲解2
-    </div>
-</article>
-
-
-
-        
-            
-<article class="post">
-    
-    <div class="post-header">
-        <div class="post-meta">
-            <a href="https://shuoit.net" target="_blank">
-                <strong>纠结伦</strong>
-            </a>
-            <em>·</em>2019-11-02
-            
-        </div>
-        <a class="post-title" href="/2019/11/02/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AE%B2%E8%A7%A31/" target="_blank" title="多线程讲解1">多线程讲解1</a>
-        <div class="post-meta">
-            <a href="/tags" target="_blank"><i class="fa fa-tags"></i></a>
-            
-        </div>
-    </div>
-    <div class="post-desc">
-        多线程讲解1
-    </div>
-</article>
-
-
-
-        
-    
-</div>
-
-
-        </div><!-- end #main-->
-    </div><!-- end #body -->
-    <footer class="footer">
-    <div class="footer-inner" style="text-align: left">
-        <p>
-            <a href="/about"  title="About">About</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
-            <!-- 自定义链接 -->
-            <a href="/help" title="Help" >Help</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
-            <a href="/links" title="Links">Links</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
-            <a href="/sitemap.xml" title="SiteMap">SiteMap</a>
-        </p>
-        <p>
-            Has been established&nbsp<a href="/timeline" id="siteBuildingTime"></a>&nbspDays，<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="licence">Based on Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)</a><br/>
-            ©2017-<span id="cpYear"></span> Based on&nbsp<a href="http://hexo.io" target="_blank" rel="nofollow">Hexo</a>
-            ，Theme by&nbsp&nbsp<a href="https://github.com/tangkunyin/hexo-theme-jsimple" target="_blank" rel="bookmark">JSimple</a>
-            ，Author&nbsp<a href="https://shuoit.net" target="_blank" rel="friend">纠结伦</a>
-            ，Hosted by <a href="https://pages.github.com/" target="_blank" rel="nofollow">GitHub Pages</a>
-        </p>
-    </div>
-</footer>
-<script src="/js/SimpleCore.js"></script>
-
-</div>
-<!-- search pop -->
-<div class="popup search-popup local-search-popup">
-    <div class="local-search-header clearfix">
-        <span class="search-icon">
-            <i class="fa fa-search"></i>
-        </span>
-        <span class="popup-btn-close">
-            <i class="fa fa-times-circle"></i>
-        </span>
-        <div class="local-search-input-wrapper">
-            <input id="local-search-input"
-                   spellcheck="false"
-                   type="text"
-                   autocomplete="off"
-                   placeholder="Input query keywords here..."/>
-        </div>
-    </div>
-    <div id="local-search-result"></div>
-</div>
-<div class="fixed-btn">
-    <a class="btn-gotop" href="javascript:"> <i class="fa fa-angle-up"></i></a>
-</div>
+<script src="//widget.time.is/zh.js"></script>
 <script>
-    $(function () {
-        var jsi_config = {
-            buildingTime: '01/20/2018',
-            current: $('.post-tags').length > 0 ? 'post' : 'archive',
-            snsQRCode: '/images/sns-qrcode.png',
-            donateImg: '/images/donate-qr.png',
-            localSearch: { dbPath: '' },
-            readMode: 'day'
-        };
-        
-        SimpleCore.init(jsi_config);
-        
-    });
+	time_is_widget.init({
+		Beijing_z43d:{
+			template:"DATE", 
+			date_format:"year年 monthname dnum日"
+		}
+	});
 </script>
-</body>
+			
+		</div>
+	</div>
+</header>
+
+<div id="navigation-hide">
+	<!-- Progress bar -->
+	<div id="progress-bar"></div>
+
+	<!-- Progress percent -->
+	<div id="progress-percentage"><h1>0.0%</h1></div>
+
+	<div class="toc-switch"><span class="switch-button">Catalog</span></div>
+
+	<!-- Page title -->
+	<p>
+		
+			Home
+		
+	</p>
+
+	<!-- Nav trigger for navigation-H-->
+	<a class="nav-trigger"><span></span></a>
+</div>
+
+<!-- Navigation in div(id="navigation-H") -->
+<nav class="nav-container" id="cd-nav">
+	<div class="nav-header">
+		<h3>Navigation</h3>
+		<a href="javascript:;" class="nav-close"></a>
+	</div>
+	<div class="nav-body">
+		<ul>
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home">Home</a>
+		</li>
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive">Archive</a>
+		</li>
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories">Category</a>
+		</li>
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags">Tag</a>
+		</li>
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about">About</a>
+		</li>
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery">Gallery</a>
+		</li>
+	
+
+	
+</ul>
+	</div>
+	<div class="nav-footer">
+		<ul>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-github"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-weibo"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-pinterest"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-instagram"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-twitter"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/atom.xml" target="_blank">
+				<i class="fa fa-rss"></i>
+			</a>
+		</li>
+			
+</ul>
+
+	</div>
+</nav>
+			
+		<!--main-->
+		<main>
+			
+
+
+
+	<!--cart style-->
+	<div class="layout-cart">
+	<div id="layout-cart">
+		
+		<div class="post" id="post">
+			<a class="post-cover" href="/2019/11/09/%E6%B7%B1%E5%85%A5Java-%E9%9B%86%E5%90%88%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97-%E4%B8%80-%EF%BC%9AHashMap-%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/" title=" 深入Java 集合学习系列(一)：HashMap 的实现原理 ">
+				
+				<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg"/>
+			</a>
+
+			<div class="post-text">
+				<p class="post-time">
+					十一月 9日, 2019
+				</p>	
+				<h3 class="post-title" id="post-title-index">
+					<a href="/2019/11/09/%E6%B7%B1%E5%85%A5Java-%E9%9B%86%E5%90%88%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97-%E4%B8%80-%EF%BC%9AHashMap-%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/" title="深入Java 集合学习系列(一)：HashMap 的实现原理">
+						<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+						
+	<a href="/2019/11/09/%E6%B7%B1%E5%85%A5Java-%E9%9B%86%E5%90%88%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97-%E4%B8%80-%EF%BC%9AHashMap-%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/" itemprop="url">
+		深入Java 集合学习系列(一)：HashMap 的实现原理
+	</a>
+
+					</a>
+				</h3>
+				<p class="post-content">
+					
+						1. HashMap 概述：HashMap 是基于哈希表的 Map 接口的非同步实现。此实现提供所有可选的映射操作，并允许使用 null 值和null键。...
+					
+				</p>
+				<p class="post-meta">
+					
+
+
+
+					
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+	
+
+				</p>
+			</div>
+		</div>
+		
+		<div class="post" id="post">
+			<a class="post-cover" href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BMap%E6%8E%A5%E5%8F%A3/" title=" 集合之Map接口 ">
+				
+				<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg"/>
+			</a>
+
+			<div class="post-text">
+				<p class="post-time">
+					十一月 3日, 2019
+				</p>	
+				<h3 class="post-title" id="post-title-index">
+					<a href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BMap%E6%8E%A5%E5%8F%A3/" title="集合之Map接口">
+						<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+						
+	<a href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BMap%E6%8E%A5%E5%8F%A3/" itemprop="url">
+		集合之Map接口
+	</a>
+
+					</a>
+				</h3>
+				<p class="post-content">
+					
+						Map接口
+Map接口概述1.Map与Collection并列存在。用于保存具有映射关系的数据:key-value2.Map 中的 key 和 value...
+					
+				</p>
+				<p class="post-meta">
+					
+
+
+
+					
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+	
+
+				</p>
+			</div>
+		</div>
+		
+		<div class="post" id="post">
+			<a class="post-cover" href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BSet%E6%8E%A5%E5%8F%A3/" title=" 集合之Set接口 ">
+				
+				<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg"/>
+			</a>
+
+			<div class="post-text">
+				<p class="post-time">
+					十一月 3日, 2019
+				</p>	
+				<h3 class="post-title" id="post-title-index">
+					<a href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BSet%E6%8E%A5%E5%8F%A3/" title="集合之Set接口">
+						<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+						
+	<a href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BSet%E6%8E%A5%E5%8F%A3/" itemprop="url">
+		集合之Set接口
+	</a>
+
+					</a>
+				</h3>
+				<p class="post-content">
+					
+						Collection子接口之二： Set接口Set 接口概述123Set接口是Collection的子接口，set接口没有提供额外的方法  Set 集合不...
+					
+				</p>
+				<p class="post-meta">
+					
+
+
+
+					
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+	
+
+				</p>
+			</div>
+		</div>
+		
+		<div class="post" id="post">
+			<a class="post-cover" href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BCollection%E6%8E%A5%E5%8F%A3/" title=" 集合之Collection接口 ">
+				
+				<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg"/>
+			</a>
+
+			<div class="post-text">
+				<p class="post-time">
+					十一月 3日, 2019
+				</p>	
+				<h3 class="post-title" id="post-title-index">
+					<a href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BCollection%E6%8E%A5%E5%8F%A3/" title="集合之Collection接口">
+						<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+						
+	<a href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BCollection%E6%8E%A5%E5%8F%A3/" itemprop="url">
+		集合之Collection接口
+	</a>
+
+					</a>
+				</h3>
+				<p class="post-content">
+					
+						Java 集合框架概述一方面， 面向对象语言对事物的体现都是以对象的形式，为了方便对多个对象的操作，就要对对象进行存储。另一方面，使用Array存储对象方...
+					
+				</p>
+				<p class="post-meta">
+					
+
+
+
+					
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+	
+
+				</p>
+			</div>
+		</div>
+		
+		<div class="post" id="post">
+			<a class="post-cover" href="/2019/11/02/hexo-github%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" title=" hexo+github博客搭建 ">
+				
+				<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg"/>
+			</a>
+
+			<div class="post-text">
+				<p class="post-time">
+					十一月 2日, 2019
+				</p>	
+				<h3 class="post-title" id="post-title-index">
+					<a href="/2019/11/02/hexo-github%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" title="hexo+github博客搭建">
+						<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+						
+	<a href="/2019/11/02/hexo-github%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" itemprop="url">
+		hexo+github博客搭建
+	</a>
+
+					</a>
+				</h3>
+				<p class="post-content">
+					
+						在官网下载Git和Nodejs按步骤进行安装，一直下一步就ok在命令行检测安装是否成功npm全局安装cnpmcnpm安装完成npm全局安装hexohexo...
+					
+				</p>
+				<p class="post-meta">
+					
+
+
+
+					
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+	
+
+				</p>
+			</div>
+		</div>
+		
+		<div class="post" id="post">
+			<a class="post-cover" href="/2019/11/02/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AE%B2%E8%A7%A32/" title=" 多线程讲解2 ">
+				
+				<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg"/>
+			</a>
+
+			<div class="post-text">
+				<p class="post-time">
+					十一月 2日, 2019
+				</p>	
+				<h3 class="post-title" id="post-title-index">
+					<a href="/2019/11/02/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AE%B2%E8%A7%A32/" title="多线程讲解2">
+						<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+						
+	<a href="/2019/11/02/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AE%B2%E8%A7%A32/" itemprop="url">
+		多线程讲解2
+	</a>
+
+					</a>
+				</h3>
+				<p class="post-content">
+					
+						
+线程的生命周期JDK中用Thread.State类定义了线程的几种状态要想实现多线程，必须在主线程中创建新的线程对象。Java语言使用Thread类及其...
+					
+				</p>
+				<p class="post-meta">
+					
+
+
+
+					
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+	
+
+				</p>
+			</div>
+		</div>
+		
+		<div class="post" id="post">
+			<a class="post-cover" href="/2019/11/02/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AE%B2%E8%A7%A31/" title=" 多线程讲解1 ">
+				
+				<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg"/>
+			</a>
+
+			<div class="post-text">
+				<p class="post-time">
+					十一月 2日, 2019
+				</p>	
+				<h3 class="post-title" id="post-title-index">
+					<a href="/2019/11/02/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AE%B2%E8%A7%A31/" title="多线程讲解1">
+						<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+						
+	<a href="/2019/11/02/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AE%B2%E8%A7%A31/" itemprop="url">
+		多线程讲解1
+	</a>
+
+					</a>
+				</h3>
+				<p class="post-content">
+					
+						# 基本概念：程序、进程、线程程序(program)是为完成特定任务、用某种语言编写的一组指令的集合。即指一段静态的代码，静态对象。
+==程序(progr...
+					
+				</p>
+				<p class="post-meta">
+					
+
+
+
+					
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+	
+
+				</p>
+			</div>
+		</div>
+		
+	</div>
+	
+	
+	<div id="pagination">
+		
+	</div>
+
+	
+
+</div>
+	
+
+		</main>
+
+		<!--footer-->
+		<footer>
+	<div class="social">
+		<ul>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-github"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-weibo"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-pinterest"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-instagram"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-twitter"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/atom.xml" target="_blank">
+				<i class="fa fa-rss"></i>
+			</a>
+		</li>
+			
+</ul>
+
+	</div>
+		
+	<div class="copyright">
+		<p>
+			 
+				&copy;2017 - 2019, content by John Doe. All Rights Reserved.
+			
+			
+			
+
+	<!-- busuanzi -->
+	<!-- busuanzi -->
+
+		
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+
+		<span id="busuanzi_container_site_pv">
+	    	本站总访问量<span id="busuanzi_value_site_pv"></span>次
+		</span>
+
+		<span id="busuanzi_container_site_uv">
+	  		本站访客数<span id="busuanzi_value_site_uv"></span>人次
+		</span>
+		
+	
+
+
+
+
+		</p>
+		<p>
+			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.
+			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
+			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁體</a>				
+		</p>
+	</div>		
+</footer>
+		
+	<!-- set '1' to show motto in all pages! -->
+
+	<script src="/plugin/motto/motto.js"></script>
+	
+	<script type="text/javascript">
+		$(".motto").html( getMingYanContent() );
+	</script>	
+
+
+
+
+
+<!-- love effect -->
+
+	<script src="/plugin/love/love.js"></script>
+
+
+<!-- back to top -->
+
+	
+	<div id="totop">
+  		<a href="javascript:;"  name="TOTOP" class="fa fa-arrow-up" ></a>
+	</div>
+
+
+
+
+<!-- site analysis -->
+
+
+	<!-- site-analysis -->
+	
+
+	
+	
+	
+	
+ 
+
+<script src="/plugin/vibrant/vibrant.js"></script>
+<script src="/plugin/chinese/chinese.js"></script>
+<script src="/plugin/imgLazyLoader/yall.min.js"></script>
+<script src="/plugin/imgResize/jquery.resizeimagetoparent.min.js"></script>
+<script src="/plugin/nicescroll/jquery.nicescroll.js"></script>
+<script src="/js/resizediv.js"></script>
+<script src="/js/main.js"></script>
+	</body>	
 </html>

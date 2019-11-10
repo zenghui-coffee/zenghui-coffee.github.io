@@ -1,249 +1,853 @@
-<!DOCTYPE HTML>
-<html class="no-js" lang="zh-CN">
+<!--
+	作者：Sariay
+	时间：2018-09-25
+	描述：There may be a bug, but don't worry, QiLing(器灵) says that it can work normally!
+-->
+<!DOCTYPE html>
+<html class="html-loading">
+		
+
 <head>
-    <!--[if lte IE 9]>
-<meta http-equiv="refresh" content="0;url=http://yoursite.com/warn.html">
-<![endif]-->
-<meta charset="utf-8">
-<meta http-equiv="X-DNS-Prefetch-Control" content="on">
-<link rel="dns-prefetch" href="http://yoursite.com">
-<link rel="dns-prefetch" href="//www.google-analytics.com">
-<link rel="prefetch" href="http://yoursite.com">
-<link rel="prefetch" href="//www.google-analytics.com">
-
-
-<link rel="prerender" href="http://yoursite.com">
-
-<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-<meta name="renderer" content="webkit">
-<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
-<meta http-equiv="mobile-agent" content="format=html5; url=http://yoursite.com">
-<meta name="author" content="John Doe">
-<link rel="stylesheet" href="/css/JSimple.css">
-
-<link rel="shortcut icon" href="/images/favicon.png">
-
-
-<title>hexo+github博客搭建 - Hexo</title>
-
-<meta name="keywords" content="">
-
-<meta name="description " content="">
-
-    <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({
-            tex2jax: {
-                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-                processEscapes: true
-            }
-        });
-    </script>
-
-
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <title>
     
-
+      hexo+github博客搭建 | Hexo
     
+  </title>
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+	<!-- favicon -->
+  <link rel="shortcut icon" href="/img/favicon.ico">
 
+  <!-- css -->
+  <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/Annie.css">
+  
+  <!-- jquery -->
+	<script src="/js/jquery.min.js"></script>
+
+  <!-- leancloud -->
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+<script src="/js/leancloud.js"></script>
 </head>
-<body>
-<div id="nav">
-    <nav class="nav-menu">
-        <a class="site-name current" href="/" title="说">说</a>
-        <a class="site-index current" href="/"><i class="fa fa-home"></i><span>Home</span></a>
-        <a href="/archives" title="Archives"><i class="fa fa-archives"></i><span>Archives</span></a>
-        <a href="/tags" title="Tags"><i class="fa fa-tags"></i><span>Tags</span></a>
-        <!-- custom single page of menus -->
-        
-        
-        <a href="/help" title="帮助">
-            <i class="fa fa-question-circle"></i>
-            <span>帮助</span>
-        </a>
-        
-    </nav>
+	<body>
+		<!-- Preloader -->
+
+	<div id="preloader">
+		<div class="pre-container">
+			
+				<div class="spinner">
+					<div class="double-bounce1"></div>
+					<div class="double-bounce2"></div>
+				</div>
+						
+		</div>
+	</div>
+
+
+<!-- header -->
+<header class="fixbackground" data-img-mode="normal" data-normal-src="/img/1.jpg" data-random-max="110" data-random-src="https://sariay.github.io/Random-img/">
+	<div class="mask">
+		<!-- Logo and navigation -->
+		<div class="h-header">
+			<div id="logo">
+				<a href="/">
+						
+						<img src="/img/logo.png" alt="Logo">
+					
+				</a>
+			</div>
+			
+			<div id="navigation-show">
+				<ul>
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home">Home</a>
+		</li>
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive">Archive</a>
+		</li>
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories">Category</a>
+		</li>
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags">Tag</a>
+		</li>
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about">About</a>
+		</li>
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery">Gallery</a>
+		</li>
+	
+
+	
+</ul>
+			</div>				
+		</div>
+
+		<!-- motto -->
+		<div class="h-body">	
+			
+				<p class="motto"></p>
+			
+		</div>
+		
+		<!-- others: such as time... -->			
+		<div class="h-footer">
+			<a href="javascript:;" id="read-more"><i class="fa fa-angle-double-down" aria-hidden="true"></i>
+			</a>
+
+			
+				<!-- 
+	This is only a demo, please go to "https://time.is" to set your city time! 
+-->
+<style type="text/css">
+	.header-date {
+		font-size: 1.6rem;
+		color: #fff;
+		position: absolute;
+		bottom: 5px;
+		right: 1rem;
+		writing-mode: tb-rl;
+	}	
+	
+	.header-date a {
+		border-bottom: none;
+	}
+
+	@media only screen and (max-width: 768 ) {
+		.header-date {
+			font-size: 1rem;
+		}			
+	}
+</style>
+<div class="header-date">
+	<a href="https://time.is/Beijing" target="_blank" id="time_is_link" rel="nofollow noopener" ></a>
+	<span id="Beijing_z43d"></span>
+</div>
+<script src="//widget.time.is/zh.js"></script>
+<script>
+	time_is_widget.init({
+		Beijing_z43d:{
+			template:"DATE", 
+			date_format:"year年 monthname dnum日"
+		}
+	});
+</script>
+			
+		</div>
+	</div>
+</header>
+
+<div id="navigation-hide">
+	<!-- Progress bar -->
+	<div id="progress-bar"></div>
+
+	<!-- Progress percent -->
+	<div id="progress-percentage"><h1>0.0%</h1></div>
+
+	<div class="toc-switch"><span class="switch-button">Catalog</span></div>
+
+	<!-- Page title -->
+	<p>
+		
+			Current post&nbsp;:&nbsp;《hexo+github博客搭建》
+		
+	</p>
+
+	<!-- Nav trigger for navigation-H-->
+	<a class="nav-trigger"><span></span></a>
 </div>
 
-<div class="nav-user">
-    <a class="btn-search" href="#"><i class="fa fa-search"></i></a>
-    <a class="btn-read-mode" href="#"><i class="fa fa-sun-o"></i></a>
-    <a class="btn-sns-qr" href="javascript:"><i class="fa fa-telegram"></i></a>
-</div>
+<!-- Navigation in div(id="navigation-H") -->
+<nav class="nav-container" id="cd-nav">
+	<div class="nav-header">
+		<h3>Navigation</h3>
+		<a href="javascript:;" class="nav-close"></a>
+	</div>
+	<div class="nav-body">
+		<ul>
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home">Home</a>
+		</li>
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive">Archive</a>
+		</li>
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories">Category</a>
+		</li>
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags">Tag</a>
+		</li>
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about">About</a>
+		</li>
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery">Gallery</a>
+		</li>
+	
 
-<div id="wrapper" class="clearfix">
-    <div id="body">
-        <div class="main" id="main">
-            <div id="cover">
-    <div class="cover-img"></div>
-    <div class="cover-info">
-        
-        <h1 class="cover-siteName">说IT</h1>
-        <h3 class="cover-siteTitle">用代码摇滚这个世界</h3>
-        <p class="cover-siteDesc">一个关注技术与人文的IT博客</p>
-        <div class="cover-sns">
-            
-    &nbsp;&nbsp;<div class="btn btn-telegram">
-        <a href="http://t.me/kunyintang" target="_blank" title="telegram" ref="friend">
-            <i class="fa fa-telegram"></i>
-        </a>
-    </div>
+	
+</ul>
+	</div>
+	<div class="nav-footer">
+		<ul>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-github"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-weibo"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-pinterest"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-instagram"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-twitter"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/atom.xml" target="_blank">
+				<i class="fa fa-rss"></i>
+			</a>
+		</li>
+			
+</ul>
 
-    &nbsp;&nbsp;<div class="btn btn-instagram">
-        <a href="https://www.instagram.com/mtangsir/" target="_blank" title="instagram" ref="friend">
-            <i class="fa fa-instagram"></i>
-        </a>
-    </div>
+	</div>
+</nav>
+			
+		<!--main-->
+		<main>
+			<!--
+	时间：2018-11-17
+	描述：
+		插件名称：katelog.min.js
+		插件作者：KELEN
+		插件来源: https://github.com/KELEN/katelog
+-->
 
-    &nbsp;&nbsp;<div class="btn btn-twitter">
-        <a href="https://twitter.com/tangkunyin" target="_blank" title="twitter" ref="friend">
-            <i class="fa fa-twitter"></i>
-        </a>
-    </div>
+	
+		<div class="layout-toc">
+			<div id="layout-toc">
+				<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
+			</div>
+		</div>
 
-    &nbsp;&nbsp;<div class="btn btn-github">
-        <a href="https://github.com/tangkunyin" target="_blank" title="github" ref="friend">
-            <i class="fa fa-github"></i>
-        </a>
-    </div>
+		
+		<script src="/plugin/toc/katelog.min.js"></script>
+
+		
+	 
+
+<div class="layout-post">
+	<div id="layout-post">
+	<div class="article-title">
+		<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+		
+	<a href="/2019/11/02/hexo-github%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" itemprop="url">
+		hexo+github博客搭建
+	</a>
+
+	</div>
+
+	<div class="article-meta">
+		<span>
+			<i class="fa fa-calendar"></i>
+			
 
 
-        </div>
-    </div>
-</div>
+	Posted on
 
-            <div class="page-title">
-    <ul>
-        <li><a href="/">Recent Posts</a></li>
-        
-        
-        
-        <li class="page-search">
-    <form id="search" class="search-form">
-        <input type="text"
-               readonly="readonly"
-               id="local-search-input-tip"
-               placeholder="click to search..." />
-        <button type="button" disabled="disabled" class="search-form-submit"><i class="fa fa-search"></i></button>
-    </form>
-</li>
+	<a href="/2019/11/02/hexo-github%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" itemprop="url">
+		<time datetime="2019-11-02T08:54:40.000Z" itemprop="datePublished">
+	  		2019-11-02
+	  </time>
+	</a>
+	&nbsp;
 
-    </ul>
-</div>
-<div class="main-inner">
-    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-        <div class="post-header">
-            <div class="post-author clearfix">
-                <a class="avatar fleft" href="https://shuoit.net"
-                   target="_blank">
-                    <img width="48" src="/images/favicon.png" alt="avatar"/>
-                </a>
-                <p><span class="label">Author</span>
-                    <a href="https://shuoit.net"
-                       target="_blank">纠结伦</a>
-                    <span title="Last edited at&nbsp;2019-11-02">2019-11-02</span>
-                </p>
-                <p>一个搬🧱的劳斯基😁️️</p>
-            </div>
-            <h2 class="post-title">hexo+github博客搭建</h2>
-            <div class="post-meta">
-                emm... 903 words in the article |
-                you are the&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>th friend who reading now
-            </div>
-        </div>
-        <div class="post-content markdown-body">
-            <p><img src="https://pic.superbed.cn/item/5db938debd461d945a5a2798.png" alt><br><img src="https://pic.superbed.cn/item/5db9404bbd461d945a5b00e2.png" alt><br><strong><em>在官网下载Git和Nodejs</em></strong><br><img src="https://pic.superbed.cn/item/5db94071bd461d945a5b0441.png" alt><br><img src="https://pic.superbed.cn/item/5db94087bd461d945a5b068b.png" alt><br><img src="https://pic.superbed.cn/item/5db940e8bd461d945a5b0e20.png" alt><br>按步骤进行安装，一直下一步就ok<br><img src="https://pic.superbed.cn/item/5db9390dbd461d945a5a329c.png" alt><br>在命令行检测安装是否成功<br><img src="https://pic.superbed.cn/item/5db94131bd461d945a5b1286.png" alt><br>npm全局安装cnpm<br><img src="https://pic.superbed.cn/item/5db9414abd461d945a5b1487.png" alt><br>cnpm安装完成<br><img src="https://pic.superbed.cn/item/5db94163bd461d945a5b162c.png" alt><br>npm全局安装hexo<br><img src="https://pic.superbed.cn/item/5db9419dbd461d945a5b19cb.png" alt><br>hexo安装完成<br><img src="https://pic.superbed.cn/item/5db941b4bd461d945a5b1bc3.png" alt><br>新建一个blog文件夹（文件夹名随意），并进行博客初始化<br><img src="https://pic.superbed.cn/item/5db941cfbd461d945a5b1d69.png" alt><br>在命令行界面用cd blog进入到blog文件夹，然后输入hexo init初始化博客<br><img src="https://pic.superbed.cn/item/5db942bbbd461d945a5b380f.png" alt><br><img src="https://pic.superbed.cn/item/5db941f9bd461d945a5b20f1.png" alt><br>注意：如果初始化博客卡住，只需把文件夹内的文件全部删除，然后重新初始化即可<br><img src="https://pic.superbed.cn/item/5db942cfbd461d945a5b3aa8.png" alt><br><img src="https://pic.superbed.cn/item/5db942ddbd461d945a5b3c88.png" alt><br>创建本地的静态博客页面，可以通过本地端口打开<br><img src="https://pic.superbed.cn/item/5db94432bd461d945a5b7fe1.png" alt><br>Ctrl+C结束进程</p>
-<h4 id="接下就就需要把本地的博客部署到Github的服务器上啦，也是最关键的地方"><a href="#接下就就需要把本地的博客部署到Github的服务器上啦，也是最关键的地方" class="headerlink" title="接下就就需要把本地的博客部署到Github的服务器上啦，也是最关键的地方"></a>接下就就需要把本地的博客部署到Github的服务器上啦，也是最关键的地方</h4><p><img src="https://pic.superbed.cn/item/5db945d9bd461d945a5bc029.png" alt><br> 在电脑左下角的开始界面中打卡最近添加的Git Bash<br> <img src="https://pic.superbed.cn/item/5db94655bd461d945a5bd166.png" alt><br> 将用户名设置为自己Github的账户名，之后验证会很重要<br> <img src="https://pic.superbed.cn/item/5db94668bd461d945a5bd6c3.png" alt><br> 设置自己的常用邮箱<br> <img src="https://pic.superbed.cn/item/5db94679bd461d945a5bda8c.png" alt><br>  <img src="https://pic.superbed.cn/item/5db9468fbd461d945a5bdd57.png" alt><br> 之后打开这个网页新建Github账号，Username最好与刚才设置的user.name相同<br><img src="https://pic.superbed.cn/item/5db946b8bd461d945a5be3d5.png" alt><br> 新建Github帐号之后进行登录，然后新建一个New repository<br> <img src="https://pic.superbed.cn/item/5db946cdbd461d945a5be647.png" alt><br> 之后设置Repository name，打码的地方必须都一样</p>
-<p> 创建Github完成，记住自己的网址<br> <img src="https://pic.superbed.cn/item/5db946ebbd461d945a5be86b.png" alt><br> 之后在blog文件夹内打开此文件<br> <img src="https://pic.superbed.cn/item/5db94704bd461d945a5bea7e.png" alt><br> 在文件末尾#Deployment加入以上的内容，在repo处填上网页地址<br> <img src="https://pic.superbed.cn/item/5db94726bd461d945a5bec9f.png" alt><br> 之后在官网安装GitHub Desktop<br> <img src="https://pic.superbed.cn/item/5db9473cbd461d945a5bed77.png" alt><br> 安装之后进行登录，输入用户名和密码<br> <img src="https://pic.superbed.cn/item/5db94749bd461d945a5beea2.png" alt><br> 之后输入hexo d会报错，因为缺少一个git安装包<br> <img src="https://pic.superbed.cn/item/5db94772bd461d945a5bf2b1.png" alt><br> 然后通过此步骤安装缺少的安装包<br> <img src="https://pic.superbed.cn/item/5db947bfbd461d945a5bf775.png" alt><br> 安装的时候会出现弹框，登录Github账号就OK了</p>
+
+
+
+
+			
+
+
+
+
+	Updated on
+
+	<a href="/2019/11/02/hexo-github%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" itemprop="url">
+		<time datetime="2019-11-02T08:54:40.000Z" itemprop="dateUpdated">
+	  		2019-11-02
+	  </time>
+	</a> 
+
+
+
+		</span>
+		<span>
+			<i class="fa fa-tags"></i>
+			
+	
+		<a href="/tags/%E5%8D%9A%E5%AE%A2/" class=" ">
+			博客
+		</a>
+	
+		
+		</span>
+		
+		
+
+
+
+	</div>
+
+	<div class="article-content" id="article-content">
+		<p><img src="https://pic.superbed.cn/item/5db938debd461d945a5a2798.png" alt=""><br><img src="https://pic.superbed.cn/item/5db9404bbd461d945a5b00e2.png" alt=""><br><strong><em>在官网下载Git和Nodejs</em></strong><br><img src="https://pic.superbed.cn/item/5db94071bd461d945a5b0441.png" alt=""><br><img src="https://pic.superbed.cn/item/5db94087bd461d945a5b068b.png" alt=""><br><img src="https://pic.superbed.cn/item/5db940e8bd461d945a5b0e20.png" alt=""><br>按步骤进行安装，一直下一步就ok<br><img src="https://pic.superbed.cn/item/5db9390dbd461d945a5a329c.png" alt=""><br>在命令行检测安装是否成功<br><img src="https://pic.superbed.cn/item/5db94131bd461d945a5b1286.png" alt=""><br>npm全局安装cnpm<br><img src="https://pic.superbed.cn/item/5db9414abd461d945a5b1487.png" alt=""><br>cnpm安装完成<br><img src="https://pic.superbed.cn/item/5db94163bd461d945a5b162c.png" alt=""><br>npm全局安装hexo<br><img src="https://pic.superbed.cn/item/5db9419dbd461d945a5b19cb.png" alt=""><br>hexo安装完成<br><img src="https://pic.superbed.cn/item/5db941b4bd461d945a5b1bc3.png" alt=""><br>新建一个blog文件夹（文件夹名随意），并进行博客初始化<br><img src="https://pic.superbed.cn/item/5db941cfbd461d945a5b1d69.png" alt=""><br>在命令行界面用cd blog进入到blog文件夹，然后输入hexo init初始化博客<br><img src="https://pic.superbed.cn/item/5db942bbbd461d945a5b380f.png" alt=""><br><img src="https://pic.superbed.cn/item/5db941f9bd461d945a5b20f1.png" alt=""><br>注意：如果初始化博客卡住，只需把文件夹内的文件全部删除，然后重新初始化即可<br><img src="https://pic.superbed.cn/item/5db942cfbd461d945a5b3aa8.png" alt=""><br><img src="https://pic.superbed.cn/item/5db942ddbd461d945a5b3c88.png" alt=""><br>创建本地的静态博客页面，可以通过本地端口打开<br><img src="https://pic.superbed.cn/item/5db94432bd461d945a5b7fe1.png" alt=""><br>Ctrl+C结束进程</p>
+<h4 id="接下就就需要把本地的博客部署到Github的服务器上啦，也是最关键的地方"><a href="#接下就就需要把本地的博客部署到Github的服务器上啦，也是最关键的地方" class="headerlink" title="接下就就需要把本地的博客部署到Github的服务器上啦，也是最关键的地方"></a>接下就就需要把本地的博客部署到Github的服务器上啦，也是最关键的地方</h4><p><img src="https://pic.superbed.cn/item/5db945d9bd461d945a5bc029.png" alt=""><br> 在电脑左下角的开始界面中打卡最近添加的Git Bash<br> <img src="https://pic.superbed.cn/item/5db94655bd461d945a5bd166.png" alt=""><br> 将用户名设置为自己Github的账户名，之后验证会很重要<br> <img src="https://pic.superbed.cn/item/5db94668bd461d945a5bd6c3.png" alt=""><br> 设置自己的常用邮箱<br> <img src="https://pic.superbed.cn/item/5db94679bd461d945a5bda8c.png" alt=""><br>  <img src="https://pic.superbed.cn/item/5db9468fbd461d945a5bdd57.png" alt=""><br> 之后打开这个网页新建Github账号，Username最好与刚才设置的user.name相同<br><img src="https://pic.superbed.cn/item/5db946b8bd461d945a5be3d5.png" alt=""><br> 新建Github帐号之后进行登录，然后新建一个New repository<br> <img src="https://pic.superbed.cn/item/5db946cdbd461d945a5be647.png" alt=""><br> 之后设置Repository name，打码的地方必须都一样</p>
+<p> 创建Github完成，记住自己的网址<br> <img src="https://pic.superbed.cn/item/5db946ebbd461d945a5be86b.png" alt=""><br> 之后在blog文件夹内打开此文件<br> <img src="https://pic.superbed.cn/item/5db94704bd461d945a5bea7e.png" alt=""><br> 在文件末尾#Deployment加入以上的内容，在repo处填上网页地址<br> <img src="https://pic.superbed.cn/item/5db94726bd461d945a5bec9f.png" alt=""><br> 之后在官网安装GitHub Desktop<br> <img src="https://pic.superbed.cn/item/5db9473cbd461d945a5bed77.png" alt=""><br> 安装之后进行登录，输入用户名和密码<br> <img src="https://pic.superbed.cn/item/5db94749bd461d945a5beea2.png" alt=""><br> 之后输入hexo d会报错，因为缺少一个git安装包<br> <img src="https://pic.superbed.cn/item/5db94772bd461d945a5bf2b1.png" alt=""><br> 然后通过此步骤安装缺少的安装包<br> <img src="https://pic.superbed.cn/item/5db947bfbd461d945a5bf775.png" alt=""><br> 安装的时候会出现弹框，登录Github账号就OK了</p>
 <p> <strong><em>之后就可以通过域名直接访问自己的博客啦，是不是非常有成就感鸭！</em></strong></p>
 <p><strong><em>大家肯定会发现我的博客为何看起来很美观呢？？？</em></strong></p>
-<p><strong><em>接下来就教大家如何设置博客主题，让自己的博客变的美观</em></strong><br><img src="https://pic.superbed.cn/item/5db947d4bd461d945a5bf87e.png" alt><br>首先先清楚博客本地数据<br><img src="https://pic.superbed.cn/item/5db94945bd461d945a5c1d35.png" alt><br>然后进入hexo官网选择自己喜欢的主题<br><img src="https://pic.superbed.cn/item/5db94951bd461d945a5c1e64.png" alt><br>小编使用的是Ocean的主题，复制红圈内的链接<br><img src="https://pic.superbed.cn/item/5db9496ebd461d945a5c208b.png" alt><br><img src="https://pic.superbed.cn/item/5db9499cbd461d945a5c23f5.png" alt><br>现在themes文件夹里新建Ocean文件夹，用git clone https:// 刚才复制的链接 themes/ocean（图片里的themes之前没有/，小编打错了）<br><img src="https://pic.superbed.cn/item/5db949f9bd461d945a5c2a44.png" alt><br>打开此文件<br><img src="https://pic.superbed.cn/item/5db949abbd461d945a5c2562.png" alt><br>将默认主题改为刚才新建的文件夹名称（这里用的是ocean主题）<br><img src="https://pic.superbed.cn/item/5db94a22bd461d945a5c2c7c.png" alt><br>主题更改成功</p>
+<p><strong><em>接下来就教大家如何设置博客主题，让自己的博客变的美观</em></strong><br><img src="https://pic.superbed.cn/item/5db947d4bd461d945a5bf87e.png" alt=""><br>首先先清楚博客本地数据<br><img src="https://pic.superbed.cn/item/5db94945bd461d945a5c1d35.png" alt=""><br>然后进入hexo官网选择自己喜欢的主题<br><img src="https://pic.superbed.cn/item/5db94951bd461d945a5c1e64.png" alt=""><br>小编使用的是Ocean的主题，复制红圈内的链接<br><img src="https://pic.superbed.cn/item/5db9496ebd461d945a5c208b.png" alt=""><br><img src="https://pic.superbed.cn/item/5db9499cbd461d945a5c23f5.png" alt=""><br>现在themes文件夹里新建Ocean文件夹，用git clone https:// 刚才复制的链接 themes/ocean（图片里的themes之前没有/，小编打错了）<br><img src="https://pic.superbed.cn/item/5db949f9bd461d945a5c2a44.png" alt=""><br>打开此文件<br><img src="https://pic.superbed.cn/item/5db949abbd461d945a5c2562.png" alt=""><br>将默认主题改为刚才新建的文件夹名称（这里用的是ocean主题）<br><img src="https://pic.superbed.cn/item/5db94a22bd461d945a5c2c7c.png" alt=""><br>主题更改成功</p>
+	
+	</div>
+	
+	<div id="current-post-cover" data-scr="/img/cart_cover.jpg"></div>
 
-            
-                
+	<!-- relate post, comment...-->
+	<div class="investment-container">
+		<div class="investment-header">
+			<div class="investment-title-1">
+				<div class="on">Related post</div>
+				<div>Comment</div>
+				<div>Share</div>
+			</div>
+			<div class="investment-title-2">	            
+				
+	<span>
+		<a href="javascript: window.scrollTo(0, 0);">To Top</a>
+		
+			<a href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BCollection%E6%8E%A5%E5%8F%A3/" title="集合之Collection接口" rel="prev">
+				&laquo;Pre post
+			</a>
+		
+		
+			<a href="/2019/11/02/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AE%B2%E8%A7%A32/" title="多线程讲解2" rel="next">
+				Next post&raquo;
+			</a>
+			
+	</span>
 
-            
-        </div>
-        <div class="post-tool">
-            <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
-                <i class="fa fa-thumbs-up" aria-hidden="true"></i> Donate
-            </a>
-        </div>
-        
-        <div class="post-tags">Tags：
-            
-            <a href="/tags/%E5%8D%9A%E5%AE%A2/">博客</a>
-            
-        </div>
-        
-    </article>
-    
-        <p style="text-align: center">This article just represents my own viewpoint. If there is something wrong, please correct me.</p>
-    
-    
-    
+
+      		
+			</div>	
+		</div>
+		
+		<div class="investment-content">
+			<div class="investment-content-list">
+				
+
+<div class="relate-post">
+	
+		<ul>
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/11/09/%E6%B7%B1%E5%85%A5Java-%E9%9B%86%E5%90%88%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97-%E4%B8%80-%EF%BC%9AHashMap-%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/" title="深入Java 集合学习系列(一)：HashMap 的实现原理">
+								深入Java 集合学习系列(一)：HashMap 的实现原理			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 9日, 2019				
+							</p>
+							<p class="relate-post-content">
+								1. HashMap 概述：HashMap 是基于哈希表的 Map 接口的非同步实现。此实现提供所有可选的映射操作，并允许使用 null 值和null键。此类不保证映射的顺序，特别是它不保证该顺序恒久不变。
+2. HashMap 的数...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/11/09/%E6%B7%B1%E5%85%A5Java-%E9%9B%86%E5%90%88%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97-%E4%B8%80-%EF%BC%9AHashMap-%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/" title="深入Java 集合学习系列(一)：HashMap 的实现原理">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="深入Java 集合学习系列(一)：HashMap 的实现原理"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BMap%E6%8E%A5%E5%8F%A3/" title="集合之Map接口">
+								集合之Map接口			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 3日, 2019				
+							</p>
+							<p class="relate-post-content">
+								Map接口
+Map接口概述1.Map与Collection并列存在。用于保存具有映射关系的数据:key-value2.Map 中的 key 和 value 都可以是任何引用类型的数据3.Map 中的 key 用Set来存放，不允许重复...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BMap%E6%8E%A5%E5%8F%A3/" title="集合之Map接口">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="集合之Map接口"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BSet%E6%8E%A5%E5%8F%A3/" title="集合之Set接口">
+								集合之Set接口			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 3日, 2019				
+							</p>
+							<p class="relate-post-content">
+								Collection子接口之二： Set接口Set 接口概述123Set接口是Collection的子接口，set接口没有提供额外的方法  Set 集合不允许包含相同的元素，如果试把两个相同的元素加入同一个 Set 集合中，则添加操作...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BSet%E6%8E%A5%E5%8F%A3/" title="集合之Set接口">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="集合之Set接口"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BCollection%E6%8E%A5%E5%8F%A3/" title="集合之Collection接口">
+								集合之Collection接口			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 3日, 2019				
+							</p>
+							<p class="relate-post-content">
+								Java 集合框架概述一方面， 面向对象语言对事物的体现都是以对象的形式，为了方便对多个对象的操作，就要对对象进行存储。另一方面，使用Array存储对象方面具有一些弊端，而Java 集合就像一种容器，可以动态地把多个对象的引用放入容器...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BCollection%E6%8E%A5%E5%8F%A3/" title="集合之Collection接口">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="集合之Collection接口"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/11/02/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AE%B2%E8%A7%A32/" title="多线程讲解2">
+								多线程讲解2			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 2日, 2019				
+							</p>
+							<p class="relate-post-content">
+								
+线程的生命周期JDK中用Thread.State类定义了线程的几种状态要想实现多线程，必须在主线程中创建新的线程对象。Java语言使用Thread类及其子类的对象来表示线程，在它的一个完整的生命周期中通常要经历如下的==五种状态：=...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/11/02/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AE%B2%E8%A7%A32/" title="多线程讲解2">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="多线程讲解2"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/11/02/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AE%B2%E8%A7%A31/" title="多线程讲解1">
+								多线程讲解1			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 2日, 2019				
+							</p>
+							<p class="relate-post-content">
+								# 基本概念：程序、进程、线程程序(program)是为完成特定任务、用某种语言编写的一组指令的集合。即指一段静态的代码，静态对象。
+==程序(program==)是为完成特定任务、用某种语言编写的一组指令的集合。即指一段静态的代码，...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/11/02/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AE%B2%E8%A7%A31/" title="多线程讲解1">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="多线程讲解1"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+		</ul>
+	
+</div>	
+			</div>
+			<div class="investment-content-list">
+				<div class="layout-comment">
+
+	
+
+		
+
+			<!-- I don't know !!!-->
+			<div>Please check the comment setting in config.yml of hexo-theme-Annie!</div>
+			
+		
+		
+	
 
 </div>
-<script src="/js/busuanzi.pure.mini.js"></script>
+			</div>
+			<div class="investment-content-list">
+				<div class="layout-share">
+	
+	
+
+		
+			
+			<!-- socialShare share -->
+			<div class="social-share"></div>
+
+<!--  css & js -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+			
+		
+		
+	
+</div>
 
 
-        </div><!-- end #main-->
-    </div><!-- end #body -->
-    <footer class="footer">
-    <div class="footer-inner" style="text-align: center">
-        <p>
-            <a href="/about"  title="About">About</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
-            <!-- 自定义链接 -->
-            <a href="/help" title="Help" >Help</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
-            <a href="/links" title="Links">Links</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
-            <a href="/sitemap.xml" title="SiteMap">SiteMap</a>
-        </p>
-        <p>
-            Has been established&nbsp<a href="/timeline" id="siteBuildingTime"></a>&nbspDays，<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="licence">Based on Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)</a><br/>
-            ©2017-<span id="cpYear"></span> Based on&nbsp<a href="http://hexo.io" target="_blank" rel="nofollow">Hexo</a>
-            ，Theme by&nbsp&nbsp<a href="https://github.com/tangkunyin/hexo-theme-jsimple" target="_blank" rel="bookmark">JSimple</a>
-            ，Author&nbsp<a href="https://shuoit.net" target="_blank" rel="friend">纠结伦</a>
-            ，Hosted by <a href="https://pages.github.com/" target="_blank" rel="nofollow">GitHub Pages</a>
-        </p>
-    </div>
-</footer>
-<script src="/js/SimpleCore.js"></script>
+			</div>
+		</div>	
+	</div>
+	</div>
+</div>
 
-</div>
-<!-- search pop -->
-<div class="popup search-popup local-search-popup">
-    <div class="local-search-header clearfix">
-        <span class="search-icon">
-            <i class="fa fa-search"></i>
-        </span>
-        <span class="popup-btn-close">
-            <i class="fa fa-times-circle"></i>
-        </span>
-        <div class="local-search-input-wrapper">
-            <input id="local-search-input"
-                   spellcheck="false"
-                   type="text"
-                   autocomplete="off"
-                   placeholder="Input query keywords here..."/>
-        </div>
-    </div>
-    <div id="local-search-result"></div>
-</div>
-<div class="fixed-btn">
-    <a class="btn-gotop" href="javascript:"> <i class="fa fa-angle-up"></i></a>
-</div>
-<script>
-    $(function () {
-        var jsi_config = {
-            buildingTime: '01/20/2018',
-            current: $('.post-tags').length > 0 ? 'post' : 'archive',
-            snsQRCode: '/images/sns-qrcode.png',
-            donateImg: '/images/donate-qr.png',
-            localSearch: { dbPath: '' },
-            readMode: 'day'
-        };
-        
-        SimpleCore.init(jsi_config);
-        
-    });
+
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+	
+
+
+<!-- show math formula -->
+
+
+
+	 
+	<script src="/plugin/clipboard/clipboard.js"></script>
+	<script>
+		// Copy code !
+	    function codePreprocessing() {
+	        $("#article-content .highlight").each(function() {
+
+	            $(this).wrap('<div id="post-code"></div>');
+
+	        })
+
+	        $("#article-content #post-code").each(function() {
+
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            var temp = $(this).next().attr('class'),
+	                language = ((temp.length > 9) && (temp != null)) ? temp.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+
+	            $(this).append('<span class="copy-btn"><i class="fa fa-copy" aria-hidden="true"></i></span>');
+
+	        });
+	    }
+
+		function codeCopy() {
+		    $('#article-content #post-code').each(function(i) {
+		        var codeCopyId = 'codeCopy-' + i;
+
+		        var codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+
+		    
+			var clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn copy-status');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');
+			    
+			});
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		
+
+		}
+
+		if ($('.layout-post').length) {
+		    codePreprocessing();
+		    codeCopy();
+		} 
+	</script>
+
+
+
+
+
+<link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+<script src="/plugin/fancybox/jquery.fancybox.js"></script>
+
+<script type="text/javascript">
+	var titleID = $('.article-title a'),
+		imageID = $('.article-content img'),
+		videoID = $('.article-content video');
+
+	var postTitle = titleID.text() ? titleID.text() : "No post title!";
+
+	imageID.each(function() {
+		var imgPath = $(this).attr('src'),
+			imgTitle = $(this).attr('alt') ? $(this).attr('alt') : "No image description!";
+
+		//给每个匹配的<img>元素打包, 即添加父元素<a>
+		$(this).wrap('<a data-fancybox="gallery" data-caption=" 《 ' + postTitle + ' 》 ' + imgTitle + ' "  href=" ' + imgPath + ' "> </a>');
+	});
+
+	videoID.each(function() {
+		var videoPath = $(this).attr('src');
+
+		//给每个匹配的<img>元素打包, 即添加父元素<a>
+		$(this).wrap('<a data-fancybox href=" ' + videoPath + ' "> </a>');
+	});
+	//TODO：支持html5 video
+
+	if($('#layout-post').length) {
+		$('[data-fancybox="gallery"]').fancybox({
+			loop: true,
+			buttons: [
+				"zoom",
+				"share",
+				"slideShow",
+				"fullScreen",
+				//"download",
+				"thumbs",
+				"close"
+			],
+			protect: false
+		});
+	}
 </script>
-</body>
+		</main>
+
+		<!--footer-->
+		<footer>
+	<div class="social">
+		<ul>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-github"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-weibo"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-pinterest"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-instagram"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-twitter"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/atom.xml" target="_blank">
+				<i class="fa fa-rss"></i>
+			</a>
+		</li>
+			
+</ul>
+
+	</div>
+		
+	<div class="copyright">
+		<p>
+			 
+				&copy;2017 - 2019, content by John Doe. All Rights Reserved.
+			
+			
+			
+
+	<!-- busuanzi -->
+	<!-- busuanzi -->
+
+		
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+
+		<span id="busuanzi_container_page_pv">
+	  		本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+		</span>
+
+	
+
+
+
+
+		</p>
+		<p>
+			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.
+			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
+			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁體</a>				
+		</p>
+	</div>		
+</footer>
+		
+	<!-- set '1' to show motto in all pages! -->
+
+	<script src="/plugin/motto/motto.js"></script>
+	
+	<script type="text/javascript">
+		$(".motto").html( getMingYanContent() );
+	</script>	
+
+
+
+
+
+<!-- love effect -->
+
+	<script src="/plugin/love/love.js"></script>
+
+
+<!-- back to top -->
+
+	
+	<div id="totop">
+  		<a href="javascript:;"  name="TOTOP" class="fa fa-arrow-up" ></a>
+	</div>
+
+
+
+
+<!-- site analysis -->
+
+
+	<!-- site-analysis -->
+	
+
+	
+	
+	
+	
+ 
+
+<script src="/plugin/vibrant/vibrant.js"></script>
+<script src="/plugin/chinese/chinese.js"></script>
+<script src="/plugin/imgLazyLoader/yall.min.js"></script>
+<script src="/plugin/imgResize/jquery.resizeimagetoparent.min.js"></script>
+<script src="/plugin/nicescroll/jquery.nicescroll.js"></script>
+<script src="/js/resizediv.js"></script>
+<script src="/js/main.js"></script>
+	</body>	
 </html>

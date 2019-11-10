@@ -1,251 +1,850 @@
-<!DOCTYPE HTML>
-<html class="no-js" lang="zh-CN">
+<!--
+	作者：Sariay
+	时间：2018-09-25
+	描述：There may be a bug, but don't worry, QiLing(器灵) says that it can work normally!
+-->
+<!DOCTYPE html>
+<html class="html-loading">
+		
+
 <head>
-    <!--[if lte IE 9]>
-<meta http-equiv="refresh" content="0;url=http://yoursite.com/warn.html">
-<![endif]-->
-<meta charset="utf-8">
-<meta http-equiv="X-DNS-Prefetch-Control" content="on">
-<link rel="dns-prefetch" href="http://yoursite.com">
-<link rel="dns-prefetch" href="//www.google-analytics.com">
-<link rel="prefetch" href="http://yoursite.com">
-<link rel="prefetch" href="//www.google-analytics.com">
-
-
-<link rel="prerender" href="http://yoursite.com">
-
-<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-<meta name="renderer" content="webkit">
-<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
-<meta http-equiv="mobile-agent" content="format=html5; url=http://yoursite.com">
-<meta name="author" content="John Doe">
-<link rel="stylesheet" href="/css/JSimple.css">
-
-<link rel="shortcut icon" href="/images/favicon.png">
-
-
-<title>集合之map接口 - Hexo</title>
-
-<meta name="keywords" content="">
-
-<meta name="description " content="">
-
-    <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({
-            tex2jax: {
-                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-                processEscapes: true
-            }
-        });
-    </script>
-
-
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <title>
     
-
+      集合之Map接口 | Hexo
     
+  </title>
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+	<!-- favicon -->
+  <link rel="shortcut icon" href="/img/favicon.ico">
 
+  <!-- css -->
+  <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/Annie.css">
+  
+  <!-- jquery -->
+	<script src="/js/jquery.min.js"></script>
+
+  <!-- leancloud -->
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+<script src="/js/leancloud.js"></script>
 </head>
-<body>
-<div id="nav">
-    <nav class="nav-menu">
-        <a class="site-name current" href="/" title="说">说</a>
-        <a class="site-index current" href="/"><i class="fa fa-home"></i><span>Home</span></a>
-        <a href="/archives" title="Archives"><i class="fa fa-archives"></i><span>Archives</span></a>
-        <a href="/tags" title="Tags"><i class="fa fa-tags"></i><span>Tags</span></a>
-        <!-- custom single page of menus -->
-        
-        
-        <a href="/help" title="帮助">
-            <i class="fa fa-question-circle"></i>
-            <span>帮助</span>
-        </a>
-        
-    </nav>
+	<body>
+		<!-- Preloader -->
+
+	<div id="preloader">
+		<div class="pre-container">
+			
+				<div class="spinner">
+					<div class="double-bounce1"></div>
+					<div class="double-bounce2"></div>
+				</div>
+						
+		</div>
+	</div>
+
+
+<!-- header -->
+<header class="fixbackground" data-img-mode="normal" data-normal-src="/img/1.jpg" data-random-max="110" data-random-src="https://sariay.github.io/Random-img/">
+	<div class="mask">
+		<!-- Logo and navigation -->
+		<div class="h-header">
+			<div id="logo">
+				<a href="/">
+						
+						<img src="/img/logo.png" alt="Logo">
+					
+				</a>
+			</div>
+			
+			<div id="navigation-show">
+				<ul>
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home">Home</a>
+		</li>
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive">Archive</a>
+		</li>
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories">Category</a>
+		</li>
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags">Tag</a>
+		</li>
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about">About</a>
+		</li>
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery">Gallery</a>
+		</li>
+	
+
+	
+</ul>
+			</div>				
+		</div>
+
+		<!-- motto -->
+		<div class="h-body">	
+			
+				<p class="motto"></p>
+			
+		</div>
+		
+		<!-- others: such as time... -->			
+		<div class="h-footer">
+			<a href="javascript:;" id="read-more"><i class="fa fa-angle-double-down" aria-hidden="true"></i>
+			</a>
+
+			
+				<!-- 
+	This is only a demo, please go to "https://time.is" to set your city time! 
+-->
+<style type="text/css">
+	.header-date {
+		font-size: 1.6rem;
+		color: #fff;
+		position: absolute;
+		bottom: 5px;
+		right: 1rem;
+		writing-mode: tb-rl;
+	}	
+	
+	.header-date a {
+		border-bottom: none;
+	}
+
+	@media only screen and (max-width: 768 ) {
+		.header-date {
+			font-size: 1rem;
+		}			
+	}
+</style>
+<div class="header-date">
+	<a href="https://time.is/Beijing" target="_blank" id="time_is_link" rel="nofollow noopener" ></a>
+	<span id="Beijing_z43d"></span>
 </div>
-
-<div class="nav-user">
-    <a class="btn-search" href="#"><i class="fa fa-search"></i></a>
-    <a class="btn-read-mode" href="#"><i class="fa fa-sun-o"></i></a>
-    <a class="btn-sns-qr" href="javascript:"><i class="fa fa-telegram"></i></a>
-</div>
-
-<div id="wrapper" class="clearfix">
-    <div id="body">
-        <div class="main" id="main">
-            <div id="cover">
-    <div class="cover-img"></div>
-    <div class="cover-info">
-        
-        <h1 class="cover-siteName">说IT</h1>
-        <h3 class="cover-siteTitle">用代码摇滚这个世界</h3>
-        <p class="cover-siteDesc">一个关注技术与人文的IT博客</p>
-        <div class="cover-sns">
-            
-    &nbsp;&nbsp;<div class="btn btn-telegram">
-        <a href="http://t.me/kunyintang" target="_blank" title="telegram" ref="friend">
-            <i class="fa fa-telegram"></i>
-        </a>
-    </div>
-
-    &nbsp;&nbsp;<div class="btn btn-instagram">
-        <a href="https://www.instagram.com/mtangsir/" target="_blank" title="instagram" ref="friend">
-            <i class="fa fa-instagram"></i>
-        </a>
-    </div>
-
-    &nbsp;&nbsp;<div class="btn btn-twitter">
-        <a href="https://twitter.com/tangkunyin" target="_blank" title="twitter" ref="friend">
-            <i class="fa fa-twitter"></i>
-        </a>
-    </div>
-
-    &nbsp;&nbsp;<div class="btn btn-github">
-        <a href="https://github.com/tangkunyin" target="_blank" title="github" ref="friend">
-            <i class="fa fa-github"></i>
-        </a>
-    </div>
-
-
-        </div>
-    </div>
-</div>
-
-            <div class="page-title">
-    <ul>
-        <li><a href="/">Recent Posts</a></li>
-        
-        
-        
-        <li class="page-search">
-    <form id="search" class="search-form">
-        <input type="text"
-               readonly="readonly"
-               id="local-search-input-tip"
-               placeholder="click to search..." />
-        <button type="button" disabled="disabled" class="search-form-submit"><i class="fa fa-search"></i></button>
-    </form>
-</li>
-
-    </ul>
-</div>
-<div class="main-inner">
-    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-        <div class="post-header">
-            <div class="post-author clearfix">
-                <a class="avatar fleft" href="https://shuoit.net"
-                   target="_blank">
-                    <img width="48" src="/images/favicon.png" alt="avatar"/>
-                </a>
-                <p><span class="label">Author</span>
-                    <a href="https://shuoit.net"
-                       target="_blank">纠结伦</a>
-                    <span title="Last edited at&nbsp;2019-11-03">2019-11-03</span>
-                </p>
-                <p>一个搬🧱的劳斯基😁️️</p>
-            </div>
-            <h2 class="post-title">集合之Map接口</h2>
-            <div class="post-meta">
-                emm... 434 words in the article |
-                you are the&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>th friend who reading now
-            </div>
-        </div>
-        <div class="post-content markdown-body">
-            <h2 id="Map接口"><a href="#Map接口" class="headerlink" title="Map接口"></a>Map接口</h2><p><img src="https://pic.superbed.cn/item/5dbe41f48e0e2e3ee9d43727.png" alt></p>
-<h4 id="Map接口概述"><a href="#Map接口概述" class="headerlink" title="Map接口概述"></a>Map接口概述</h4><p>1.Map与Collection并列存在。用于保存具有映射关系的数据:key-value<br>2.Map 中的 key 和 value 都可以是任何引用类型的数据<br>3.Map 中的 key 用Set来存放，不允许重复，即同一个 Map 对象所对应<br>的类，须重写hashCode()和equals()方法<br>4.常用String类作为Map的“键”<br>5.key 和 value 之间存在单向一对一关系，即通过指定的 key 总能找到<br>唯一的、确定的 value<br>6.Map接口的常用实现类：HashMap、TreeMap、LinkedHashMap和Properties。其中，HashMap是 Map 接口使用频率最高的实现类<br><img src="https://pic.superbed.cn/item/5dbe42018e0e2e3ee9d438c8.png" alt></p>
-<h4 id="Map接口：常用方法"><a href="#Map接口：常用方法" class="headerlink" title="Map接口：常用方法"></a>Map接口：常用方法</h4><p><img src="https://pic.superbed.cn/item/5dbe43638e0e2e3ee9d47009.png" alt><br><img src="https://pic.superbed.cn/item/5dbe43718e0e2e3ee9d471ca.png" alt><br><img src="https://pic.superbed.cn/item/5dbe437e8e0e2e3ee9d4734e.png" alt><br><img src="https://pic.superbed.cn/item/5dbe43898e0e2e3ee9d47579.png" alt></p>
-<h3 id="Map实现类之一：HashMap"><a href="#Map实现类之一：HashMap" class="headerlink" title="Map实现类之一：HashMap"></a>Map实现类之一：HashMap</h3><p><img src="https://pic.superbed.cn/item/5dbe43e48e0e2e3ee9d47eb5.png" alt>  </p>
-<h3 id="Map实现类之三：TreeMap"><a href="#Map实现类之三：TreeMap" class="headerlink" title="Map实现类之三：TreeMap"></a>Map实现类之三：TreeMap</h3><p><img src="https://pic.superbed.cn/item/5dbe44aa8e0e2e3ee9d48a44.png" alt></p>
-<h5 id="自然排序（Comparable接口）"><a href="#自然排序（Comparable接口）" class="headerlink" title="自然排序（Comparable接口）"></a>自然排序（Comparable接口）</h5><p><img src="https://pic.superbed.cn/item/5dbe45f58e0e2e3ee9d4a0bf.png" alt><br><img src="https://pic.superbed.cn/item/5dbe46018e0e2e3ee9d4a19e.png" alt></p>
-<h5 id="定制排序（Comparator-）"><a href="#定制排序（Comparator-）" class="headerlink" title="定制排序（Comparator()）"></a>定制排序（Comparator()）</h5><p><img src="https://pic.superbed.cn/item/5dbe46768e0e2e3ee9d4a8cc.png" alt></p>
-<h2 id="Collections工具类"><a href="#Collections工具类" class="headerlink" title="Collections工具类"></a>Collections工具类</h2><p><img src="https://pic.superbed.cn/item/5dbe47018e0e2e3ee9d4b229.png" alt></p>
-<h5 id="Collections常用方法"><a href="#Collections常用方法" class="headerlink" title="Collections常用方法"></a>Collections常用方法</h5><p><img src="https://pic.superbed.cn/item/5dbe47318e0e2e3ee9d4b633.png" alt><br><img src="https://pic.superbed.cn/item/5dbe47908e0e2e3ee9d4c84d.png" alt><br><img src="https://pic.superbed.cn/item/5dbe47908e0e2e3ee9d4c853.png" alt></p>
-<p><img src="https://ae01.alicdn.com/kf/H0714c9ed1c3a413ab35a71a56739eb82i.png" alt><br><img src="https://pic.superbed.cn/item/5dbe5b9e8e0e2e3ee9d60243.png" alt><br><img src="https://pic.superbed.cn/item/5dbe4bda8e0e2e3ee9d5198b.png" alt><br><img src="https://pic.superbed.cn/item/5dbe4bda8e0e2e3ee9d51991.png" alt><br><img src="https://pic.superbed.cn/item/5dbe4c208e0e2e3ee9d522b0.png" alt></p>
-
-            
-                
-
-            
-        </div>
-        <div class="post-tool">
-            <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
-                <i class="fa fa-thumbs-up" aria-hidden="true"></i> Donate
-            </a>
-        </div>
-        
-        <div class="post-tags">Tags：
-            
-        </div>
-        
-    </article>
-    
-        <p style="text-align: center">This article just represents my own viewpoint. If there is something wrong, please correct me.</p>
-    
-    
-    
-
-</div>
-<script src="/js/busuanzi.pure.mini.js"></script>
-
-
-        </div><!-- end #main-->
-    </div><!-- end #body -->
-    <footer class="footer">
-    <div class="footer-inner" style="text-align: center">
-        <p>
-            <a href="/about"  title="About">About</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
-            <!-- 自定义链接 -->
-            <a href="/help" title="Help" >Help</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
-            <a href="/links" title="Links">Links</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
-            <a href="/sitemap.xml" title="SiteMap">SiteMap</a>
-        </p>
-        <p>
-            Has been established&nbsp<a href="/timeline" id="siteBuildingTime"></a>&nbspDays，<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="licence">Based on Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)</a><br/>
-            ©2017-<span id="cpYear"></span> Based on&nbsp<a href="http://hexo.io" target="_blank" rel="nofollow">Hexo</a>
-            ，Theme by&nbsp&nbsp<a href="https://github.com/tangkunyin/hexo-theme-jsimple" target="_blank" rel="bookmark">JSimple</a>
-            ，Author&nbsp<a href="https://shuoit.net" target="_blank" rel="friend">纠结伦</a>
-            ，Hosted by <a href="https://pages.github.com/" target="_blank" rel="nofollow">GitHub Pages</a>
-        </p>
-    </div>
-</footer>
-<script src="/js/SimpleCore.js"></script>
-
-</div>
-<!-- search pop -->
-<div class="popup search-popup local-search-popup">
-    <div class="local-search-header clearfix">
-        <span class="search-icon">
-            <i class="fa fa-search"></i>
-        </span>
-        <span class="popup-btn-close">
-            <i class="fa fa-times-circle"></i>
-        </span>
-        <div class="local-search-input-wrapper">
-            <input id="local-search-input"
-                   spellcheck="false"
-                   type="text"
-                   autocomplete="off"
-                   placeholder="Input query keywords here..."/>
-        </div>
-    </div>
-    <div id="local-search-result"></div>
-</div>
-<div class="fixed-btn">
-    <a class="btn-gotop" href="javascript:"> <i class="fa fa-angle-up"></i></a>
-</div>
+<script src="//widget.time.is/zh.js"></script>
 <script>
-    $(function () {
-        var jsi_config = {
-            buildingTime: '01/20/2018',
-            current: $('.post-tags').length > 0 ? 'post' : 'archive',
-            snsQRCode: '/images/sns-qrcode.png',
-            donateImg: '/images/donate-qr.png',
-            localSearch: { dbPath: '' },
-            readMode: 'day'
-        };
-        
-        SimpleCore.init(jsi_config);
-        
-    });
+	time_is_widget.init({
+		Beijing_z43d:{
+			template:"DATE", 
+			date_format:"year年 monthname dnum日"
+		}
+	});
 </script>
-</body>
+			
+		</div>
+	</div>
+</header>
+
+<div id="navigation-hide">
+	<!-- Progress bar -->
+	<div id="progress-bar"></div>
+
+	<!-- Progress percent -->
+	<div id="progress-percentage"><h1>0.0%</h1></div>
+
+	<div class="toc-switch"><span class="switch-button">Catalog</span></div>
+
+	<!-- Page title -->
+	<p>
+		
+			Current post&nbsp;:&nbsp;《集合之Map接口》
+		
+	</p>
+
+	<!-- Nav trigger for navigation-H-->
+	<a class="nav-trigger"><span></span></a>
+</div>
+
+<!-- Navigation in div(id="navigation-H") -->
+<nav class="nav-container" id="cd-nav">
+	<div class="nav-header">
+		<h3>Navigation</h3>
+		<a href="javascript:;" class="nav-close"></a>
+	</div>
+	<div class="nav-body">
+		<ul>
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home">Home</a>
+		</li>
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive">Archive</a>
+		</li>
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories">Category</a>
+		</li>
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags">Tag</a>
+		</li>
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about">About</a>
+		</li>
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery">Gallery</a>
+		</li>
+	
+
+	
+</ul>
+	</div>
+	<div class="nav-footer">
+		<ul>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-github"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-weibo"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-pinterest"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-instagram"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-twitter"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/atom.xml" target="_blank">
+				<i class="fa fa-rss"></i>
+			</a>
+		</li>
+			
+</ul>
+
+	</div>
+</nav>
+			
+		<!--main-->
+		<main>
+			<!--
+	时间：2018-11-17
+	描述：
+		插件名称：katelog.min.js
+		插件作者：KELEN
+		插件来源: https://github.com/KELEN/katelog
+-->
+
+	
+		<div class="layout-toc">
+			<div id="layout-toc">
+				<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
+			</div>
+		</div>
+
+		
+		<script src="/plugin/toc/katelog.min.js"></script>
+
+		
+	 
+
+<div class="layout-post">
+	<div id="layout-post">
+	<div class="article-title">
+		<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+		
+	<a href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BMap%E6%8E%A5%E5%8F%A3/" itemprop="url">
+		集合之Map接口
+	</a>
+
+	</div>
+
+	<div class="article-meta">
+		<span>
+			<i class="fa fa-calendar"></i>
+			
+
+
+	Posted on
+
+	<a href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BMap%E6%8E%A5%E5%8F%A3/" itemprop="url">
+		<time datetime="2019-11-03T07:53:01.000Z" itemprop="datePublished">
+	  		2019-11-03
+	  </time>
+	</a>
+	&nbsp;
+
+
+
+
+
+			
+
+
+
+
+	Updated on
+
+	<a href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BMap%E6%8E%A5%E5%8F%A3/" itemprop="url">
+		<time datetime="2019-11-03T07:53:01.000Z" itemprop="dateUpdated">
+	  		2019-11-03
+	  </time>
+	</a> 
+
+
+
+		</span>
+		<span>
+			<i class="fa fa-tags"></i>
+					
+		</span>
+		
+		
+
+
+
+	</div>
+
+	<div class="article-content" id="article-content">
+		<h2 id="Map接口"><a href="#Map接口" class="headerlink" title="Map接口"></a>Map接口</h2><p><img src="https://pic.superbed.cn/item/5dbe41f48e0e2e3ee9d43727.png" alt=""></p>
+<h4 id="Map接口概述"><a href="#Map接口概述" class="headerlink" title="Map接口概述"></a>Map接口概述</h4><p>1.Map与Collection并列存在。用于保存具有映射关系的数据:key-value<br>2.Map 中的 key 和 value 都可以是任何引用类型的数据<br>3.Map 中的 key 用Set来存放，不允许重复，即同一个 Map 对象所对应<br>的类，须重写hashCode()和equals()方法<br>4.常用String类作为Map的“键”<br>5.key 和 value 之间存在单向一对一关系，即通过指定的 key 总能找到<br>唯一的、确定的 value<br>6.Map接口的常用实现类：HashMap、TreeMap、LinkedHashMap和Properties。其中，HashMap是 Map 接口使用频率最高的实现类<br><img src="https://pic.superbed.cn/item/5dbe42018e0e2e3ee9d438c8.png" alt=""></p>
+<h4 id="Map接口：常用方法"><a href="#Map接口：常用方法" class="headerlink" title="Map接口：常用方法"></a>Map接口：常用方法</h4><p><img src="https://pic.superbed.cn/item/5dbe43638e0e2e3ee9d47009.png" alt=""><br><img src="https://pic.superbed.cn/item/5dbe43718e0e2e3ee9d471ca.png" alt=""><br><img src="https://pic.superbed.cn/item/5dbe437e8e0e2e3ee9d4734e.png" alt=""><br><img src="https://pic.superbed.cn/item/5dbe43898e0e2e3ee9d47579.png" alt=""></p>
+<h3 id="Map实现类之一：HashMap"><a href="#Map实现类之一：HashMap" class="headerlink" title="Map实现类之一：HashMap"></a>Map实现类之一：HashMap</h3><p><img src="https://pic.superbed.cn/item/5dbe43e48e0e2e3ee9d47eb5.png" alt="">  </p>
+<h3 id="Map实现类之三：TreeMap"><a href="#Map实现类之三：TreeMap" class="headerlink" title="Map实现类之三：TreeMap"></a>Map实现类之三：TreeMap</h3><p><img src="https://pic.superbed.cn/item/5dbe44aa8e0e2e3ee9d48a44.png" alt=""></p>
+<h5 id="自然排序（Comparable接口）"><a href="#自然排序（Comparable接口）" class="headerlink" title="自然排序（Comparable接口）"></a>自然排序（Comparable接口）</h5><p><img src="https://pic.superbed.cn/item/5dbe45f58e0e2e3ee9d4a0bf.png" alt=""><br><img src="https://pic.superbed.cn/item/5dbe46018e0e2e3ee9d4a19e.png" alt=""></p>
+<h5 id="定制排序（Comparator-）"><a href="#定制排序（Comparator-）" class="headerlink" title="定制排序（Comparator()）"></a>定制排序（Comparator()）</h5><p><img src="https://pic.superbed.cn/item/5dbe46768e0e2e3ee9d4a8cc.png" alt=""></p>
+<h2 id="Collections工具类"><a href="#Collections工具类" class="headerlink" title="Collections工具类"></a>Collections工具类</h2><p><img src="https://pic.superbed.cn/item/5dbe47018e0e2e3ee9d4b229.png" alt=""></p>
+<h5 id="Collections常用方法"><a href="#Collections常用方法" class="headerlink" title="Collections常用方法"></a>Collections常用方法</h5><p><img src="https://pic.superbed.cn/item/5dbe47318e0e2e3ee9d4b633.png" alt=""><br><img src="https://pic.superbed.cn/item/5dbe47908e0e2e3ee9d4c84d.png" alt=""><br><img src="https://pic.superbed.cn/item/5dbe47908e0e2e3ee9d4c853.png" alt=""></p>
+<p><img src="https://ae01.alicdn.com/kf/H0714c9ed1c3a413ab35a71a56739eb82i.png" alt=""><br><img src="https://pic.superbed.cn/item/5dbe5b9e8e0e2e3ee9d60243.png" alt=""><br><img src="https://pic.superbed.cn/item/5dbe4bda8e0e2e3ee9d5198b.png" alt=""><br><img src="https://pic.superbed.cn/item/5dbe4bda8e0e2e3ee9d51991.png" alt=""><br><img src="https://pic.superbed.cn/item/5dbe4c208e0e2e3ee9d522b0.png" alt=""></p>
+	
+	</div>
+	
+	<div id="current-post-cover" data-scr="/img/cart_cover.jpg"></div>
+
+	<!-- relate post, comment...-->
+	<div class="investment-container">
+		<div class="investment-header">
+			<div class="investment-title-1">
+				<div class="on">Related post</div>
+				<div>Comment</div>
+				<div>Share</div>
+			</div>
+			<div class="investment-title-2">	            
+				
+	<span>
+		<a href="javascript: window.scrollTo(0, 0);">To Top</a>
+		
+			<a href="/2019/11/09/%E6%B7%B1%E5%85%A5Java-%E9%9B%86%E5%90%88%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97-%E4%B8%80-%EF%BC%9AHashMap-%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/" title="深入Java 集合学习系列(一)：HashMap 的实现原理" rel="prev">
+				&laquo;Pre post
+			</a>
+		
+		
+			<a href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BSet%E6%8E%A5%E5%8F%A3/" title="集合之Set接口" rel="next">
+				Next post&raquo;
+			</a>
+			
+	</span>
+
+
+      		
+			</div>	
+		</div>
+		
+		<div class="investment-content">
+			<div class="investment-content-list">
+				
+
+<div class="relate-post">
+	
+		<ul>
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/11/09/%E6%B7%B1%E5%85%A5Java-%E9%9B%86%E5%90%88%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97-%E4%B8%80-%EF%BC%9AHashMap-%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/" title="深入Java 集合学习系列(一)：HashMap 的实现原理">
+								深入Java 集合学习系列(一)：HashMap 的实现原理			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 9日, 2019				
+							</p>
+							<p class="relate-post-content">
+								1. HashMap 概述：HashMap 是基于哈希表的 Map 接口的非同步实现。此实现提供所有可选的映射操作，并允许使用 null 值和null键。此类不保证映射的顺序，特别是它不保证该顺序恒久不变。
+2. HashMap 的数...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/11/09/%E6%B7%B1%E5%85%A5Java-%E9%9B%86%E5%90%88%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97-%E4%B8%80-%EF%BC%9AHashMap-%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/" title="深入Java 集合学习系列(一)：HashMap 的实现原理">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="深入Java 集合学习系列(一)：HashMap 的实现原理"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BSet%E6%8E%A5%E5%8F%A3/" title="集合之Set接口">
+								集合之Set接口			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 3日, 2019				
+							</p>
+							<p class="relate-post-content">
+								Collection子接口之二： Set接口Set 接口概述123Set接口是Collection的子接口，set接口没有提供额外的方法  Set 集合不允许包含相同的元素，如果试把两个相同的元素加入同一个 Set 集合中，则添加操作...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BSet%E6%8E%A5%E5%8F%A3/" title="集合之Set接口">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="集合之Set接口"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BCollection%E6%8E%A5%E5%8F%A3/" title="集合之Collection接口">
+								集合之Collection接口			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 3日, 2019				
+							</p>
+							<p class="relate-post-content">
+								Java 集合框架概述一方面， 面向对象语言对事物的体现都是以对象的形式，为了方便对多个对象的操作，就要对对象进行存储。另一方面，使用Array存储对象方面具有一些弊端，而Java 集合就像一种容器，可以动态地把多个对象的引用放入容器...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BCollection%E6%8E%A5%E5%8F%A3/" title="集合之Collection接口">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="集合之Collection接口"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/11/02/hexo-github%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" title="hexo+github博客搭建">
+								hexo+github博客搭建			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 2日, 2019				
+							</p>
+							<p class="relate-post-content">
+								在官网下载Git和Nodejs按步骤进行安装，一直下一步就ok在命令行检测安装是否成功npm全局安装cnpmcnpm安装完成npm全局安装hexohexo安装完成新建一个blog文件夹（文件夹名随意），并进行博客初始化在命令行界面用c...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/11/02/hexo-github%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" title="hexo+github博客搭建">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="hexo+github博客搭建"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/11/02/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AE%B2%E8%A7%A32/" title="多线程讲解2">
+								多线程讲解2			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 2日, 2019				
+							</p>
+							<p class="relate-post-content">
+								
+线程的生命周期JDK中用Thread.State类定义了线程的几种状态要想实现多线程，必须在主线程中创建新的线程对象。Java语言使用Thread类及其子类的对象来表示线程，在它的一个完整的生命周期中通常要经历如下的==五种状态：=...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/11/02/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AE%B2%E8%A7%A32/" title="多线程讲解2">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="多线程讲解2"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/11/02/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AE%B2%E8%A7%A31/" title="多线程讲解1">
+								多线程讲解1			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 2日, 2019				
+							</p>
+							<p class="relate-post-content">
+								# 基本概念：程序、进程、线程程序(program)是为完成特定任务、用某种语言编写的一组指令的集合。即指一段静态的代码，静态对象。
+==程序(program==)是为完成特定任务、用某种语言编写的一组指令的集合。即指一段静态的代码，...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/11/02/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AE%B2%E8%A7%A31/" title="多线程讲解1">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="多线程讲解1"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+		</ul>
+	
+</div>	
+			</div>
+			<div class="investment-content-list">
+				<div class="layout-comment">
+
+	
+
+		
+
+			<!-- I don't know !!!-->
+			<div>Please check the comment setting in config.yml of hexo-theme-Annie!</div>
+			
+		
+		
+	
+
+</div>
+			</div>
+			<div class="investment-content-list">
+				<div class="layout-share">
+	
+	
+
+		
+			
+			<!-- socialShare share -->
+			<div class="social-share"></div>
+
+<!--  css & js -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+			
+		
+		
+	
+</div>
+
+
+			</div>
+		</div>	
+	</div>
+	</div>
+</div>
+
+
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+	
+
+
+<!-- show math formula -->
+
+
+
+	 
+	<script src="/plugin/clipboard/clipboard.js"></script>
+	<script>
+		// Copy code !
+	    function codePreprocessing() {
+	        $("#article-content .highlight").each(function() {
+
+	            $(this).wrap('<div id="post-code"></div>');
+
+	        })
+
+	        $("#article-content #post-code").each(function() {
+
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            var temp = $(this).next().attr('class'),
+	                language = ((temp.length > 9) && (temp != null)) ? temp.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+
+	            $(this).append('<span class="copy-btn"><i class="fa fa-copy" aria-hidden="true"></i></span>');
+
+	        });
+	    }
+
+		function codeCopy() {
+		    $('#article-content #post-code').each(function(i) {
+		        var codeCopyId = 'codeCopy-' + i;
+
+		        var codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+
+		    
+			var clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn copy-status');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');
+			    
+			});
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		
+
+		}
+
+		if ($('.layout-post').length) {
+		    codePreprocessing();
+		    codeCopy();
+		} 
+	</script>
+
+
+
+
+
+<link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+<script src="/plugin/fancybox/jquery.fancybox.js"></script>
+
+<script type="text/javascript">
+	var titleID = $('.article-title a'),
+		imageID = $('.article-content img'),
+		videoID = $('.article-content video');
+
+	var postTitle = titleID.text() ? titleID.text() : "No post title!";
+
+	imageID.each(function() {
+		var imgPath = $(this).attr('src'),
+			imgTitle = $(this).attr('alt') ? $(this).attr('alt') : "No image description!";
+
+		//给每个匹配的<img>元素打包, 即添加父元素<a>
+		$(this).wrap('<a data-fancybox="gallery" data-caption=" 《 ' + postTitle + ' 》 ' + imgTitle + ' "  href=" ' + imgPath + ' "> </a>');
+	});
+
+	videoID.each(function() {
+		var videoPath = $(this).attr('src');
+
+		//给每个匹配的<img>元素打包, 即添加父元素<a>
+		$(this).wrap('<a data-fancybox href=" ' + videoPath + ' "> </a>');
+	});
+	//TODO：支持html5 video
+
+	if($('#layout-post').length) {
+		$('[data-fancybox="gallery"]').fancybox({
+			loop: true,
+			buttons: [
+				"zoom",
+				"share",
+				"slideShow",
+				"fullScreen",
+				//"download",
+				"thumbs",
+				"close"
+			],
+			protect: false
+		});
+	}
+</script>
+		</main>
+
+		<!--footer-->
+		<footer>
+	<div class="social">
+		<ul>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-github"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-weibo"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-pinterest"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-instagram"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-twitter"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/atom.xml" target="_blank">
+				<i class="fa fa-rss"></i>
+			</a>
+		</li>
+			
+</ul>
+
+	</div>
+		
+	<div class="copyright">
+		<p>
+			 
+				&copy;2017 - 2019, content by John Doe. All Rights Reserved.
+			
+			
+			
+
+	<!-- busuanzi -->
+	<!-- busuanzi -->
+
+		
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+
+		<span id="busuanzi_container_page_pv">
+	  		本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+		</span>
+
+	
+
+
+
+
+		</p>
+		<p>
+			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.
+			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
+			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁體</a>				
+		</p>
+	</div>		
+</footer>
+		
+	<!-- set '1' to show motto in all pages! -->
+
+	<script src="/plugin/motto/motto.js"></script>
+	
+	<script type="text/javascript">
+		$(".motto").html( getMingYanContent() );
+	</script>	
+
+
+
+
+
+<!-- love effect -->
+
+	<script src="/plugin/love/love.js"></script>
+
+
+<!-- back to top -->
+
+	
+	<div id="totop">
+  		<a href="javascript:;"  name="TOTOP" class="fa fa-arrow-up" ></a>
+	</div>
+
+
+
+
+<!-- site analysis -->
+
+
+	<!-- site-analysis -->
+	
+
+	
+	
+	
+	
+ 
+
+<script src="/plugin/vibrant/vibrant.js"></script>
+<script src="/plugin/chinese/chinese.js"></script>
+<script src="/plugin/imgLazyLoader/yall.min.js"></script>
+<script src="/plugin/imgResize/jquery.resizeimagetoparent.min.js"></script>
+<script src="/plugin/nicescroll/jquery.nicescroll.js"></script>
+<script src="/js/resizediv.js"></script>
+<script src="/js/main.js"></script>
+	</body>	
 </html>

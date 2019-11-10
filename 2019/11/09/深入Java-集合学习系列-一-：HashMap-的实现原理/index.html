@@ -1,157 +1,337 @@
-<!DOCTYPE HTML>
-<html class="no-js" lang="zh-CN">
+<!--
+	作者：Sariay
+	时间：2018-09-25
+	描述：There may be a bug, but don't worry, QiLing(器灵) says that it can work normally!
+-->
+<!DOCTYPE html>
+<html class="html-loading">
+		
+
 <head>
-    <!--[if lte IE 9]>
-<meta http-equiv="refresh" content="0;url=http://yoursite.com/warn.html">
-<![endif]-->
-<meta charset="utf-8">
-<meta http-equiv="X-DNS-Prefetch-Control" content="on">
-<link rel="dns-prefetch" href="http://yoursite.com">
-<link rel="dns-prefetch" href="//www.google-analytics.com">
-<link rel="prefetch" href="http://yoursite.com">
-<link rel="prefetch" href="//www.google-analytics.com">
-
-
-<link rel="prerender" href="http://yoursite.com">
-
-<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-<meta name="renderer" content="webkit">
-<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
-<meta http-equiv="mobile-agent" content="format=html5; url=http://yoursite.com">
-<meta name="author" content="John Doe">
-<link rel="stylesheet" href="/css/JSimple.css">
-
-<link rel="shortcut icon" href="/images/favicon.png">
-
-
-<title>深入java 集合学习系列(一)：hashmap 的实现原理 - Hexo</title>
-
-<meta name="keywords" content="">
-
-<meta name="description " content="">
-
-    <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({
-            tex2jax: {
-                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-                processEscapes: true
-            }
-        });
-    </script>
-
-
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+  <title>
     
-
+      深入Java 集合学习系列(一)：HashMap 的实现原理 | Hexo
     
+  </title>
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+	<!-- favicon -->
+  <link rel="shortcut icon" href="/img/favicon.ico">
 
+  <!-- css -->
+  <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/Annie.css">
+  
+  <!-- jquery -->
+	<script src="/js/jquery.min.js"></script>
+
+  <!-- leancloud -->
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+<script src="/js/leancloud.js"></script>
 </head>
-<body>
-<div id="nav">
-    <nav class="nav-menu">
-        <a class="site-name current" href="/" title="说">说</a>
-        <a class="site-index current" href="/"><i class="fa fa-home"></i><span>Home</span></a>
-        <a href="/archives" title="Archives"><i class="fa fa-archives"></i><span>Archives</span></a>
-        <a href="/tags" title="Tags"><i class="fa fa-tags"></i><span>Tags</span></a>
-        <!-- custom single page of menus -->
-        
-        
-        <a href="/help" title="帮助">
-            <i class="fa fa-question-circle"></i>
-            <span>帮助</span>
-        </a>
-        
-    </nav>
+	<body>
+		<!-- Preloader -->
+
+	<div id="preloader">
+		<div class="pre-container">
+			
+				<div class="spinner">
+					<div class="double-bounce1"></div>
+					<div class="double-bounce2"></div>
+				</div>
+						
+		</div>
+	</div>
+
+
+<!-- header -->
+<header class="fixbackground" data-img-mode="normal" data-normal-src="/img/1.jpg" data-random-max="110" data-random-src="https://sariay.github.io/Random-img/">
+	<div class="mask">
+		<!-- Logo and navigation -->
+		<div class="h-header">
+			<div id="logo">
+				<a href="/">
+						
+						<img src="/img/logo.png" alt="Logo">
+					
+				</a>
+			</div>
+			
+			<div id="navigation-show">
+				<ul>
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home">Home</a>
+		</li>
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive">Archive</a>
+		</li>
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories">Category</a>
+		</li>
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags">Tag</a>
+		</li>
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about">About</a>
+		</li>
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery">Gallery</a>
+		</li>
+	
+
+	
+</ul>
+			</div>				
+		</div>
+
+		<!-- motto -->
+		<div class="h-body">	
+			
+				<p class="motto"></p>
+			
+		</div>
+		
+		<!-- others: such as time... -->			
+		<div class="h-footer">
+			<a href="javascript:;" id="read-more"><i class="fa fa-angle-double-down" aria-hidden="true"></i>
+			</a>
+
+			
+				<!-- 
+	This is only a demo, please go to "https://time.is" to set your city time! 
+-->
+<style type="text/css">
+	.header-date {
+		font-size: 1.6rem;
+		color: #fff;
+		position: absolute;
+		bottom: 5px;
+		right: 1rem;
+		writing-mode: tb-rl;
+	}	
+	
+	.header-date a {
+		border-bottom: none;
+	}
+
+	@media only screen and (max-width: 768 ) {
+		.header-date {
+			font-size: 1rem;
+		}			
+	}
+</style>
+<div class="header-date">
+	<a href="https://time.is/Beijing" target="_blank" id="time_is_link" rel="nofollow noopener" ></a>
+	<span id="Beijing_z43d"></span>
+</div>
+<script src="//widget.time.is/zh.js"></script>
+<script>
+	time_is_widget.init({
+		Beijing_z43d:{
+			template:"DATE", 
+			date_format:"year年 monthname dnum日"
+		}
+	});
+</script>
+			
+		</div>
+	</div>
+</header>
+
+<div id="navigation-hide">
+	<!-- Progress bar -->
+	<div id="progress-bar"></div>
+
+	<!-- Progress percent -->
+	<div id="progress-percentage"><h1>0.0%</h1></div>
+
+	<div class="toc-switch"><span class="switch-button">Catalog</span></div>
+
+	<!-- Page title -->
+	<p>
+		
+			Current post&nbsp;:&nbsp;《深入Java 集合学习系列(一)：HashMap 的实现原理》
+		
+	</p>
+
+	<!-- Nav trigger for navigation-H-->
+	<a class="nav-trigger"><span></span></a>
 </div>
 
-<div class="nav-user">
-    <a class="btn-search" href="#"><i class="fa fa-search"></i></a>
-    <a class="btn-read-mode" href="#"><i class="fa fa-sun-o"></i></a>
-    <a class="btn-sns-qr" href="javascript:"><i class="fa fa-telegram"></i></a>
-</div>
+<!-- Navigation in div(id="navigation-H") -->
+<nav class="nav-container" id="cd-nav">
+	<div class="nav-header">
+		<h3>Navigation</h3>
+		<a href="javascript:;" class="nav-close"></a>
+	</div>
+	<div class="nav-body">
+		<ul>
+	
+		<li class="menu-home">
+			<a href="/" class="menu-item-home">Home</a>
+		</li>
+	
+		<li class="menu-archive">
+			<a href="/archives" class="menu-item-archive">Archive</a>
+		</li>
+	
+		<li class="menu-categories">
+			<a href="/categories" class="menu-item-categories">Category</a>
+		</li>
+	
+		<li class="menu-tags">
+			<a href="/tags" class="menu-item-tags">Tag</a>
+		</li>
+	
+		<li class="menu-about">
+			<a href="/about" class="menu-item-about">About</a>
+		</li>
+	
+		<li class="menu-gallery">
+			<a href="/gallery" class="menu-item-gallery">Gallery</a>
+		</li>
+	
 
-<div id="wrapper" class="clearfix">
-    <div id="body">
-        <div class="main" id="main">
-            <div id="cover">
-    <div class="cover-img"></div>
-    <div class="cover-info">
-        
-        <h1 class="cover-siteName">说IT</h1>
-        <h3 class="cover-siteTitle">用代码摇滚这个世界</h3>
-        <p class="cover-siteDesc">一个关注技术与人文的IT博客</p>
-        <div class="cover-sns">
-            
-    &nbsp;&nbsp;<div class="btn btn-telegram">
-        <a href="http://t.me/kunyintang" target="_blank" title="telegram" ref="friend">
-            <i class="fa fa-telegram"></i>
-        </a>
-    </div>
+	
+</ul>
+	</div>
+	<div class="nav-footer">
+		<ul>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-github"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-weibo"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-pinterest"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-instagram"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-twitter"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/atom.xml" target="_blank">
+				<i class="fa fa-rss"></i>
+			</a>
+		</li>
+			
+</ul>
 
-    &nbsp;&nbsp;<div class="btn btn-instagram">
-        <a href="https://www.instagram.com/mtangsir/" target="_blank" title="instagram" ref="friend">
-            <i class="fa fa-instagram"></i>
-        </a>
-    </div>
+	</div>
+</nav>
+			
+		<!--main-->
+		<main>
+			<!--
+	时间：2018-11-17
+	描述：
+		插件名称：katelog.min.js
+		插件作者：KELEN
+		插件来源: https://github.com/KELEN/katelog
+-->
 
-    &nbsp;&nbsp;<div class="btn btn-twitter">
-        <a href="https://twitter.com/tangkunyin" target="_blank" title="twitter" ref="friend">
-            <i class="fa fa-twitter"></i>
-        </a>
-    </div>
+	
+		<div class="layout-toc">
+			<div id="layout-toc">
+				<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
+			</div>
+		</div>
 
-    &nbsp;&nbsp;<div class="btn btn-github">
-        <a href="https://github.com/tangkunyin" target="_blank" title="github" ref="friend">
-            <i class="fa fa-github"></i>
-        </a>
-    </div>
+		
+		<script src="/plugin/toc/katelog.min.js"></script>
+
+		
+	 
+
+<div class="layout-post">
+	<div id="layout-post">
+	<div class="article-title">
+		<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
+		
+	<a href="/2019/11/09/%E6%B7%B1%E5%85%A5Java-%E9%9B%86%E5%90%88%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97-%E4%B8%80-%EF%BC%9AHashMap-%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/" itemprop="url">
+		深入Java 集合学习系列(一)：HashMap 的实现原理
+	</a>
+
+	</div>
+
+	<div class="article-meta">
+		<span>
+			<i class="fa fa-calendar"></i>
+			
 
 
-        </div>
-    </div>
-</div>
+	Posted on
 
-            <div class="page-title">
-    <ul>
-        <li><a href="/">Recent Posts</a></li>
-        
-        
-        
-        <li class="page-search">
-    <form id="search" class="search-form">
-        <input type="text"
-               readonly="readonly"
-               id="local-search-input-tip"
-               placeholder="click to search..." />
-        <button type="button" disabled="disabled" class="search-form-submit"><i class="fa fa-search"></i></button>
-    </form>
-</li>
+	<a href="/2019/11/09/%E6%B7%B1%E5%85%A5Java-%E9%9B%86%E5%90%88%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97-%E4%B8%80-%EF%BC%9AHashMap-%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/" itemprop="url">
+		<time datetime="2019-11-09T05:10:51.000Z" itemprop="datePublished">
+	  		2019-11-09
+	  </time>
+	</a>
+	&nbsp;
 
-    </ul>
-</div>
-<div class="main-inner">
-    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-        <div class="post-header">
-            <div class="post-author clearfix">
-                <a class="avatar fleft" href="https://shuoit.net"
-                   target="_blank">
-                    <img width="48" src="/images/favicon.png" alt="avatar"/>
-                </a>
-                <p><span class="label">Author</span>
-                    <a href="https://shuoit.net"
-                       target="_blank">纠结伦</a>
-                    <span title="Last edited at&nbsp;2019-11-09">2019-11-09</span>
-                </p>
-                <p>一个搬🧱的劳斯基😁️️</p>
-            </div>
-            <h2 class="post-title">深入Java 集合学习系列(一)：HashMap 的实现原理</h2>
-            <div class="post-meta">
-                emm... 7621 words in the article |
-                you are the&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>th friend who reading now
-            </div>
-        </div>
-        <div class="post-content markdown-body">
-            <h2 id="1-HashMap-概述："><a href="#1-HashMap-概述：" class="headerlink" title="1. HashMap 概述："></a>1. HashMap 概述：</h2><p>HashMap 是基于哈希表的 Map 接口的非同步实现。此实现提供所有可选的映射操作，<br>并允许使用 null 值和null键。此类不保证映射的顺序，特别是它不保证该顺序恒久不变。</p>
-<h2 id="2-HashMap-的数据结构："><a href="#2-HashMap-的数据结构：" class="headerlink" title="2. HashMap 的数据结构："></a>2. HashMap 的数据结构：</h2><h6 id="在-java-编程语言中，最基本的结构就是两种，一个是数组，另外一个是模拟指针（引用），所有的数据结构都可以用这两个基本结构来构造的，HashMap-也不例外。HashMap实际上是一个“链表散列”的数据结构，即数组和链表的结合体。"><a href="#在-java-编程语言中，最基本的结构就是两种，一个是数组，另外一个是模拟指针（引用），所有的数据结构都可以用这两个基本结构来构造的，HashMap-也不例外。HashMap实际上是一个“链表散列”的数据结构，即数组和链表的结合体。" class="headerlink" title="在 java 编程语言中，最基本的结构就是两种，一个是数组，另外一个是模拟指针（引用），所有的数据结构都可以用这两个基本结构来构造的，HashMap 也不例外。HashMap实际上是一个“链表散列”的数据结构，即数组和链表的结合体。"></a>在 java 编程语言中，最基本的结构就是两种，一个是数组，另外一个是模拟指针（引用），所有的数据结构都可以用这两个基本结构来构造的，HashMap 也不例外。HashMap实际上是一个“链表散列”的数据结构，即数组和链表的结合体。</h6><p><img src="https://pic.superbed.cn/item/5dbe708f8e0e2e3ee9d75dec.png" alt><br>从上图中可以看出，HashMap 底层就是一个数组结构，数组中的每一项又是一个链表。<br>当新建一个 HashMap 的时候，就会初始化一个数组。  </p>
+
+
+
+
+			
+
+
+
+
+	Updated on
+
+	<a href="/2019/11/09/%E6%B7%B1%E5%85%A5Java-%E9%9B%86%E5%90%88%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97-%E4%B8%80-%EF%BC%9AHashMap-%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/" itemprop="url">
+		<time datetime="2019-11-09T05:10:51.000Z" itemprop="dateUpdated">
+	  		2019-11-09
+	  </time>
+	</a> 
+
+
+
+		</span>
+		<span>
+			<i class="fa fa-tags"></i>
+					
+		</span>
+		
+		
+
+
+
+	</div>
+
+	<div class="article-content" id="article-content">
+		<h2 id="1-HashMap-概述："><a href="#1-HashMap-概述：" class="headerlink" title="1. HashMap 概述："></a>1. HashMap 概述：</h2><p>HashMap 是基于哈希表的 Map 接口的非同步实现。此实现提供所有可选的映射操作，<br>并允许使用 null 值和null键。此类不保证映射的顺序，特别是它不保证该顺序恒久不变。</p>
+<h2 id="2-HashMap-的数据结构："><a href="#2-HashMap-的数据结构：" class="headerlink" title="2. HashMap 的数据结构："></a>2. HashMap 的数据结构：</h2><h6 id="在-java-编程语言中，最基本的结构就是两种，一个是数组，另外一个是模拟指针（引用），所有的数据结构都可以用这两个基本结构来构造的，HashMap-也不例外。HashMap实际上是一个“链表散列”的数据结构，即数组和链表的结合体。"><a href="#在-java-编程语言中，最基本的结构就是两种，一个是数组，另外一个是模拟指针（引用），所有的数据结构都可以用这两个基本结构来构造的，HashMap-也不例外。HashMap实际上是一个“链表散列”的数据结构，即数组和链表的结合体。" class="headerlink" title="在 java 编程语言中，最基本的结构就是两种，一个是数组，另外一个是模拟指针（引用），所有的数据结构都可以用这两个基本结构来构造的，HashMap 也不例外。HashMap实际上是一个“链表散列”的数据结构，即数组和链表的结合体。"></a>在 java 编程语言中，最基本的结构就是两种，一个是数组，另外一个是模拟指针（引用），所有的数据结构都可以用这两个基本结构来构造的，HashMap 也不例外。HashMap实际上是一个“链表散列”的数据结构，即数组和链表的结合体。</h6><p><img src="https://pic.superbed.cn/item/5dbe708f8e0e2e3ee9d75dec.png" alt=""><br>从上图中可以看出，HashMap 底层就是一个数组结构，数组中的每一项又是一个链表。<br>当新建一个 HashMap 的时候，就会初始化一个数组。  </p>
 <h6 id="源码如下："><a href="#源码如下：" class="headerlink" title="源码如下："></a>源码如下：</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">1</span>. <span class="comment">/**</span></span><br><span class="line"><span class="comment">2. * The table, resized as necessary. Length MUST Always be a power of two.</span></span><br><span class="line"><span class="comment">3. */</span></span><br><span class="line"><span class="number">4</span>. <span class="keyword">transient</span> Entry[] table;</span><br><span class="line"><span class="number">5</span>.</span><br><span class="line"><span class="number">6</span>. <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">Entry</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; <span class="keyword">implements</span> <span class="title">Map</span>.<span class="title">Entry</span>&lt;<span class="title">K</span>,<span class="title">V</span>&gt; </span>&#123;</span><br><span class="line"><span class="number">7</span>. <span class="keyword">final</span> K key;</span><br><span class="line"><span class="number">8</span>. V value;</span><br><span class="line"><span class="number">9</span>. Entry&lt;K,V&gt; next;</span><br><span class="line"><span class="number">10</span>. <span class="keyword">final</span> <span class="keyword">int</span> hash;</span><br><span class="line"><span class="number">11</span>. ……</span><br><span class="line"><span class="number">12</span>. &#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="3-HashMap-的存取实现："><a href="#3-HashMap-的存取实现：" class="headerlink" title="3. HashMap 的存取实现："></a>3. HashMap 的存取实现：</h2><h6 id="1-存储："><a href="#1-存储：" class="headerlink" title="1) 存储："></a>1) 存储：</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>. <span class="function"><span class="keyword">public</span> V <span class="title">put</span><span class="params">(K key, V value)</span> </span>&#123;</span><br><span class="line"><span class="number">2</span>. <span class="comment">// HashMap 允许存放 null 键和 null 值。</span></span><br><span class="line"><span class="number">3</span>. <span class="comment">// 当 key 为 null 时，调用 putForNullKey 方法，将 value 放置在数组第一个位置。</span></span><br><span class="line"><span class="number">4</span>. <span class="keyword">if</span> (key == <span class="keyword">null</span>)</span><br><span class="line"><span class="number">5</span>. <span class="keyword">return</span> putForNullKey(value);</span><br><span class="line"><span class="number">6</span>. <span class="comment">// 根据 key 的 keyCode 重新计算 hash 值。</span></span><br><span class="line"><span class="number">7</span>. <span class="keyword">int</span> hash = hash(key.hashCode());</span><br><span class="line"><span class="number">8</span>. <span class="comment">// 搜索指定 hash 值在对应 table 中的索引。</span></span><br><span class="line"><span class="number">9</span>. <span class="keyword">int</span> i = indexFor(hash, table.length);</span><br><span class="line"><span class="number">10</span>. <span class="comment">// 如果 i 索引处的 Entry 不为 null，通过循环不断遍历 e 元素的下一个元素。</span></span><br><span class="line"><span class="number">11</span>. <span class="keyword">for</span> (Entry&lt;K,V&gt; e = table[i]; e != <span class="keyword">null</span>; e = e.next) &#123;</span><br><span class="line"><span class="number">12</span>. Object k;</span><br><span class="line"><span class="number">13</span>. <span class="keyword">if</span> (e.hash == hash &amp;&amp; ((k = e.key) == key || key.equals(k))) &#123;</span><br><span class="line"><span class="number">14</span>. V oldValue = e.value;</span><br><span class="line"><span class="number">15</span>. e.value = value;</span><br><span class="line"><span class="number">16</span>. e.recordAccess(<span class="keyword">this</span>);</span><br><span class="line"><span class="number">17</span>. <span class="keyword">return</span> oldValue;</span><br><span class="line"><span class="number">18</span>. &#125;</span><br><span class="line"><span class="number">19</span>. &#125;</span><br><span class="line"><span class="number">20</span>. <span class="comment">// 如果 i 索引处的 Entry 为 null，表明此处还没有 Entry。</span></span><br><span class="line"><span class="number">21</span>. modCount++;</span><br><span class="line"><span class="number">22</span>. <span class="comment">// 将 key、value 添加到 i 索引处。</span></span><br><span class="line"><span class="number">23</span>. addEntry(hash, key, value, i);</span><br><span class="line"><span class="number">24</span>. <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line"><span class="number">25</span>. &#125;</span><br></pre></td></tr></table></figure>
@@ -168,7 +348,7 @@
 <p>这个方法非常巧妙，它通过 h &amp; (table.length -1) 来得到该对象的保存位，而 HashMap底层数组的长度总是 2 的 n 次方，这是 HashMap 在速度上的优化。在HashMap 构造器中有如下代码：</p>
 <h6 id="Java-代码-2"><a href="#Java-代码-2" class="headerlink" title="Java 代码"></a>Java 代码</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>. <span class="keyword">int</span> capacity = <span class="number">1</span>;</span><br><span class="line"><span class="number">2</span>. <span class="keyword">while</span> (capacity &lt; initialCapacity)</span><br><span class="line"><span class="number">3</span>. capacity &lt;&lt;= <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
 
-<p>这段代码保证初始化时 HashMap 的容量总是 2 的 n 次方，即底层数组的长度总是为 2 的 n 次方。当 length 总是 2 的 n 次方时，h&amp; (length-1)运算等价于对 length 取模，也就是h%length，但是&amp;比%具有更高的效率。<br>这看上去很简单，其实比较有玄机的，我们举个例子来说明：<br><img src="https://pic.superbed.cn/item/5dbe708f8e0e2e3ee9d75de4.png" alt></p>
+<p>这段代码保证初始化时 HashMap 的容量总是 2 的 n 次方，即底层数组的长度总是为 2 的 n 次方。当 length 总是 2 的 n 次方时，h&amp; (length-1)运算等价于对 length 取模，也就是h%length，但是&amp;比%具有更高的效率。<br>这看上去很简单，其实比较有玄机的，我们举个例子来说明：<br><img src="https://pic.superbed.cn/item/5dbe708f8e0e2e3ee9d75de4.png" alt=""></p>
 <h6 id="从上面的例子中可以看出：当它们和-15-1（1110）“与”的时候，产生了相同的结果，也就是说它们会定位到数组中的同一个位置上去，这就产生了碰撞，8-和-9-会被放到数组中的同一个位置上形成链表，那么查询的时候就需要遍历这个链-表，得到-8-或者-9，这样就降低了查询的效率。同时，我们也可以发现，当数组长度为-15-的时候，hash-值会与-15-1-（1110）进行“与”，那么-最后一位永远是-0，而-0001，0011，0101，1001，1011，0111，1101-这几个位置永远都不能存放元素了，空间浪费相当大，更糟的是这种情况中，数组可以使用的位置比数组长度小了很多，这意味着进一步增加了碰撞的几率，减慢了查询的效率！而当数组长度为-16-时，即为-2-的-n-次方时，2n-1-得到的二进制数的每个位上的值都为-1，这使得在低位上-amp-时，得到的和原hash的低位相同，加之hash-int-h-方法对key的hashCode的进一步优化，加入了高位计算，就使得只有相同的-hash-值的两个值才会被放到数组中的同一个位置上形成链表。所以说，当数组长度为-2-的-n-次幂的时候，不同的-key-算得得-index相同的几率较小，那么数据在数组上分布就比较均匀，也就是说碰撞的几率小，相对的，查询的时候就不用遍历某个位置上的链表，这样查询效率也就较高了。"><a href="#从上面的例子中可以看出：当它们和-15-1（1110）“与”的时候，产生了相同的结果，也就是说它们会定位到数组中的同一个位置上去，这就产生了碰撞，8-和-9-会被放到数组中的同一个位置上形成链表，那么查询的时候就需要遍历这个链-表，得到-8-或者-9，这样就降低了查询的效率。同时，我们也可以发现，当数组长度为-15-的时候，hash-值会与-15-1-（1110）进行“与”，那么-最后一位永远是-0，而-0001，0011，0101，1001，1011，0111，1101-这几个位置永远都不能存放元素了，空间浪费相当大，更糟的是这种情况中，数组可以使用的位置比数组长度小了很多，这意味着进一步增加了碰撞的几率，减慢了查询的效率！而当数组长度为-16-时，即为-2-的-n-次方时，2n-1-得到的二进制数的每个位上的值都为-1，这使得在低位上-amp-时，得到的和原hash的低位相同，加之hash-int-h-方法对key的hashCode的进一步优化，加入了高位计算，就使得只有相同的-hash-值的两个值才会被放到数组中的同一个位置上形成链表。所以说，当数组长度为-2-的-n-次幂的时候，不同的-key-算得得-index相同的几率较小，那么数据在数组上分布就比较均匀，也就是说碰撞的几率小，相对的，查询的时候就不用遍历某个位置上的链表，这样查询效率也就较高了。" class="headerlink" title="从上面的例子中可以看出：当它们和 15-1（1110）“与”的时候，产生了相同的结果，也就是说它们会定位到数组中的同一个位置上去，这就产生了碰撞，8 和 9 会被放到数组中的同一个位置上形成链表，那么查询的时候就需要遍历这个链 表，得到 8 或者 9，这样就降低了查询的效率。同时，我们也可以发现，当数组长度为 15 的时候，hash 值会与 15-1 （1110）进行“与”，那么 最后一位永远是 0，而 0001，0011，0101，1001，1011，0111，1101 这几个位置永远都不能存放元素了，空间浪费相当大，更糟的是这种情况中，数组可以使用的位置比数组长度小了很多，这意味着进一步增加了碰撞的几率，减慢了查询的效率！而当数组长度为 16 时，即为 2 的 n 次方时，2n-1 得到的二进制数的每个位上的值都为 1，这使得在低位上&amp;时，得到的和原hash的低位相同，加之hash(int h)方法对key的hashCode的进一步优化，加入了高位计算，就使得只有相同的 hash 值的两个值才会被放到数组中的同一个位置上形成链表。所以说，当数组长度为 2 的 n 次幂的时候，不同的 key 算得得 index相同的几率较小，那么数据在数组上分布就比较均匀，也就是说碰撞的几率小，相对的，查询的时候就不用遍历某个位置上的链表，这样查询效率也就较高了。"></a>从上面的例子中可以看出：当它们和 15-1（1110）“与”的时候，产生了相同的结果，也就是说它们会定位到数组中的同一个位置上去，这就产生了碰撞，8 和 9 会被放到数组中的同一个位置上形成链表，那么查询的时候就需要遍历这个链 表，得到 8 或者 9，这样就降低了查询的效率。同时，我们也可以发现，当数组长度为 15 的时候，hash 值会与 15-1 （1110）进行“与”，那么 最后一位永远是 0，而 0001，0011，0101，1001，1011，0111，1101 这几个位置永远都不能存放元素了，空间浪费相当大，更糟的是这种情况中，数组可以使用的位置比数组长度小了很多，这意味着进一步增加了碰撞的几率，减慢了查询的效率！而当数组长度为 16 时，即为 2 的 n 次方时，2n-1 得到的二进制数的每个位上的值都为 1，这使得在低位上&amp;时，得到的和原hash的低位相同，加之hash(int h)方法对key的hashCode的进一步优化，加入了高位计算，就使得只有相同的 hash 值的两个值才会被放到数组中的同一个位置上形成链表。所以说，当数组长度为 2 的 n 次幂的时候，不同的 key 算得得 index相同的几率较小，那么数据在数组上分布就比较均匀，也就是说碰撞的几率小，相对的，查询的时候就不用遍历某个位置上的链表，这样查询效率也就较高了。</h6><h6 id="根据上面-put-方法的源代码可以看出，当程序试图将一个-key-value-对放入-HashMap中时，程序首先根据该-key-的-hashCode-返回值决定该-Entry-的存储位置：如果两个-Entry-的-key-的-hashCode-返回值相同，那它们的存储位置相同。如果这两个-Entry-的-key-通过-equals-比较返回-true，新添加-Entry-的-value-将覆盖集合中原有-Entry-的-value，但-key-不会覆盖。如果这两个-Entry-的-key-通过-equals-比较返回-false，新添加的-Entry-将与集合中原有-Entry-形成-Entry-链，而且新添加的-Entry-位-于-Entry-链的头部——具体说明继续看-addEntry-方法的说明。"><a href="#根据上面-put-方法的源代码可以看出，当程序试图将一个-key-value-对放入-HashMap中时，程序首先根据该-key-的-hashCode-返回值决定该-Entry-的存储位置：如果两个-Entry-的-key-的-hashCode-返回值相同，那它们的存储位置相同。如果这两个-Entry-的-key-通过-equals-比较返回-true，新添加-Entry-的-value-将覆盖集合中原有-Entry-的-value，但-key-不会覆盖。如果这两个-Entry-的-key-通过-equals-比较返回-false，新添加的-Entry-将与集合中原有-Entry-形成-Entry-链，而且新添加的-Entry-位-于-Entry-链的头部——具体说明继续看-addEntry-方法的说明。" class="headerlink" title="根据上面 put 方法的源代码可以看出，当程序试图将一个 key-value 对放入 HashMap中时，程序首先根据该 key 的 hashCode() 返回值决定该 Entry 的存储位置：如果两个 Entry 的 key 的 hashCode() 返回值相同，那它们的存储位置相同。如果这两个 Entry 的 key 通过 equals 比较返回 true，新添加 Entry 的 value 将覆盖集合中原有 Entry 的 value，但 key 不会覆盖。如果这两个 Entry 的 key 通过 equals 比较返回 false，新添加的 Entry 将与集合中原有 Entry 形成 Entry 链，而且新添加的 Entry 位 于 Entry 链的头部——具体说明继续看 addEntry() 方法的说明。"></a>根据上面 put 方法的源代码可以看出，当程序试图将一个 key-value 对放入 HashMap中时，程序首先根据该 key 的 hashCode() 返回值决定该 Entry 的存储位置：如果两个 Entry 的 key 的 hashCode() 返回值相同，那它们的存储位置相同。如果这两个 Entry 的 key 通过 equals 比较返回 true，新添加 Entry 的 value 将覆盖集合中原有 Entry 的 value，但 key 不会覆盖。如果这两个 Entry 的 key 通过 equals 比较返回 false，新添加的 Entry 将与集合中原有 Entry 形成 Entry 链，而且新添加的 Entry 位 于 Entry 链的头部——具体说明继续看 addEntry() 方法的说明。</h6><h3 id="4-HashMap-的-resize（rehash）："><a href="#4-HashMap-的-resize（rehash）：" class="headerlink" title="4. HashMap 的 resize（rehash）："></a>4. HashMap 的 resize（rehash）：</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">resize</span><span class="params">(<span class="keyword">int</span> newCapacity)</span> </span>&#123;</span><br><span class="line">        Entry[] oldTable = table;</span><br><span class="line">        <span class="keyword">int</span> oldCapacity = oldTable.length;</span><br><span class="line">        <span class="keyword">if</span> (oldCapacity == MAXIMUM_CAPACITY) &#123;</span><br><span class="line">            threshold = Integer.MAX_VALUE;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        Entry[] newTable = <span class="keyword">new</span> Entry[newCapacity];</span><br><span class="line">        <span class="keyword">boolean</span> oldAltHashing = useAltHashing;</span><br><span class="line">        useAltHashing |= sun.misc.VM.isBooted() &amp;&amp;</span><br><span class="line">                (newCapacity &gt;= Holder.ALTERNATIVE_HASHING_THRESHOLD);</span><br><span class="line">        <span class="keyword">boolean</span> rehash = oldAltHashing ^ useAltHashing;</span><br><span class="line">        transfer(newTable, rehash);</span><br><span class="line">        table = newTable;</span><br><span class="line">        threshold = (<span class="keyword">int</span>)Math.min(newCapacity * loadFactor, MAXIMUM_CAPACITY + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <p>当 HashMap 中的元素越来越多的时候，hash 冲突的几率也就越来越高，因为数组的<br>长度是固定的。所以为了提高查询的效率，就要对 HashMap 的数组进行扩容，数组扩容<br>这个操作也会出现在 ArrayList 中，这是一个常用的操作，而在 HashMap 数组扩容之后，<br>最消耗性能的点就出现了：原数组中的数据必须重新计算其在新数组中的位置，并放进去，这就是 resize。</p>
 <p>么 HashMap 什么时候进行扩容呢？当 HashMap 中的元素个数超过数组大小<br><em>loadFactor 时，就会进行数组扩容，loadFactor 的默认值为 0.75，这是一个折中的取值。<br>也就是说，默认情况下，数组大小为 16，那么当 HashMap 中元素个数超过 16</em>0.75=12<br>的时候，就把数组的大小扩展为 2*16=32，即扩大一倍，然后重新计算每个元素在数组中<br>的位置，而这是一个非常消耗性能的操作，所以如果我们已经预知 HashMap 中元素的个<br>数，那么预设元素的个数能够有效的提高 HashMap 的性能。</p>
@@ -180,92 +360,507 @@
 <p>HashMap 的实现中，通过 threshold 字段来判断 HashMap 的最大容量：</p>
 <h6 id="Java-代码-3"><a href="#Java-代码-3" class="headerlink" title="Java 代码"></a>Java 代码</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>. threshold = (<span class="keyword">int</span>)(capacity * loadFactor);</span><br></pre></td></tr></table></figure>
 <p>结合负载因子的定义公式可知，threshold 就是在此 loadFactor 和 capacity 对应下允许的<br>最大元素数目，超过这个数目就重新 resize，以降低实际的负载因子。默认的的负载因子<br>0.75是对空间和时间效率的一个平衡选择。当容量超出此最大容量时，resize后的HashMap<br>容量是容量的两倍：</p>
-<h6 id="Java-代码-4"><a href="#Java-代码-4" class="headerlink" title="Java 代码"></a>Java 代码</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>. <span class="keyword">if</span> (size++ &gt;= threshold)</span><br><span class="line"><span class="number">2</span>. resize(<span class="number">2</span> * table.length);</span><br></pre></td></tr></table></figure>
-            
-                
+<h6 id="Java-代码-4"><a href="#Java-代码-4" class="headerlink" title="Java 代码"></a>Java 代码</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>. <span class="keyword">if</span> (size++ &gt;= threshold)</span><br><span class="line"><span class="number">2</span>. resize(<span class="number">2</span> * table.length);</span><br></pre></td></tr></table></figure>	
+	</div>
+	
+	<div id="current-post-cover" data-scr="/img/cart_cover.jpg"></div>
 
-            
-        </div>
-        <div class="post-tool">
-            <a class="btn-thumbs-up" href="javascript:void(0);" data-cid="52" title="95">
-                <i class="fa fa-thumbs-up" aria-hidden="true"></i> Donate
-            </a>
-        </div>
-        
-        <div class="post-tags">Tags：
-            
-        </div>
-        
-    </article>
-    
-        <p style="text-align: center">This article just represents my own viewpoint. If there is something wrong, please correct me.</p>
-    
-    
-    
+	<!-- relate post, comment...-->
+	<div class="investment-container">
+		<div class="investment-header">
+			<div class="investment-title-1">
+				<div class="on">Related post</div>
+				<div>Comment</div>
+				<div>Share</div>
+			</div>
+			<div class="investment-title-2">	            
+				
+	<span>
+		<a href="javascript: window.scrollTo(0, 0);">To Top</a>
+		
+		
+			<a href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BMap%E6%8E%A5%E5%8F%A3/" title="集合之Map接口" rel="next">
+				Next post&raquo;
+			</a>
+			
+	</span>
+
+
+      		
+			</div>	
+		</div>
+		
+		<div class="investment-content">
+			<div class="investment-content-list">
+				
+
+<div class="relate-post">
+	
+		<ul>
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BMap%E6%8E%A5%E5%8F%A3/" title="集合之Map接口">
+								集合之Map接口			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 3日, 2019				
+							</p>
+							<p class="relate-post-content">
+								Map接口
+Map接口概述1.Map与Collection并列存在。用于保存具有映射关系的数据:key-value2.Map 中的 key 和 value 都可以是任何引用类型的数据3.Map 中的 key 用Set来存放，不允许重复...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BMap%E6%8E%A5%E5%8F%A3/" title="集合之Map接口">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="集合之Map接口"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BSet%E6%8E%A5%E5%8F%A3/" title="集合之Set接口">
+								集合之Set接口			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 3日, 2019				
+							</p>
+							<p class="relate-post-content">
+								Collection子接口之二： Set接口Set 接口概述123Set接口是Collection的子接口，set接口没有提供额外的方法  Set 集合不允许包含相同的元素，如果试把两个相同的元素加入同一个 Set 集合中，则添加操作...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BSet%E6%8E%A5%E5%8F%A3/" title="集合之Set接口">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="集合之Set接口"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BCollection%E6%8E%A5%E5%8F%A3/" title="集合之Collection接口">
+								集合之Collection接口			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 3日, 2019				
+							</p>
+							<p class="relate-post-content">
+								Java 集合框架概述一方面， 面向对象语言对事物的体现都是以对象的形式，为了方便对多个对象的操作，就要对对象进行存储。另一方面，使用Array存储对象方面具有一些弊端，而Java 集合就像一种容器，可以动态地把多个对象的引用放入容器...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BCollection%E6%8E%A5%E5%8F%A3/" title="集合之Collection接口">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="集合之Collection接口"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/11/02/hexo-github%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" title="hexo+github博客搭建">
+								hexo+github博客搭建			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 2日, 2019				
+							</p>
+							<p class="relate-post-content">
+								在官网下载Git和Nodejs按步骤进行安装，一直下一步就ok在命令行检测安装是否成功npm全局安装cnpmcnpm安装完成npm全局安装hexohexo安装完成新建一个blog文件夹（文件夹名随意），并进行博客初始化在命令行界面用c...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/11/02/hexo-github%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" title="hexo+github博客搭建">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="hexo+github博客搭建"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/11/02/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AE%B2%E8%A7%A32/" title="多线程讲解2">
+								多线程讲解2			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 2日, 2019				
+							</p>
+							<p class="relate-post-content">
+								
+线程的生命周期JDK中用Thread.State类定义了线程的几种状态要想实现多线程，必须在主线程中创建新的线程对象。Java语言使用Thread类及其子类的对象来表示线程，在它的一个完整的生命周期中通常要经历如下的==五种状态：=...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/11/02/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AE%B2%E8%A7%A32/" title="多线程讲解2">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="多线程讲解2"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+					<li>
+						<div class="relate-post-text">
+							<a class="relate-post-title" href="/2019/11/02/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AE%B2%E8%A7%A31/" title="多线程讲解1">
+								多线程讲解1			
+							</a>
+							<p class="relate-post-date">
+								<i class="fa fa-calendar"></i>
+								十一月 2日, 2019				
+							</p>
+							<p class="relate-post-content">
+								# 基本概念：程序、进程、线程程序(program)是为完成特定任务、用某种语言编写的一组指令的集合。即指一段静态的代码，静态对象。
+==程序(program==)是为完成特定任务、用某种语言编写的一组指令的集合。即指一段静态的代码，...
+							</p>
+						</div>
+
+						<div class="relate-post-cover">
+							<a href="/2019/11/02/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AE%B2%E8%A7%A31/" title="多线程讲解1">				
+								
+								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="多线程讲解1"/>
+							</a>
+						</div>
+					</li>											
+			
+			
+		</ul>
+	
+</div>	
+			</div>
+			<div class="investment-content-list">
+				<div class="layout-comment">
+
+	
+
+		
+
+			<!-- I don't know !!!-->
+			<div>Please check the comment setting in config.yml of hexo-theme-Annie!</div>
+			
+		
+		
+	
 
 </div>
-<script src="/js/busuanzi.pure.mini.js"></script>
+			</div>
+			<div class="investment-content-list">
+				<div class="layout-share">
+	
+	
+
+		
+			
+			<!-- socialShare share -->
+			<div class="social-share"></div>
+
+<!--  css & js -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
+			
+		
+		
+	
+</div>
 
 
-        </div><!-- end #main-->
-    </div><!-- end #body -->
-    <footer class="footer">
-    <div class="footer-inner" style="text-align: center">
-        <p>
-            <a href="/about"  title="About">About</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
-            <!-- 自定义链接 -->
-            <a href="/help" title="Help" >Help</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
-            <a href="/links" title="Links">Links</a>&nbsp;&nbsp<em>·</em>&nbsp;&nbsp
-            <a href="/sitemap.xml" title="SiteMap">SiteMap</a>
-        </p>
-        <p>
-            Has been established&nbsp<a href="/timeline" id="siteBuildingTime"></a>&nbspDays，<a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="licence">Based on Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)</a><br/>
-            ©2017-<span id="cpYear"></span> Based on&nbsp<a href="http://hexo.io" target="_blank" rel="nofollow">Hexo</a>
-            ，Theme by&nbsp&nbsp<a href="https://github.com/tangkunyin/hexo-theme-jsimple" target="_blank" rel="bookmark">JSimple</a>
-            ，Author&nbsp<a href="https://shuoit.net" target="_blank" rel="friend">纠结伦</a>
-            ，Hosted by <a href="https://pages.github.com/" target="_blank" rel="nofollow">GitHub Pages</a>
-        </p>
-    </div>
-</footer>
-<script src="/js/SimpleCore.js"></script>
+			</div>
+		</div>	
+	</div>
+	</div>
+</div>
 
-</div>
-<!-- search pop -->
-<div class="popup search-popup local-search-popup">
-    <div class="local-search-header clearfix">
-        <span class="search-icon">
-            <i class="fa fa-search"></i>
-        </span>
-        <span class="popup-btn-close">
-            <i class="fa fa-times-circle"></i>
-        </span>
-        <div class="local-search-input-wrapper">
-            <input id="local-search-input"
-                   spellcheck="false"
-                   type="text"
-                   autocomplete="off"
-                   placeholder="Input query keywords here..."/>
-        </div>
-    </div>
-    <div id="local-search-result"></div>
-</div>
-<div class="fixed-btn">
-    <a class="btn-gotop" href="javascript:"> <i class="fa fa-angle-up"></i></a>
-</div>
-<script>
-    $(function () {
-        var jsi_config = {
-            buildingTime: '01/20/2018',
-            current: $('.post-tags').length > 0 ? 'post' : 'archive',
-            snsQRCode: '/images/sns-qrcode.png',
-            donateImg: '/images/donate-qr.png',
-            localSearch: { dbPath: '' },
-            readMode: 'day'
-        };
-        
-        SimpleCore.init(jsi_config);
-        
-    });
+
+
+	<!-- leancloud -->
+	<!--
+	时间：2018-11-27
+	描述：
+		文章访问量：visitors
+		文章喜欢量：likes	
+		文章排行榜：topNPost
+		其他得说明：
+			01-Cookie相关的函数 
+				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
+			02-visitors相关的函数 
+				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
+				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
+			03-topNPost相关的函数
+				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
+			04-likes相关的函数，
+				参考了01 & 02进行简单的设计与实现
+-->
+
+
+	
+
+
+<!-- show math formula -->
+
+
+
+	 
+	<script src="/plugin/clipboard/clipboard.js"></script>
+	<script>
+		// Copy code !
+	    function codePreprocessing() {
+	        $("#article-content .highlight").each(function() {
+
+	            $(this).wrap('<div id="post-code"></div>');
+
+	        })
+
+	        $("#article-content #post-code").each(function() {
+
+	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
+
+	        })
+
+	        $("#article-content .copy-nav").each(function() {
+	            var temp = $(this).next().attr('class'),
+	                language = ((temp.length > 9) && (temp != null)) ? temp.substr(10) : "none"; //why 9? Need to check language?
+
+	            $(this).find('.code-language').text(language);
+
+	            $(this).append('<span class="copy-btn"><i class="fa fa-copy" aria-hidden="true"></i></span>');
+
+	        });
+	    }
+
+		function codeCopy() {
+		    $('#article-content #post-code').each(function(i) {
+		        var codeCopyId = 'codeCopy-' + i;
+
+		        var codeNode = $(this).find('.code'),
+		            copyButton = $(this).find('.copy-btn');
+
+		        codeNode.attr('id', codeCopyId);
+		        copyButton.attr('data-clipboard-target-id', codeCopyId);
+		    })
+
+		    
+			var clipboard = new ClipboardJS('.copy-btn', {
+					target: function(trigger) {
+						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
+					}
+		      	});
+
+			//pure js
+			function showTooltip(elem, msg) {		   
+				elem.setAttribute('aria-label', msg);
+				elem.setAttribute('class', 'copy-btn copy-status');
+				setTimeout(function() {
+					elem.setAttribute('class', 'copy-btn');
+				}, 2000);
+			}
+
+			clipboard.on('success', function(e) {
+			    e.clearSelection();
+			    console.info('Action:', e.action);		   
+			    console.info('Trigger:', e.trigger);
+			    showTooltip(e.trigger, 'Copied!');
+			    
+			});
+			clipboard.on('error', function(e) {
+			    console.error('Action:', e.action);
+			    console.error('Trigger:', e.trigger);
+			});
+		
+
+		}
+
+		if ($('.layout-post').length) {
+		    codePreprocessing();
+		    codeCopy();
+		} 
+	</script>
+
+
+
+
+
+<link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
+<script src="/plugin/fancybox/jquery.fancybox.js"></script>
+
+<script type="text/javascript">
+	var titleID = $('.article-title a'),
+		imageID = $('.article-content img'),
+		videoID = $('.article-content video');
+
+	var postTitle = titleID.text() ? titleID.text() : "No post title!";
+
+	imageID.each(function() {
+		var imgPath = $(this).attr('src'),
+			imgTitle = $(this).attr('alt') ? $(this).attr('alt') : "No image description!";
+
+		//给每个匹配的<img>元素打包, 即添加父元素<a>
+		$(this).wrap('<a data-fancybox="gallery" data-caption=" 《 ' + postTitle + ' 》 ' + imgTitle + ' "  href=" ' + imgPath + ' "> </a>');
+	});
+
+	videoID.each(function() {
+		var videoPath = $(this).attr('src');
+
+		//给每个匹配的<img>元素打包, 即添加父元素<a>
+		$(this).wrap('<a data-fancybox href=" ' + videoPath + ' "> </a>');
+	});
+	//TODO：支持html5 video
+
+	if($('#layout-post').length) {
+		$('[data-fancybox="gallery"]').fancybox({
+			loop: true,
+			buttons: [
+				"zoom",
+				"share",
+				"slideShow",
+				"fullScreen",
+				//"download",
+				"thumbs",
+				"close"
+			],
+			protect: false
+		});
+	}
 </script>
-</body>
+		</main>
+
+		<!--footer-->
+		<footer>
+	<div class="social">
+		<ul>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-github"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-weibo"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-pinterest"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-instagram"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="http://github.com/" target="_blank">
+				<i class="fa fa-twitter"></i>
+			</a>
+		</li>
+	
+		<li>
+			<a href="/atom.xml" target="_blank">
+				<i class="fa fa-rss"></i>
+			</a>
+		</li>
+			
+</ul>
+
+	</div>
+		
+	<div class="copyright">
+		<p>
+			 
+				&copy;2017 - 2019, content by John Doe. All Rights Reserved.
+			
+			
+			
+
+	<!-- busuanzi -->
+	<!-- busuanzi -->
+
+		
+	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	
+
+		<span id="busuanzi_container_page_pv">
+	  		本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+		</span>
+
+	
+
+
+
+
+		</p>
+		<p>
+			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.
+			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
+			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁體</a>				
+		</p>
+	</div>		
+</footer>
+		
+	<!-- set '1' to show motto in all pages! -->
+
+	<script src="/plugin/motto/motto.js"></script>
+	
+	<script type="text/javascript">
+		$(".motto").html( getMingYanContent() );
+	</script>	
+
+
+
+
+
+<!-- love effect -->
+
+	<script src="/plugin/love/love.js"></script>
+
+
+<!-- back to top -->
+
+	
+	<div id="totop">
+  		<a href="javascript:;"  name="TOTOP" class="fa fa-arrow-up" ></a>
+	</div>
+
+
+
+
+<!-- site analysis -->
+
+
+	<!-- site-analysis -->
+	
+
+	
+	
+	
+	
+ 
+
+<script src="/plugin/vibrant/vibrant.js"></script>
+<script src="/plugin/chinese/chinese.js"></script>
+<script src="/plugin/imgLazyLoader/yall.min.js"></script>
+<script src="/plugin/imgResize/jquery.resizeimagetoparent.min.js"></script>
+<script src="/plugin/nicescroll/jquery.nicescroll.js"></script>
+<script src="/js/resizediv.js"></script>
+<script src="/js/main.js"></script>
+	</body>	
 </html>
