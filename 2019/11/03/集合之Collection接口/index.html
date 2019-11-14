@@ -1,347 +1,178 @@
-<!--
-	作者：Sariay
-	时间：2018-09-25
-	描述：There may be a bug, but don't worry, QiLing(器灵) says that it can work normally!
--->
 <!DOCTYPE html>
-<html class="html-loading">
-		
+<html lang="en">
+
+
+
+
 
 <head>
-	<meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
-  <title>
-    
-      集合之Collection接口 | Hexo
-    
-  </title>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="">
   <meta name="author" content="John Doe">
-  <meta name="keywords" content="" />
-  <meta name="description" content="" />
-	<!-- favicon -->
-  <link rel="shortcut icon" href="/img/favicon.ico">
+  <meta name="keywords" content="">
+  <title>集合之Collection接口 ~ Hexo</title>
 
-  <!-- css -->
-  <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="/css/Annie.css">
-  
-  <!-- jquery -->
-	<script src="/js/jquery.min.js"></script>
+  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
+<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
+<link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css"  >
+<link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css"  >
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
 
-  <!-- leancloud -->
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
-<script src="/js/leancloud.js"></script>
+
+  <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css"  >
+
+<link rel="stylesheet" href="/css/main.css"  >
+
+
+  <link rel="stylesheet" href="/lib/fancybox/jquery.fancybox.min.css"  >
+
+
 </head>
-	<body>
-		<!-- Preloader -->
-
-	<div id="preloader">
-		<div class="pre-container">
-			
-				<div class="spinner">
-					<div class="double-bounce1"></div>
-					<div class="double-bounce2"></div>
-				</div>
-						
-		</div>
-	</div>
 
 
-<!-- header -->
-<header class="fixbackground" data-img-mode="normal" data-normal-src="/img/1.jpg" data-random-max="110" data-random-src="https://sariay.github.io/Random-img/">
-	<div class="mask">
-		<!-- Logo and navigation -->
-		<div class="h-header">
-			<div id="logo">
-				<a href="/">
-						
-						<img src="/img/logo.png" alt="Logo">
-					
-				</a>
-			</div>
-			
-			<div id="navigation-show">
-				<ul>
-	
-		<li class="menu-home">
-			<a href="/" class="menu-item-home">Home</a>
-		</li>
-	
-		<li class="menu-archive">
-			<a href="/archives" class="menu-item-archive">Archive</a>
-		</li>
-	
-		<li class="menu-categories">
-			<a href="/categories" class="menu-item-categories">Category</a>
-		</li>
-	
-		<li class="menu-tags">
-			<a href="/tags" class="menu-item-tags">Tag</a>
-		</li>
-	
-		<li class="menu-about">
-			<a href="/about" class="menu-item-about">About</a>
-		</li>
-	
-		<li class="menu-gallery">
-			<a href="/gallery" class="menu-item-gallery">Gallery</a>
-		</li>
-	
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Hexo</strong>&nbsp;</a>
 
-	
-</ul>
-			</div>				
-		</div>
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
 
-		<!-- motto -->
-		<div class="h-body">	
-			
-				<p class="motto"></p>
-			
-		</div>
-		
-		<!-- others: such as time... -->			
-		<div class="h-footer">
-			<a href="javascript:;" id="read-more"><i class="fa fa-angle-double-down" aria-hidden="true"></i>
-			</a>
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">Archives</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">Categories</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">Tags</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">About</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
 
-			
-				<!-- 
-	This is only a demo, please go to "https://time.is" to set your city time! 
--->
-<style type="text/css">
-	.header-date {
-		font-size: 1.6rem;
-		color: #fff;
-		position: absolute;
-		bottom: 5px;
-		right: 1rem;
-		writing-mode: tb-rl;
-	}	
-	
-	.header-date a {
-		border-bottom: none;
-	}
 
-	@media only screen and (max-width: 768 ) {
-		.header-date {
-			font-size: 1rem;
-		}			
-	}
-</style>
-<div class="header-date">
-	<a href="https://time.is/Beijing" target="_blank" id="time_is_link" rel="nofollow noopener" ></a>
-	<span id="Beijing_z43d"></span>
-</div>
-<script src="//widget.time.is/zh.js"></script>
-<script>
-	time_is_widget.init({
-		Beijing_z43d:{
-			template:"DATE", 
-			date_format:"year年 monthname dnum日"
-		}
-	});
-</script>
-			
-		</div>
-	</div>
-</header>
-
-<div id="navigation-hide">
-	<!-- Progress bar -->
-	<div id="progress-bar"></div>
-
-	<!-- Progress percent -->
-	<div id="progress-percentage"><h1>0.0%</h1></div>
-
-	<div class="toc-switch"><span class="switch-button">Catalog</span></div>
-
-	<!-- Page title -->
-	<p>
-		
-			Current post&nbsp;:&nbsp;《集合之Collection接口》
-		
-	</p>
-
-	<!-- Nav trigger for navigation-H-->
-	<a class="nav-trigger"><span></span></a>
-</div>
-
-<!-- Navigation in div(id="navigation-H") -->
-<nav class="nav-container" id="cd-nav">
-	<div class="nav-header">
-		<h3>Navigation</h3>
-		<a href="javascript:;" class="nav-close"></a>
-	</div>
-	<div class="nav-body">
-		<ul>
-	
-		<li class="menu-home">
-			<a href="/" class="menu-item-home">Home</a>
-		</li>
-	
-		<li class="menu-archive">
-			<a href="/archives" class="menu-item-archive">Archive</a>
-		</li>
-	
-		<li class="menu-categories">
-			<a href="/categories" class="menu-item-categories">Category</a>
-		</li>
-	
-		<li class="menu-tags">
-			<a href="/tags" class="menu-item-tags">Tag</a>
-		</li>
-	
-		<li class="menu-about">
-			<a href="/about" class="menu-item-about">About</a>
-		</li>
-	
-		<li class="menu-gallery">
-			<a href="/gallery" class="menu-item-gallery">Gallery</a>
-		</li>
-	
-
-	
-</ul>
-	</div>
-	<div class="nav-footer">
-		<ul>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-github"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-weibo"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-pinterest"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-instagram"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-twitter"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="/atom.xml" target="_blank">
-				<i class="fa fa-rss"></i>
-			</a>
-		</li>
-			
-</ul>
-
-	</div>
 </nav>
-			
-		<!--main-->
-		<main>
-			<!--
-	时间：2018-11-17
-	描述：
-		插件名称：katelog.min.js
-		插件作者：KELEN
-		插件来源: https://github.com/KELEN/katelog
--->
 
-	
-		<div class="layout-toc">
-			<div id="layout-toc">
-				<div class="k-catelog-list" id="catelog-list" data-title="文章目录"></div>
-			</div>
-		</div>
+    <div class="view intro-2" id="background"
+         style="background: url('/img/default.png')no-repeat center center;
+           background-size: cover;
+           background-attachment: fixed;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
 
-		
-		<script src="/plugin/toc/katelog.min.js"></script>
+            
+              <br>
+              
+                <p class="mt-3">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
+                  Sunday, November 3rd 2019, 3:52 pm
+                </p>
+              
 
-		
-	 
+              <p>
+                
+                  
+                  &nbsp;<i class="far fa-chart-bar"></i>
+                  <span class="post-count">
+                    1.3k 字
+                  </span>&nbsp;
+                
 
-<div class="layout-post">
-	<div id="layout-post">
-	<div class="article-title">
-		<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-		
-	<a href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BCollection%E6%8E%A5%E5%8F%A3/" itemprop="url">
-		集合之Collection接口
-	</a>
+                
+                  
+                  &nbsp;<i class="far fa-clock"></i>
+                  <span class="post-count">
+                      4 分钟
+                  </span>&nbsp;
+                
 
-	</div>
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  &nbsp;<i class="far fa-eye" aria-hidden="true"></i>&nbsp;
+                  <span id="busuanzi_container_page_pv">
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>&nbsp;
+                
+              </p>
+            
+          </div>
 
-	<div class="article-meta">
-		<span>
-			<i class="fa fa-calendar"></i>
-			
+          
+        </div>
+      </div>
+    </div>
+  </header>
 
+  <main>
+    
+      
 
-	Posted on
-
-	<a href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BCollection%E6%8E%A5%E5%8F%A3/" itemprop="url">
-		<time datetime="2019-11-03T07:52:24.000Z" itemprop="datePublished">
-	  		2019-11-03
-	  </time>
-	</a>
-	&nbsp;
-
-
-
-
-
-			
-
-
-
-
-	Updated on
-
-	<a href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BCollection%E6%8E%A5%E5%8F%A3/" itemprop="url">
-		<time datetime="2019-11-03T07:52:24.000Z" itemprop="dateUpdated">
-	  		2019-11-03
-	  </time>
-	</a> 
-
-
-
-		</span>
-		<span>
-			<i class="fa fa-tags"></i>
-					
-		</span>
-		
-		
-
-
-
-	</div>
-
-	<div class="article-content" id="article-content">
-		<h2 id="Java-集合框架概述"><a href="#Java-集合框架概述" class="headerlink" title="Java 集合框架概述"></a>Java 集合框架概述</h2><p>一方面， 面向对象语言对事物的体现都是以对象的形式，为了方便对多个对象<br>的操作，就要对对象进行存储。另一方面，使用Array存储对象方面具有一些弊<br>端，而Java 集合就像一种容器，可以动态地把多个对象的引用放入容器中。  </p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto" id="post">
+          <div class="markdown-body">
+            <h2 id="Java-集合框架概述"><a href="#Java-集合框架概述" class="headerlink" title="Java 集合框架概述"></a>Java 集合框架概述</h2><p>一方面， 面向对象语言对事物的体现都是以对象的形式，为了方便对多个对象<br>的操作，就要对对象进行存储。另一方面，使用Array存储对象方面具有一些弊<br>端，而Java 集合就像一种容器，可以动态地把多个对象的引用放入容器中。  </p>
 <h5 id="数组在内存存储方面的特点："><a href="#数组在内存存储方面的特点：" class="headerlink" title="数组在内存存储方面的特点："></a>数组在内存存储方面的特点：</h5><pre><code>数组初始化以后，长度就确定了。  
 数组声明的类型，就决定了进行元素初始化时的类型</code></pre><h5 id="数组在存储数据方面的弊端："><a href="#数组在存储数据方面的弊端：" class="headerlink" title="数组在存储数据方面的弊端："></a>数组在存储数据方面的弊端：</h5><pre><code>数组初始化以后，长度就不可变了，不便于扩展  
 数组中提供的属性和方法少，不便于进行添加、删除、插入等操作，且效率不高。同时无法直接获取存储元素的个数  
 数组存储的数据是有序的、可以重复的。----&gt;存储数据的特点单一  </code></pre><p><strong>Java 集合类可以用于存储数量不等的多个对象，还可用于保存具有映射关系的关联数组。</strong></p>
-<h6 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h6><p><img src="https://pic.superbed.cn/item/5dbd4e90bd461d945af059aa.png" alt=""></p>
+<h6 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h6><p><img src="https://pic.superbed.cn/item/5dbd4e90bd461d945af059aa.png" srcset="undefined" alt=""></p>
 <h3 id="Java-集合可分为-Collection-和-Map-两种体系"><a href="#Java-集合可分为-Collection-和-Map-两种体系" class="headerlink" title="Java 集合可分为 Collection 和 Map 两种体系"></a>Java 集合可分为 Collection 和 Map 两种体系</h3><h6 id="Collection接口：单列数据，定义了存取一组对象的方法的集合"><a href="#Collection接口：单列数据，定义了存取一组对象的方法的集合" class="headerlink" title="Collection接口：单列数据，定义了存取一组对象的方法的集合"></a>Collection接口：单列数据，定义了存取一组对象的方法的集合</h6><pre><code>List：元素有序、可重复的集合  
-Set：元素无序、不可重复的集合</code></pre><h6 id="Map接口：双列数据，保存具有映射关系“key-value对”的集合"><a href="#Map接口：双列数据，保存具有映射关系“key-value对”的集合" class="headerlink" title="Map接口：双列数据，保存具有映射关系“key-value对”的集合"></a>Map接口：双列数据，保存具有映射关系“key-value对”的集合</h6><h3 id="Collection接口继承树"><a href="#Collection接口继承树" class="headerlink" title="Collection接口继承树"></a>Collection接口继承树</h3><p><img src="https://pic.superbed.cn/item/5dbd4f61bd461d945af06385.png" alt=""></p>
+Set：元素无序、不可重复的集合</code></pre><h6 id="Map接口：双列数据，保存具有映射关系“key-value对”的集合"><a href="#Map接口：双列数据，保存具有映射关系“key-value对”的集合" class="headerlink" title="Map接口：双列数据，保存具有映射关系“key-value对”的集合"></a>Map接口：双列数据，保存具有映射关系“key-value对”的集合</h6><h3 id="Collection接口继承树"><a href="#Collection接口继承树" class="headerlink" title="Collection接口继承树"></a>Collection接口继承树</h3><p><img src="https://pic.superbed.cn/item/5dbd4f61bd461d945af06385.png" srcset="undefined" alt=""></p>
 <h1 id="Collection接口方法"><a href="#Collection接口方法" class="headerlink" title="Collection接口方法"></a>Collection接口方法</h1><h3 id="Collection-接口"><a href="#Collection-接口" class="headerlink" title="Collection 接口"></a>Collection 接口</h3><p>Collection 接口是 List、Set 和 Queue 接口的父接口，该接口里定义的方法<br>既可用于操作 Set 集合，也可用于操作 List 和 Queue 集合。  </p>
 <p>JDK不提供此接口的任何直接实现，而是提供更具体的子接口(如：Set和List)<br>实现。  </p>
-<p>在 Java5 之前，Java 集合会丢失容器中所有对象的数据类型，把所有对象都<br>当成 Object 类型处理；从 JDK 5.0 增加了泛型以后，Java 集合可以记住容<br>器中对象的数据类型。<br><img src="https://pic.superbed.cn/item/5dbd50b3bd461d945af074b1.png" alt=""><br><img src="https://pic.superbed.cn/item/5dbd50bcbd461d945af07604.png" alt=""></p>
-<h6 id="代码演示"><a href="#代码演示" class="headerlink" title="代码演示"></a>代码演示</h6><p><img src="https://pic.superbed.cn/item/5dbd50c5bd461d945af077ac.png" alt=""><br><img src="https://pic.superbed.cn/item/5dbd50d1bd461d945af07840.png" alt=""><br><img src="https://pic.superbed.cn/item/5dbd50d7bd461d945af07898.png" alt=""></p>
+<p>在 Java5 之前，Java 集合会丢失容器中所有对象的数据类型，把所有对象都<br>当成 Object 类型处理；从 JDK 5.0 增加了泛型以后，Java 集合可以记住容<br>器中对象的数据类型。<br><img src="https://pic.superbed.cn/item/5dbd50b3bd461d945af074b1.png" srcset="undefined" alt=""><br><img src="https://pic.superbed.cn/item/5dbd50bcbd461d945af07604.png" srcset="undefined" alt=""></p>
+<h6 id="代码演示"><a href="#代码演示" class="headerlink" title="代码演示"></a>代码演示</h6><p><img src="https://pic.superbed.cn/item/5dbd50c5bd461d945af077ac.png" srcset="undefined" alt=""><br><img src="https://pic.superbed.cn/item/5dbd50d1bd461d945af07840.png" srcset="undefined" alt=""><br><img src="https://pic.superbed.cn/item/5dbd50d7bd461d945af07898.png" srcset="undefined" alt=""></p>
 <h1 id="Iterator迭代器接口"><a href="#Iterator迭代器接口" class="headerlink" title="Iterator迭代器接口"></a>Iterator迭代器接口</h1><h3 id="使用-Iterator-接口遍历集合元素"><a href="#使用-Iterator-接口遍历集合元素" class="headerlink" title="使用 Iterator 接口遍历集合元素"></a>使用 Iterator 接口遍历集合元素</h3><pre><code>Iterator对象称为迭代器(设计模式的一种)，主要用于遍历Collection集合中的元素。   
 
 GOF给迭代器模式的定义为：提供一种方法访问一个容器(container)对象中各个元素，而又不需暴露该对象的内部细节。迭代器模式，就是为容器而生。类似于“公交车上的售票员”、“火车上的乘务员”、“空姐”。 
@@ -350,549 +181,237 @@ Collection接口继承了java.lang.Iterable接口，该接口有一个iterator()
 
 Iterator 仅用于遍历集合，Iterator本身并不提供承装对象的能力。如果需要创建Iterator对象，则必须有一个被迭代的集合.    
 
-集合对象每次调用iterator()方法都得到一个全新的迭代器对象，默认游标都在集合的第一个元素之前。</code></pre><h3 id="Iterator接口的方法"><a href="#Iterator接口的方法" class="headerlink" title="Iterator接口的方法"></a>Iterator接口的方法</h3><p><img src="https://pic.superbed.cn/item/5dbd557bbd461d945af0c7df.png" alt=""><br><img src="https://pic.superbed.cn/item/5dbd5584bd461d945af0c864.png" alt=""><br><img src="https://pic.superbed.cn/item/5dbd7c47bd461d945af295e1.png" alt=""></p>
-<h2 id="Iterator接口remove-方法"><a href="#Iterator接口remove-方法" class="headerlink" title="Iterator接口remove()方法"></a>Iterator接口remove()方法</h2><p><img src="https://pic.superbed.cn/item/5dbd6c1bbd461d945af1d675.png" alt=""></p>
+集合对象每次调用iterator()方法都得到一个全新的迭代器对象，默认游标都在集合的第一个元素之前。</code></pre><h3 id="Iterator接口的方法"><a href="#Iterator接口的方法" class="headerlink" title="Iterator接口的方法"></a>Iterator接口的方法</h3><p><img src="https://pic.superbed.cn/item/5dbd557bbd461d945af0c7df.png" srcset="undefined" alt=""><br><img src="https://pic.superbed.cn/item/5dbd5584bd461d945af0c864.png" srcset="undefined" alt=""><br><img src="https://pic.superbed.cn/item/5dbd7c47bd461d945af295e1.png" srcset="undefined" alt=""></p>
+<h2 id="Iterator接口remove-方法"><a href="#Iterator接口remove-方法" class="headerlink" title="Iterator接口remove()方法"></a>Iterator接口remove()方法</h2><p><img src="https://pic.superbed.cn/item/5dbd6c1bbd461d945af1d675.png" srcset="undefined" alt=""></p>
 <h3 id="使用-foreach-循环遍历集合元素"><a href="#使用-foreach-循环遍历集合元素" class="headerlink" title="使用 foreach 循环遍历集合元素"></a>使用 foreach 循环遍历集合元素</h3><pre><code>1.Java 5.0 提供了 foreach 循环迭代访问 Collection和数组。
 2.遍历操作不需获取Collection或数组的长度，无需使用索引访问元素。
 3.遍历集合的底层调用Iterator完成操作。
 4.foreach还可以用来遍历数组。</code></pre><h6 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">String[] str = new String[5];</span><br><span class="line">for (String myStr : str) &#123;</span><br><span class="line">myStr = &quot;atguigu&quot;;</span><br><span class="line">System.out.println(myStr);</span><br><span class="line">&#125;</span><br><span class="line">for (int i = 0; i &lt; str.length; i++) &#123;</span><br><span class="line">System.out.println(str[i]);</span><br><span class="line">&#125; &#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://pic.superbed.cn/item/5dbd6e3fbd461d945af1efee.png" alt=""></p>
+<p><img src="https://pic.superbed.cn/item/5dbd6e3fbd461d945af1efee.png" srcset="undefined" alt=""></p>
 <h1 id="Collection子接口之一：List接口"><a href="#Collection子接口之一：List接口" class="headerlink" title="Collection子接口之一：List接口"></a>Collection子接口之一：List接口</h1><h3 id="List接口概述"><a href="#List接口概述" class="headerlink" title="List接口概述"></a>List接口概述</h3><p>1.鉴于Java中数组用来存储数据的局限性，我们通常使用List替代数组<br>2.list集合类中元素有序、且可重复，集合中的每个元素都有其对应的顺序索引。<br>3.List容器中的元素都对应一个整数型的序号记载其在容器中的位置，可以根据序号存取容器中的元素。<br>4.JDK API中List接口的实现类常用的有：ArrayList、LinkedList和Vector。</p>
-<p><img src="https://pic.superbed.cn/item/5dbd70a9bd461d945af214c6.png" alt=""><br><img src="https://pic.superbed.cn/item/5dbd7decbd461d945af2a746.png" alt=""><br><img src="https://pic.superbed.cn/item/5dbd7df7bd461d945af2a82d.png" alt=""><br><img src="https://pic.superbed.cn/item/5dbd7dffbd461d945af2a8b2.png" alt=""></p>
+<p><img src="https://pic.superbed.cn/item/5dbd70a9bd461d945af214c6.png" srcset="undefined" alt=""><br><img src="https://pic.superbed.cn/item/5dbd7decbd461d945af2a746.png" srcset="undefined" alt=""><br><img src="https://pic.superbed.cn/item/5dbd7df7bd461d945af2a82d.png" srcset="undefined" alt=""><br><img src="https://pic.superbed.cn/item/5dbd7dffbd461d945af2a8b2.png" srcset="undefined" alt=""></p>
 <h2 id="List实现类之一：ArrayList"><a href="#List实现类之一：ArrayList" class="headerlink" title="List实现类之一：ArrayList"></a>List实现类之一：ArrayList</h2><h6 id="ArrayList-是-List-接口的典型实现类、主要实现类"><a href="#ArrayList-是-List-接口的典型实现类、主要实现类" class="headerlink" title="ArrayList 是 List 接口的典型实现类、主要实现类"></a>ArrayList 是 List 接口的典型实现类、主要实现类</h6><h6 id="本质上，ArrayList是对象引用的一个”变长”数组"><a href="#本质上，ArrayList是对象引用的一个”变长”数组" class="headerlink" title="本质上，ArrayList是对象引用的一个”变长”数组"></a>本质上，ArrayList是对象引用的一个”变长”数组</h6><h6 id="ArrayList的JDK1-8之前与之后的实现区别？"><a href="#ArrayList的JDK1-8之前与之后的实现区别？" class="headerlink" title="ArrayList的JDK1.8之前与之后的实现区别？"></a>ArrayList的JDK1.8之前与之后的实现区别？</h6><pre><code>JDK1.7：ArrayList像饿汉式，直接创建一个初始容量为10的数组  
 JDK1.8：ArrayList像懒汉式，一开始创建一个长度为0的数组，当添加第一个元
-素时再创建一个始容量为10的数组</code></pre><p>Arrays.asList(…) 方法返回的 List 集合，既不是 ArrayList 实例，也不是Vector 实例。 Arrays.asList(…) 返回值是一个固定长度的 List 集合<br><img src="https://pic.superbed.cn/item/5dbd7eabbd461d945af2ba2a.png" alt=""></p>
+素时再创建一个始容量为10的数组</code></pre><p>Arrays.asList(…) 方法返回的 List 集合，既不是 ArrayList 实例，也不是Vector 实例。 Arrays.asList(…) 返回值是一个固定长度的 List 集合<br><img src="https://pic.superbed.cn/item/5dbd7eabbd461d945af2ba2a.png" srcset="undefined" alt=""></p>
 <h2 id="List实现类之二：LinkedList"><a href="#List实现类之二：LinkedList" class="headerlink" title="List实现类之二：LinkedList"></a>List实现类之二：LinkedList</h2><h6 id="LinkedList：-双向链表-，内部没有声明数组，而是定义了Node类型的first和last，用于记录首末元素。同时，定义内部类Node，作为LinkedList中保存数据的基本结构。Node除了保存数据，还定义了两个变量："><a href="#LinkedList：-双向链表-，内部没有声明数组，而是定义了Node类型的first和last，用于记录首末元素。同时，定义内部类Node，作为LinkedList中保存数据的基本结构。Node除了保存数据，还定义了两个变量：" class="headerlink" title="LinkedList：==双向链表==，内部没有声明数组，而是定义了Node类型的first和last，用于记录首末元素。同时，定义内部类Node，作为LinkedList中保存数据的基本结构。Node除了保存数据，还定义了两个变量："></a>LinkedList：==双向链表==，内部没有声明数组，而是定义了Node类型的first和last，用于记录首末元素。同时，定义内部类Node，作为LinkedList中保存数据的基本结构。Node除了保存数据，还定义了两个变量：</h6><pre><code>prev变量记录前一个元素的位置  
-next变量记录下一个元素的位置</code></pre><p><img src="https://pic.superbed.cn/item/5dbd7f20bd461d945af2c42a.png" alt=""><br><img src="https://pic.superbed.cn/item/5dbd7fc2bd461d945af2cd79.png" alt=""></p>
-	
-	</div>
-	
-	<div id="current-post-cover" data-scr="/img/cart_cover.jpg"></div>
+next变量记录下一个元素的位置</code></pre><p><img src="https://pic.superbed.cn/item/5dbd7f20bd461d945af2c42a.png" srcset="undefined" alt=""><br><img src="https://pic.superbed.cn/item/5dbd7fc2bd461d945af2cd79.png" srcset="undefined" alt=""></p>
 
-	<!-- relate post, comment...-->
-	<div class="investment-container">
-		<div class="investment-header">
-			<div class="investment-title-1">
-				<div class="on">Related post</div>
-				<div>Comment</div>
-				<div>Share</div>
-			</div>
-			<div class="investment-title-2">	            
-				
-	<span>
-		<a href="javascript: window.scrollTo(0, 0);">To Top</a>
-		
-			<a href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BSet%E6%8E%A5%E5%8F%A3/" title="集合之Set接口" rel="prev">
-				&laquo;Pre post
-			</a>
-		
-		
-			<a href="/2019/11/02/hexo-github%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" title="hexo+github博客搭建" rel="next">
-				Next post&raquo;
-			</a>
-			
-	</span>
+            <hr>
+          </div>
+          <br>
+          <div>
+            <p>
+            
+            
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;TOC</p>
+    <div id="tocbot"></div>
+  </div>
 
-
-      		
-			</div>	
-		</div>
-		
-		<div class="investment-content">
-			<div class="investment-content-list">
-				
-
-<div class="relate-post">
-	
-		<ul>
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2019/11/10/%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/" title="的实现原理">
-								的实现原理			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十一月 10日, 2019				
-							</p>
-							<p class="relate-post-content">
-								
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2019/11/10/%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/" title="的实现原理">				
-								
-								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="的实现原理"/>
-							</a>
-						</div>
-					</li>											
-			
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2019/11/09/%E6%B7%B1%E5%85%A5Java-%E9%9B%86%E5%90%88%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97-%E4%B8%80-%EF%BC%9AHashMap-%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/" title="深入Java 集合学习系列(一)：HashMap 的实现原理">
-								深入Java 集合学习系列(一)：HashMap 的实现原理			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十一月 9日, 2019				
-							</p>
-							<p class="relate-post-content">
-								1. HashMap 概述：HashMap 是基于哈希表的 Map 接口的非同步实现。此实现提供所有可选的映射操作，并允许使用 null 值和null键。此类不保证映射的顺序，特别是它不保证该顺序恒久不变。
-2. HashMap 的数...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2019/11/09/%E6%B7%B1%E5%85%A5Java-%E9%9B%86%E5%90%88%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97-%E4%B8%80-%EF%BC%9AHashMap-%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/" title="深入Java 集合学习系列(一)：HashMap 的实现原理">				
-								
-								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="深入Java 集合学习系列(一)：HashMap 的实现原理"/>
-							</a>
-						</div>
-					</li>											
-			
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BMap%E6%8E%A5%E5%8F%A3/" title="集合之Map接口">
-								集合之Map接口			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十一月 3日, 2019				
-							</p>
-							<p class="relate-post-content">
-								Map接口
-Map接口概述1.Map与Collection并列存在。用于保存具有映射关系的数据:key-value2.Map 中的 key 和 value 都可以是任何引用类型的数据3.Map 中的 key 用Set来存放，不允许重复...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BMap%E6%8E%A5%E5%8F%A3/" title="集合之Map接口">				
-								
-								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="集合之Map接口"/>
-							</a>
-						</div>
-					</li>											
-			
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BSet%E6%8E%A5%E5%8F%A3/" title="集合之Set接口">
-								集合之Set接口			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十一月 3日, 2019				
-							</p>
-							<p class="relate-post-content">
-								Collection子接口之二： Set接口Set 接口概述123Set接口是Collection的子接口，set接口没有提供额外的方法  Set 集合不允许包含相同的元素，如果试把两个相同的元素加入同一个 Set 集合中，则添加操作...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BSet%E6%8E%A5%E5%8F%A3/" title="集合之Set接口">				
-								
-								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="集合之Set接口"/>
-							</a>
-						</div>
-					</li>											
-			
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2019/11/02/hexo-github%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" title="hexo+github博客搭建">
-								hexo+github博客搭建			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十一月 2日, 2019				
-							</p>
-							<p class="relate-post-content">
-								在官网下载Git和Nodejs按步骤进行安装，一直下一步就ok在命令行检测安装是否成功npm全局安装cnpmcnpm安装完成npm全局安装hexohexo安装完成新建一个blog文件夹（文件夹名随意），并进行博客初始化在命令行界面用c...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2019/11/02/hexo-github%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" title="hexo+github博客搭建">				
-								
-								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="hexo+github博客搭建"/>
-							</a>
-						</div>
-					</li>											
-			
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2019/11/02/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AE%B2%E8%A7%A32/" title="多线程讲解2">
-								多线程讲解2			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十一月 2日, 2019				
-							</p>
-							<p class="relate-post-content">
-								
-线程的生命周期JDK中用Thread.State类定义了线程的几种状态要想实现多线程，必须在主线程中创建新的线程对象。Java语言使用Thread类及其子类的对象来表示线程，在它的一个完整的生命周期中通常要经历如下的==五种状态：=...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2019/11/02/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AE%B2%E8%A7%A32/" title="多线程讲解2">				
-								
-								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="多线程讲解2"/>
-							</a>
-						</div>
-					</li>											
-			
-			
-					<li>
-						<div class="relate-post-text">
-							<a class="relate-post-title" href="/2019/11/02/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AE%B2%E8%A7%A31/" title="多线程讲解1">
-								多线程讲解1			
-							</a>
-							<p class="relate-post-date">
-								<i class="fa fa-calendar"></i>
-								十一月 2日, 2019				
-							</p>
-							<p class="relate-post-content">
-								# 基本概念：程序、进程、线程程序(program)是为完成特定任务、用某种语言编写的一组指令的集合。即指一段静态的代码，静态对象。
-==程序(program==)是为完成特定任务、用某种语言编写的一组指令的集合。即指一段静态的代码，...
-							</p>
-						</div>
-
-						<div class="relate-post-cover">
-							<a href="/2019/11/02/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AE%B2%E8%A7%A31/" title="多线程讲解1">				
-								
-								<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg" alt="多线程讲解1"/>
-							</a>
-						</div>
-					</li>											
-			
-			
-		</ul>
-	
-</div>	
-			</div>
-			<div class="investment-content-list">
-				<div class="layout-comment">
-
-	
-
-		
-
-			<!-- I don't know !!!-->
-			<div>Please check the comment setting in config.yml of hexo-theme-Annie!</div>
-			
-		
-		
-	
-
-</div>
-			</div>
-			<div class="investment-content-list">
-				<div class="layout-share">
-	
-	
-
-		
-			
-			<!-- socialShare share -->
-			<div class="social-share"></div>
-
-<!--  css & js -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/css/share.min.css">
-<script async src="https://cdnjs.cloudflare.com/ajax/libs/social-share.js/1.0.16/js/social-share.min.js"></script>
-			
-		
-		
-	
+    </div>
+  </div>
 </div>
 
+<!-- custom -->
 
-			</div>
-		</div>	
-	</div>
-	</div>
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+  </div>
 </div>
 
+    
+  </main>
 
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
 
-	<!-- leancloud -->
-	<!--
-	时间：2018-11-27
-	描述：
-		文章访问量：visitors
-		文章喜欢量：likes	
-		文章排行榜：topNPost
-		其他得说明：
-			01-Cookie相关的函数 
-				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
-			02-visitors相关的函数 
-				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
-				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
-			03-topNPost相关的函数
-				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
-			04-likes相关的函数，
-				参考了01 & 02进行简单的设计与实现
--->
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
 
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    <br>
 
-	
-
-
-<!-- show math formula -->
-
-
-
-	 
-	<script src="/plugin/clipboard/clipboard.js"></script>
-	<script>
-		// Copy code !
-	    function codePreprocessing() {
-	        $("#article-content .highlight").each(function() {
-
-	            $(this).wrap('<div id="post-code"></div>');
-
-	        })
-
-	        $("#article-content #post-code").each(function() {
-
-	            $(this).prepend('<nav class="copy-nav"><span><i class="code-language"></i></span></nav>');
-
-	        })
-
-	        $("#article-content .copy-nav").each(function() {
-	            var temp = $(this).next().attr('class'),
-	                language = ((temp.length > 9) && (temp != null)) ? temp.substr(10) : "none"; //why 9? Need to check language?
-
-	            $(this).find('.code-language').text(language);
-
-	            $(this).append('<span class="copy-btn"><i class="fa fa-copy" aria-hidden="true"></i></span>');
-
-	        });
-	    }
-
-		function codeCopy() {
-		    $('#article-content #post-code').each(function(i) {
-		        var codeCopyId = 'codeCopy-' + i;
-
-		        var codeNode = $(this).find('.code'),
-		            copyButton = $(this).find('.copy-btn');
-
-		        codeNode.attr('id', codeCopyId);
-		        copyButton.attr('data-clipboard-target-id', codeCopyId);
-		    })
-
-		    
-			var clipboard = new ClipboardJS('.copy-btn', {
-					target: function(trigger) {
-						return document.getElementById(trigger.getAttribute('data-clipboard-target-id'));
-					}
-		      	});
-
-			//pure js
-			function showTooltip(elem, msg) {		   
-				elem.setAttribute('aria-label', msg);
-				elem.setAttribute('class', 'copy-btn copy-status');
-				setTimeout(function() {
-					elem.setAttribute('class', 'copy-btn');
-				}, 2000);
-			}
-
-			clipboard.on('success', function(e) {
-			    e.clearSelection();
-			    console.info('Action:', e.action);		   
-			    console.info('Trigger:', e.trigger);
-			    showTooltip(e.trigger, 'Copied!');
-			    
-			});
-			clipboard.on('error', function(e) {
-			    console.error('Action:', e.action);
-			    console.error('Trigger:', e.trigger);
-			});
-		
-
-		}
-
-		if ($('.layout-post').length) {
-		    codePreprocessing();
-		    codeCopy();
-		} 
-	</script>
+    
+  
+    <!-- 不蒜子统计PV -->
+    
+    &nbsp;<span id="busuanzi_container_site_pv">总访问量 
+          <span id="busuanzi_value_site_pv"></span> 次</span>&nbsp;
+  
+  
+    <!-- 不蒜子统计UV -->
+    
+    &nbsp;<span id="busuanzi_container_site_uv">总访客数 
+            <span id="busuanzi_value_site_uv"></span> 人</span>&nbsp;
+  
+  <br>
 
 
 
+    
 
-
-<link rel="stylesheet" href="/plugin/fancybox/jquery.fancybox.css">
-<script src="/plugin/fancybox/jquery.fancybox.js"></script>
-
-<script type="text/javascript">
-	var titleID = $('.article-title a'),
-		imageID = $('.article-content img'),
-		videoID = $('.article-content video');
-
-	var postTitle = titleID.text() ? titleID.text() : "No post title!";
-
-	imageID.each(function() {
-		var imgPath = $(this).attr('src'),
-			imgTitle = $(this).attr('alt') ? $(this).attr('alt') : "No image description!";
-
-		//给每个匹配的<img>元素打包, 即添加父元素<a>
-		$(this).wrap('<a data-fancybox="gallery" data-caption=" 《 ' + postTitle + ' 》 ' + imgTitle + ' "  href=" ' + imgPath + ' "> </a>');
-	});
-
-	videoID.each(function() {
-		var videoPath = $(this).attr('src');
-
-		//给每个匹配的<img>元素打包, 即添加父元素<a>
-		$(this).wrap('<a data-fancybox href=" ' + videoPath + ' "> </a>');
-	});
-	//TODO：支持html5 video
-
-	if($('#layout-post').length) {
-		$('[data-fancybox="gallery"]').fancybox({
-			loop: true,
-			buttons: [
-				"zoom",
-				"share",
-				"slideShow",
-				"fullScreen",
-				//"download",
-				"thumbs",
-				"close"
-			],
-			protect: false
-		});
-	}
-</script>
-		</main>
-
-		<!--footer-->
-		<footer>
-	<div class="social">
-		<ul>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-github"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-weibo"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-pinterest"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-instagram"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-twitter"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="/atom.xml" target="_blank">
-				<i class="fa fa-rss"></i>
-			</a>
-		</li>
-			
-</ul>
-
-	</div>
-		
-	<div class="copyright">
-		<p>
-			 
-				&copy;2017 - 2019, content by John Doe. All Rights Reserved.
-			
-			
-			
-
-	<!-- busuanzi -->
-	<!-- busuanzi -->
-
-		
-	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-	
-
-		<span id="busuanzi_container_page_pv">
-	  		本文总阅读量<span id="busuanzi_value_page_pv"></span>次
-		</span>
-
-	
-
-
-
-
-		</p>
-		<p>
-			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.
-			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
-			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁體</a>				
-		</p>
-	</div>		
+  </div>
 </footer>
-		
-	<!-- set '1' to show motto in all pages! -->
 
-	<script src="/plugin/motto/motto.js"></script>
-	
-	<script type="text/javascript">
-		$(".motto").html( getMingYanContent() );
-	</script>	
-
+<!-- SCRIPTS -->
+<script src="/lib/jquery/jquery.min.js" ></script>
+<script src="/lib/popper/popper.min.js" ></script>
+<script src="/lib/bootstrap/js/bootstrap.min.js" ></script>
+<script src="/lib/mdbootstrap/js/mdb.min.js" ></script>
+<script src="/js/main.js" ></script>
 
 
-
-
-<!-- love effect -->
-
-	<script src="/plugin/love/love.js"></script>
-
-
-<!-- back to top -->
-
-	
-	<div id="totop">
-  		<a href="javascript:;"  name="TOTOP" class="fa fa-arrow-up" ></a>
-	</div>
+  <script src="/js/lazyload.js" ></script>
 
 
 
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
 
-<!-- site analysis -->
 
 
-	<!-- site-analysis -->
-	
+  <script src="/lib/smooth-scroll/smooth-scroll.min.js" ></script>
 
-	
-	
-	
-	
- 
 
-<script src="/plugin/vibrant/vibrant.js"></script>
-<script src="/plugin/chinese/chinese.js"></script>
-<script src="/plugin/imgLazyLoader/yall.min.js"></script>
-<script src="/plugin/imgResize/jquery.resizeimagetoparent.min.js"></script>
-<script src="/plugin/nicescroll/jquery.nicescroll.js"></script>
-<script src="/js/resizediv.js"></script>
-<script src="/js/main.js"></script>
-	</body>	
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+<!-- Plugins -->
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+  <script src="/lib/prettify/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint  linenums');
+      prettyPrint();
+    })
+  </script>
+
+
+
+  <script src="/lib/typed/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "集合之Collection接口&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script src="/lib/anchor/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "false",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script src="/lib/fancybox/jquery.fancybox.min.js" ></script>
+  <script>
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+      function () {
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "images");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+</body>
 </html>

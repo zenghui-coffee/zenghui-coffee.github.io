@@ -1,873 +1,570 @@
-<!--
-	作者：Sariay
-	时间：2018-09-25
-	描述：There may be a bug, but don't worry, QiLing(器灵) says that it can work normally!
--->
 <!DOCTYPE html>
-<html class="html-loading">
-		
+<html lang="en">
+
+
+
+
 
 <head>
-	<meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
-  <title>
-    
-      Hexo
-    
-  </title>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="">
   <meta name="author" content="John Doe">
-  <meta name="keywords" content="" />
-  <meta name="description" content="" />
-	<!-- favicon -->
-  <link rel="shortcut icon" href="/img/favicon.ico">
+  <meta name="keywords" content="">
+  <title>Hexo</title>
 
-  <!-- css -->
-  <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="/css/Annie.css">
-  
-  <!-- jquery -->
-	<script src="/js/jquery.min.js"></script>
+  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
+<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
+<link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css"  >
+<link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css"  >
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
 
-  <!-- leancloud -->
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
-<script src="/js/leancloud.js"></script>
+
+  <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css"  >
+
+<link rel="stylesheet" href="/css/main.css"  >
+
+
+  <link rel="stylesheet" href="/lib/fancybox/jquery.fancybox.min.css"  >
+
+
 </head>
-	<body>
-		<!-- Preloader -->
-
-	<div id="preloader">
-		<div class="pre-container">
-			
-				<div class="spinner">
-					<div class="double-bounce1"></div>
-					<div class="double-bounce2"></div>
-				</div>
-						
-		</div>
-	</div>
 
 
-<!-- header -->
-<header class="fixbackground" data-img-mode="normal" data-normal-src="/img/1.jpg" data-random-max="110" data-random-src="https://sariay.github.io/Random-img/">
-	<div class="mask">
-		<!-- Logo and navigation -->
-		<div class="h-header">
-			<div id="logo">
-				<a href="/">
-						
-						<img src="/img/logo.png" alt="Logo">
-					
-				</a>
-			</div>
-			
-			<div id="navigation-show">
-				<ul>
-	
-		<li class="menu-home">
-			<a href="/" class="menu-item-home">Home</a>
-		</li>
-	
-		<li class="menu-archive">
-			<a href="/archives" class="menu-item-archive">Archive</a>
-		</li>
-	
-		<li class="menu-categories">
-			<a href="/categories" class="menu-item-categories">Category</a>
-		</li>
-	
-		<li class="menu-tags">
-			<a href="/tags" class="menu-item-tags">Tag</a>
-		</li>
-	
-		<li class="menu-about">
-			<a href="/about" class="menu-item-about">About</a>
-		</li>
-	
-		<li class="menu-gallery">
-			<a href="/gallery" class="menu-item-gallery">Gallery</a>
-		</li>
-	
+<body>
+  <header style="height: 100vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Hexo</strong>&nbsp;</a>
 
-	
-</ul>
-			</div>				
-		</div>
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
 
-		<!-- motto -->
-		<div class="h-body">	
-			
-				<p class="motto"></p>
-			
-		</div>
-		
-		<!-- others: such as time... -->			
-		<div class="h-footer">
-			<a href="javascript:;" id="read-more"><i class="fa fa-angle-double-down" aria-hidden="true"></i>
-			</a>
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">Archives</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">Categories</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">Tags</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">About</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
 
-			
-				<!-- 
-	This is only a demo, please go to "https://time.is" to set your city time! 
--->
-<style type="text/css">
-	.header-date {
-		font-size: 1.6rem;
-		color: #fff;
-		position: absolute;
-		bottom: 5px;
-		right: 1rem;
-		writing-mode: tb-rl;
-	}	
-	
-	.header-date a {
-		border-bottom: none;
-	}
 
-	@media only screen and (max-width: 768 ) {
-		.header-date {
-			font-size: 1rem;
-		}			
-	}
-</style>
-<div class="header-date">
-	<a href="https://time.is/Beijing" target="_blank" id="time_is_link" rel="nofollow noopener" ></a>
-	<span id="Beijing_z43d"></span>
-</div>
-<script src="//widget.time.is/zh.js"></script>
-<script>
-	time_is_widget.init({
-		Beijing_z43d:{
-			template:"DATE", 
-			date_format:"year年 monthname dnum日"
-		}
-	});
-</script>
-			
-		</div>
-	</div>
-</header>
-
-<div id="navigation-hide">
-	<!-- Progress bar -->
-	<div id="progress-bar"></div>
-
-	<!-- Progress percent -->
-	<div id="progress-percentage"><h1>0.0%</h1></div>
-
-	<div class="toc-switch"><span class="switch-button">Catalog</span></div>
-
-	<!-- Page title -->
-	<p>
-		
-			Home
-		
-	</p>
-
-	<!-- Nav trigger for navigation-H-->
-	<a class="nav-trigger"><span></span></a>
-</div>
-
-<!-- Navigation in div(id="navigation-H") -->
-<nav class="nav-container" id="cd-nav">
-	<div class="nav-header">
-		<h3>Navigation</h3>
-		<a href="javascript:;" class="nav-close"></a>
-	</div>
-	<div class="nav-body">
-		<ul>
-	
-		<li class="menu-home">
-			<a href="/" class="menu-item-home">Home</a>
-		</li>
-	
-		<li class="menu-archive">
-			<a href="/archives" class="menu-item-archive">Archive</a>
-		</li>
-	
-		<li class="menu-categories">
-			<a href="/categories" class="menu-item-categories">Category</a>
-		</li>
-	
-		<li class="menu-tags">
-			<a href="/tags" class="menu-item-tags">Tag</a>
-		</li>
-	
-		<li class="menu-about">
-			<a href="/about" class="menu-item-about">About</a>
-		</li>
-	
-		<li class="menu-gallery">
-			<a href="/gallery" class="menu-item-gallery">Gallery</a>
-		</li>
-	
-
-	
-</ul>
-	</div>
-	<div class="nav-footer">
-		<ul>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-github"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-weibo"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-pinterest"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-instagram"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-twitter"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="/atom.xml" target="_blank">
-				<i class="fa fa-rss"></i>
-			</a>
-		</li>
-			
-</ul>
-
-	</div>
 </nav>
-			
-		<!--main-->
-		<main>
-			
 
-
-
-	<!--cart style-->
-	<div class="layout-cart">
-	<div id="layout-cart">
-		
-		<div class="post" id="post">
-			<a class="post-cover" href="/2019/11/10/%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/" title=" 的实现原理 ">
-				
-				<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg"/>
-			</a>
-
-			<div class="post-text">
-				<p class="post-time">
-					十一月 10日, 2019
-				</p>	
-				<h3 class="post-title" id="post-title-index">
-					<a href="/2019/11/10/%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/" title="的实现原理">
-						<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-						
-	<a href="/2019/11/10/%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/" itemprop="url">
-		的实现原理
-	</a>
-
-					</a>
-				</h3>
-				<p class="post-content">
-					
-						<!--没有文章内容-->
-						There is no content...
-					
-				</p>
-				<p class="post-meta">
-					
-
-
-
-					
-
-	<!-- leancloud -->
-	<!--
-	时间：2018-11-27
-	描述：
-		文章访问量：visitors
-		文章喜欢量：likes	
-		文章排行榜：topNPost
-		其他得说明：
-			01-Cookie相关的函数 
-				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
-			02-visitors相关的函数 
-				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
-				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
-			03-topNPost相关的函数
-				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
-			04-likes相关的函数，
-				参考了01 & 02进行简单的设计与实现
--->
-
-
-	
-
-				</p>
-			</div>
-		</div>
-		
-		<div class="post" id="post">
-			<a class="post-cover" href="/2019/11/09/%E6%B7%B1%E5%85%A5Java-%E9%9B%86%E5%90%88%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97-%E4%B8%80-%EF%BC%9AHashMap-%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/" title=" 深入Java 集合学习系列(一)：HashMap 的实现原理 ">
-				
-				<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg"/>
-			</a>
-
-			<div class="post-text">
-				<p class="post-time">
-					十一月 9日, 2019
-				</p>	
-				<h3 class="post-title" id="post-title-index">
-					<a href="/2019/11/09/%E6%B7%B1%E5%85%A5Java-%E9%9B%86%E5%90%88%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97-%E4%B8%80-%EF%BC%9AHashMap-%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/" title="深入Java 集合学习系列(一)：HashMap 的实现原理">
-						<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-						
-	<a href="/2019/11/09/%E6%B7%B1%E5%85%A5Java-%E9%9B%86%E5%90%88%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97-%E4%B8%80-%EF%BC%9AHashMap-%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/" itemprop="url">
-		深入Java 集合学习系列(一)：HashMap 的实现原理
-	</a>
-
-					</a>
-				</h3>
-				<p class="post-content">
-					
-						1. HashMap 概述：HashMap 是基于哈希表的 Map 接口的非同步实现。此实现提供所有可选的映射操作，并允许使用 null 值和null键。...
-					
-				</p>
-				<p class="post-meta">
-					
-
-
-
-					
-
-	<!-- leancloud -->
-	<!--
-	时间：2018-11-27
-	描述：
-		文章访问量：visitors
-		文章喜欢量：likes	
-		文章排行榜：topNPost
-		其他得说明：
-			01-Cookie相关的函数 
-				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
-			02-visitors相关的函数 
-				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
-				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
-			03-topNPost相关的函数
-				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
-			04-likes相关的函数，
-				参考了01 & 02进行简单的设计与实现
--->
-
-
-	
-
-				</p>
-			</div>
-		</div>
-		
-		<div class="post" id="post">
-			<a class="post-cover" href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BMap%E6%8E%A5%E5%8F%A3/" title=" 集合之Map接口 ">
-				
-				<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg"/>
-			</a>
-
-			<div class="post-text">
-				<p class="post-time">
-					十一月 3日, 2019
-				</p>	
-				<h3 class="post-title" id="post-title-index">
-					<a href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BMap%E6%8E%A5%E5%8F%A3/" title="集合之Map接口">
-						<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-						
-	<a href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BMap%E6%8E%A5%E5%8F%A3/" itemprop="url">
-		集合之Map接口
-	</a>
-
-					</a>
-				</h3>
-				<p class="post-content">
-					
-						Map接口
-Map接口概述1.Map与Collection并列存在。用于保存具有映射关系的数据:key-value2.Map 中的 key 和 value...
-					
-				</p>
-				<p class="post-meta">
-					
-
-
-
-					
-
-	<!-- leancloud -->
-	<!--
-	时间：2018-11-27
-	描述：
-		文章访问量：visitors
-		文章喜欢量：likes	
-		文章排行榜：topNPost
-		其他得说明：
-			01-Cookie相关的函数 
-				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
-			02-visitors相关的函数 
-				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
-				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
-			03-topNPost相关的函数
-				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
-			04-likes相关的函数，
-				参考了01 & 02进行简单的设计与实现
--->
-
-
-	
-
-				</p>
-			</div>
-		</div>
-		
-		<div class="post" id="post">
-			<a class="post-cover" href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BSet%E6%8E%A5%E5%8F%A3/" title=" 集合之Set接口 ">
-				
-				<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg"/>
-			</a>
-
-			<div class="post-text">
-				<p class="post-time">
-					十一月 3日, 2019
-				</p>	
-				<h3 class="post-title" id="post-title-index">
-					<a href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BSet%E6%8E%A5%E5%8F%A3/" title="集合之Set接口">
-						<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-						
-	<a href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BSet%E6%8E%A5%E5%8F%A3/" itemprop="url">
-		集合之Set接口
-	</a>
-
-					</a>
-				</h3>
-				<p class="post-content">
-					
-						Collection子接口之二： Set接口Set 接口概述123Set接口是Collection的子接口，set接口没有提供额外的方法  Set 集合不...
-					
-				</p>
-				<p class="post-meta">
-					
-
-
-
-					
-
-	<!-- leancloud -->
-	<!--
-	时间：2018-11-27
-	描述：
-		文章访问量：visitors
-		文章喜欢量：likes	
-		文章排行榜：topNPost
-		其他得说明：
-			01-Cookie相关的函数 
-				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
-			02-visitors相关的函数 
-				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
-				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
-			03-topNPost相关的函数
-				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
-			04-likes相关的函数，
-				参考了01 & 02进行简单的设计与实现
--->
-
-
-	
-
-				</p>
-			</div>
-		</div>
-		
-		<div class="post" id="post">
-			<a class="post-cover" href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BCollection%E6%8E%A5%E5%8F%A3/" title=" 集合之Collection接口 ">
-				
-				<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg"/>
-			</a>
-
-			<div class="post-text">
-				<p class="post-time">
-					十一月 3日, 2019
-				</p>	
-				<h3 class="post-title" id="post-title-index">
-					<a href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BCollection%E6%8E%A5%E5%8F%A3/" title="集合之Collection接口">
-						<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-						
-	<a href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BCollection%E6%8E%A5%E5%8F%A3/" itemprop="url">
-		集合之Collection接口
-	</a>
-
-					</a>
-				</h3>
-				<p class="post-content">
-					
-						Java 集合框架概述一方面， 面向对象语言对事物的体现都是以对象的形式，为了方便对多个对象的操作，就要对对象进行存储。另一方面，使用Array存储对象方...
-					
-				</p>
-				<p class="post-meta">
-					
-
-
-
-					
-
-	<!-- leancloud -->
-	<!--
-	时间：2018-11-27
-	描述：
-		文章访问量：visitors
-		文章喜欢量：likes	
-		文章排行榜：topNPost
-		其他得说明：
-			01-Cookie相关的函数 
-				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
-			02-visitors相关的函数 
-				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
-				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
-			03-topNPost相关的函数
-				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
-			04-likes相关的函数，
-				参考了01 & 02进行简单的设计与实现
--->
-
-
-	
-
-				</p>
-			</div>
-		</div>
-		
-		<div class="post" id="post">
-			<a class="post-cover" href="/2019/11/02/hexo-github%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" title=" hexo+github博客搭建 ">
-				
-				<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg"/>
-			</a>
-
-			<div class="post-text">
-				<p class="post-time">
-					十一月 2日, 2019
-				</p>	
-				<h3 class="post-title" id="post-title-index">
-					<a href="/2019/11/02/hexo-github%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" title="hexo+github博客搭建">
-						<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-						
-	<a href="/2019/11/02/hexo-github%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" itemprop="url">
-		hexo+github博客搭建
-	</a>
-
-					</a>
-				</h3>
-				<p class="post-content">
-					
-						在官网下载Git和Nodejs按步骤进行安装，一直下一步就ok在命令行检测安装是否成功npm全局安装cnpmcnpm安装完成npm全局安装hexohexo...
-					
-				</p>
-				<p class="post-meta">
-					
-
-
-
-					
-
-	<!-- leancloud -->
-	<!--
-	时间：2018-11-27
-	描述：
-		文章访问量：visitors
-		文章喜欢量：likes	
-		文章排行榜：topNPost
-		其他得说明：
-			01-Cookie相关的函数 
-				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
-			02-visitors相关的函数 
-				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
-				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
-			03-topNPost相关的函数
-				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
-			04-likes相关的函数，
-				参考了01 & 02进行简单的设计与实现
--->
-
-
-	
-
-				</p>
-			</div>
-		</div>
-		
-		<div class="post" id="post">
-			<a class="post-cover" href="/2019/11/02/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AE%B2%E8%A7%A32/" title=" 多线程讲解2 ">
-				
-				<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg"/>
-			</a>
-
-			<div class="post-text">
-				<p class="post-time">
-					十一月 2日, 2019
-				</p>	
-				<h3 class="post-title" id="post-title-index">
-					<a href="/2019/11/02/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AE%B2%E8%A7%A32/" title="多线程讲解2">
-						<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-						
-	<a href="/2019/11/02/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AE%B2%E8%A7%A32/" itemprop="url">
-		多线程讲解2
-	</a>
-
-					</a>
-				</h3>
-				<p class="post-content">
-					
-						
-线程的生命周期JDK中用Thread.State类定义了线程的几种状态要想实现多线程，必须在主线程中创建新的线程对象。Java语言使用Thread类及其...
-					
-				</p>
-				<p class="post-meta">
-					
-
-
-
-					
-
-	<!-- leancloud -->
-	<!--
-	时间：2018-11-27
-	描述：
-		文章访问量：visitors
-		文章喜欢量：likes	
-		文章排行榜：topNPost
-		其他得说明：
-			01-Cookie相关的函数 
-				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
-			02-visitors相关的函数 
-				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
-				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
-			03-topNPost相关的函数
-				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
-			04-likes相关的函数，
-				参考了01 & 02进行简单的设计与实现
--->
-
-
-	
-
-				</p>
-			</div>
-		</div>
-		
-		<div class="post" id="post">
-			<a class="post-cover" href="/2019/11/02/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AE%B2%E8%A7%A31/" title=" 多线程讲解1 ">
-				
-				<img class="lazy" src="/img/placeholder.jpg" data-src="/img/cart_cover.jpg"/>
-			</a>
-
-			<div class="post-text">
-				<p class="post-time">
-					十一月 2日, 2019
-				</p>	
-				<h3 class="post-title" id="post-title-index">
-					<a href="/2019/11/02/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AE%B2%E8%A7%A31/" title="多线程讲解1">
-						<i class="fa fa-paper-plane-o" aria-hidden="true"></i>
-						
-	<a href="/2019/11/02/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AE%B2%E8%A7%A31/" itemprop="url">
-		多线程讲解1
-	</a>
-
-					</a>
-				</h3>
-				<p class="post-content">
-					
-						# 基本概念：程序、进程、线程程序(program)是为完成特定任务、用某种语言编写的一组指令的集合。即指一段静态的代码，静态对象。
-==程序(progr...
-					
-				</p>
-				<p class="post-meta">
-					
-
-
-
-					
-
-	<!-- leancloud -->
-	<!--
-	时间：2018-11-27
-	描述：
-		文章访问量：visitors
-		文章喜欢量：likes	
-		文章排行榜：topNPost
-		其他得说明：
-			01-Cookie相关的函数 
-				https://blog.csdn.net/somehow1002/article/details/78511541（Author：somehow1002）
-			02-visitors相关的函数 
-				https://blog.csdn.net/u013553529/article/details/63357382（Author：爱博客大伯）
-				https://notes.doublemine.me/2015-10-21-为NexT主题添加文章阅读量统计功能.html（Author：夏末）
-			03-topNPost相关的函数
-				https://hoxis.github.io/hexo-next-read-rank.html（Author：hoxis）
-			04-likes相关的函数，
-				参考了01 & 02进行简单的设计与实现
--->
-
-
-	
-
-				</p>
-			</div>
-		</div>
-		
-	</div>
-	
-	
-	<div id="pagination">
-		
-	</div>
-
-	
+    <div class="view intro-2" id="background"
+         style="background: url('/img/default.png')no-repeat center center;
+           background-size: cover;
+           background-attachment: fixed;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="fas fa-angle-down scroll-down-arrow"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-md">
+        <div class="py-5 z-depth-3" id="board">
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/11/10/%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/">
+        <p class="h4 index-header">的实现原理</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1"></div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-10&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/11/09/%E6%B7%B1%E5%85%A5Java-%E9%9B%86%E5%90%88%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97-%E4%B8%80-%EF%BC%9AHashMap-%E7%9A%84%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86/">
+        <p class="h4 index-header">深入Java 集合学习系列(一)：HashMap 的实现原理</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">1. HashMap 概述：HashMap 是基于哈希表的 Map 接口的非同步实现。此实现提供所有可选的映射操作，并允许使用 null 值和null键。此类不保证映射的顺序，特别是它不保证该顺序恒久不变。
+2. HashMap 的数据结构：在 java 编程语言中，最基本的结构就是两种，一个是数组，另外一个是模拟指针（引用），所有的数据结构都可以用这两个基本结构来构造的，HashMap 也不例外。HashMap实际上是一个“链表散列”的数据结构，即数组和链表的结合体。从上图中可以看出，HashMap 底层就是一个数组结构，数组中的每一项又是一个链表。当新建一个 HashMap 的时候，就会初始化一个数组。  
+源码如下：123456789101112131. /**2. * The table, resized as necessary. Length MUST Always be a power of two.3. */4. transient Entry[] table;5.6. static class Entry&lt;K,V&gt; implements Map.Entry</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-09&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BMap%E6%8E%A5%E5%8F%A3/">
+        <p class="h4 index-header">集合之Map接口</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">Map接口
+Map接口概述1.Map与Collection并列存在。用于保存具有映射关系的数据:key-value2.Map 中的 key 和 value 都可以是任何引用类型的数据3.Map 中的 key 用Set来存放，不允许重复，即同一个 Map 对象所对应的类，须重写hashCode()和equals()方法4.常用String类作为Map的“键”5.key 和 value 之间存在单向一对一关系，即通过指定的 key 总能找到唯一的、确定的 value6.Map接口的常用实现类：HashMap、TreeMap、LinkedHashMap和Properties。其中，HashMap是 Map 接口使用频率最高的实现类
+Map接口：常用方法
+Map实现类之一：HashMap  
+Map实现类之三：TreeMap
+自然排序（Comparable接口）
+定制排序（Comparator()）
+Collections工具类
+Collections常用方法
 
 </div>
-	
+        </div>
+      </a>
 
-		</main>
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-03&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
 
-		<!--footer-->
-		<footer>
-	<div class="social">
-		<ul>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-github"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-weibo"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-pinterest"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-instagram"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="http://github.com/" target="_blank">
-				<i class="fa fa-twitter"></i>
-			</a>
-		</li>
-	
-		<li>
-			<a href="/atom.xml" target="_blank">
-				<i class="fa fa-rss"></i>
-			</a>
-		</li>
-			
-</ul>
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BSet%E6%8E%A5%E5%8F%A3/">
+        <p class="h4 index-header">集合之Set接口</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">Collection子接口之二： Set接口Set 接口概述123Set接口是Collection的子接口，set接口没有提供额外的方法  Set 集合不允许包含相同的元素，如果试把两个相同的元素加入同一个 Set 集合中，则添加操作失败。  Set 判断两个对象是否相同不是使用 == 运算符，而是根据equals() 方法
 
-	</div>
-		
-	<div class="copyright">
-		<p>
-			 
-				&copy;2017 - 2019, content by John Doe. All Rights Reserved.
-			
-			
-			
+Set实现类之一：HashSetHashSet 是 Set 接口的典型实现，大多数时候使用 Set 集合时都使用这个实现类。HashSet 按 Hash算法来存储集合中的元素，因此具有很好的存取、查找、删除 性能。 
+HashSet 具有以下特点：不能保证元素的排列顺序   
+HashSet 不是线程安全的  
+集合元素可以是 null ==HashSet 集合判断两个元素相等的标准==：两个对象通过hashCode() 方法比较相等，并且两个对象的equals()方法返回值也相等。 
+对于存放在Set容器中的对象，对应的类一定要重写equals()和hashCode(Objectobj)方法，以实现对象相等规则。即：“相等的对象必须具有相等的散列码”。Set实</div>
+        </div>
+      </a>
 
-	<!-- busuanzi -->
-	<!-- busuanzi -->
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-03&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
 
-		
-	<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-	
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/11/03/%E9%9B%86%E5%90%88%E4%B9%8BCollection%E6%8E%A5%E5%8F%A3/">
+        <p class="h4 index-header">集合之Collection接口</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">Java 集合框架概述一方面， 面向对象语言对事物的体现都是以对象的形式，为了方便对多个对象的操作，就要对对象进行存储。另一方面，使用Array存储对象方面具有一些弊端，而Java 集合就像一种容器，可以动态地把多个对象的引用放入容器中。  
+数组在内存存储方面的特点：数组初始化以后，长度就确定了。  
+数组声明的类型，就决定了进行元素初始化时的类型数组在存储数据方面的弊端：数组初始化以后，长度就不可变了，不便于扩展  
+数组中提供的属性和方法少，不便于进行添加、删除、插入等操作，且效率不高。同时无法直接获取存储元素的个数  
+数组存储的数据是有序的、可以重复的。----&gt;存储数据的特点单一  Java 集合类可以用于存储数量不等的多个对象，还可用于保存具有映射关系的关联数组。
+使用场景
+Java 集合可分为 Collection 和 Map 两种体系Collection接口：单列数据，定义了存取一组对象的方法的集合List：元素有序、可重复的集合  
+Set：元素无序、不可重复的集合Map接口：双列数据，保存具有映射关系“key-value对”的集合Collection接口继承</div>
+        </div>
+      </a>
 
-		<span id="busuanzi_container_site_pv">
-	    	本站总访问量<span id="busuanzi_value_site_pv"></span>次
-		</span>
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-03&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
 
-		<span id="busuanzi_container_site_uv">
-	  		本站访客数<span id="busuanzi_value_site_uv"></span>人次
-		</span>
-		
-	
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/11/02/hexo-github%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">
+        <p class="h4 index-header">hexo+github博客搭建</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">在官网下载Git和Nodejs按步骤进行安装，一直下一步就ok在命令行检测安装是否成功npm全局安装cnpmcnpm安装完成npm全局安装hexohexo安装完成新建一个blog文件夹（文件夹名随意），并进行博客初始化在命令行界面用cd blog进入到blog文件夹，然后输入hexo init初始化博客注意：如果初始化博客卡住，只需把文件夹内的文件全部删除，然后重新初始化即可创建本地的静态博客页面，可以通过本地端口打开Ctrl+C结束进程
+接下就就需要把本地的博客部署到Github的服务器上啦，也是最关键的地方 在电脑左下角的开始界面中打卡最近添加的Git Bash  将用户名设置为自己Github的账户名，之后验证会很重要  设置自己的常用邮箱    之后打开这个网页新建Github账号，Username最好与刚才设置的user.name相同 新建Github帐号之后进行登录，然后新建一个New repository  之后设置Repository name，打码的地方必须都一样
+ 创建Github完成，记住自己的网址  之后在blog文件夹内打开此文件  在文件末尾#Deploym</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-02&nbsp;&nbsp;
+        
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E5%8D%9A%E5%AE%A2">博客</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/11/02/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AE%B2%E8%A7%A32/">
+        <p class="h4 index-header">多线程讲解2</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">
+线程的生命周期JDK中用Thread.State类定义了线程的几种状态要想实现多线程，必须在主线程中创建新的线程对象。Java语言使用Thread类及其子类的对象来表示线程，在它的一个完整的生命周期中通常要经历如下的==五种状态：====新建==： 当一个Thread类或其子类的对象被声明并创建时，新生的线程对象处于新建状态 
+
+==就绪==：处于新建状态的线程被start()后，将进入线程队列等待CPU时间片，此时它已具备了运行的条件，只是没分配到CPU资源  
+==运行==：当就绪的线程被调度并获得CPU资源时,便进入运行状态， run()方法定义了线程的操作和功能 
+==阻塞==：在某种特殊情况下，被人为挂起或执行输入输出操作时，让出 CPU 并临时中止自己的执行，进入阻塞状态  
+==死亡==：线程完成了它的全部工作或线程被提前强制性地中止或出现异常导致结束
+线程的同步（开发重点）问题的提出多个线程执行的不确定性引起执行结果的不稳定多个线程对账本的共享，会造成操作的不完整性，会破坏数据。  
+例 题模拟火车站售票程序，开启三个窗口售票。  
+
+多线程出现了安全问</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-02&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/11/02/%E5%A4%9A%E7%BA%BF%E7%A8%8B%E8%AE%B2%E8%A7%A31/">
+        <p class="h4 index-header">多线程讲解1</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1"># 基本概念：程序、进程、线程程序(program)是为完成特定任务、用某种语言编写的一组指令的集合。即指一段静态的代码，静态对象。
+==程序(program==)是为完成特定任务、用某种语言编写的一组指令的集合。即指一段静态的代码，静态对象。
+进程(process)是程序的一次执行过程，或是正在运行的一个程序。是一个动态的过程：有它自身的产生、存在和消亡的过程。——生命周期
+如：运行中的QQ，运行中的MP3播放器
+程序是静态的，进程是动态
+进程作为资源分配的单位，系统在运行时会为每个进程分配不同的内存区域
+线程(thread)，进程可进一步细化为线程，是一个程序内部的一条执行路径若一个进程同一时间并行执行多个线程，就是支持多线程的
+线程作为调度和执行的单位，每个线程拥有独立的运行栈和程序计数器(pc)，线程切换的开销小
+一个进程中的多个线程共享相同的内存单元/内存地址空间它们从同一堆中分配对象，可以访问相同的变量和对象。这就使得线程间通信更简便、高效。但多个线程操作共享的系统资源可能就会带来安全的隐患。
+单核CPU和多核CPU的理解单核CPU，其实是一种假的多线程，因为在一个时间单</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-02&nbsp;&nbsp;
+        
+        
+        
+      </div>
+    </div>
+  </div>
 
 
 
 
-		</p>
-		<p>
-			<a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> Theme <a href="https://github.com/Sariay/hexo-theme-Annie" title="Annie" target="_blank" rel="noopener">Annie</a> by Sariay.
-			<a href="javascript:zh_tran('s');" class="zh_click" id="zh_click_s">简体</a> 
-			<a href="javascript:zh_tran('t');" class="zh_click" id="zh_click_t">繁體</a>				
-		</p>
-	</div>		
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    <br>
+
+    
+  
+    <!-- 不蒜子统计PV -->
+    
+    &nbsp;<span id="busuanzi_container_site_pv">总访问量 
+          <span id="busuanzi_value_site_pv"></span> 次</span>&nbsp;
+  
+  
+    <!-- 不蒜子统计UV -->
+    
+    &nbsp;<span id="busuanzi_container_site_uv">总访客数 
+            <span id="busuanzi_value_site_uv"></span> 人</span>&nbsp;
+  
+  <br>
+
+
+
+    
+
+  </div>
 </footer>
-		
-	<!-- set '1' to show motto in all pages! -->
 
-	<script src="/plugin/motto/motto.js"></script>
-	
-	<script type="text/javascript">
-		$(".motto").html( getMingYanContent() );
-	</script>	
-
+<!-- SCRIPTS -->
+<script src="/lib/jquery/jquery.min.js" ></script>
+<script src="/lib/popper/popper.min.js" ></script>
+<script src="/lib/bootstrap/js/bootstrap.min.js" ></script>
+<script src="/lib/mdbootstrap/js/mdb.min.js" ></script>
+<script src="/js/main.js" ></script>
 
 
-
-
-<!-- love effect -->
-
-	<script src="/plugin/love/love.js"></script>
-
-
-<!-- back to top -->
-
-	
-	<div id="totop">
-  		<a href="javascript:;"  name="TOTOP" class="fa fa-arrow-up" ></a>
-	</div>
+  <script src="/js/lazyload.js" ></script>
 
 
 
 
-<!-- site analysis -->
+
+  <script src="/lib/smooth-scroll/smooth-scroll.min.js" ></script>
 
 
-	<!-- site-analysis -->
-	
 
-	
-	
-	
-	
- 
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
 
-<script src="/plugin/vibrant/vibrant.js"></script>
-<script src="/plugin/chinese/chinese.js"></script>
-<script src="/plugin/imgLazyLoader/yall.min.js"></script>
-<script src="/plugin/imgResize/jquery.resizeimagetoparent.min.js"></script>
-<script src="/plugin/nicescroll/jquery.nicescroll.js"></script>
-<script src="/js/resizediv.js"></script>
-<script src="/js/main.js"></script>
-	</body>	
+
+<!-- Plugins -->
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+  <script src="/lib/prettify/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint  linenums');
+      prettyPrint();
+    })
+  </script>
+
+
+
+  <script src="/lib/typed/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "&nbsp;",
+      ],
+      cursorChar: "_",
+      typeSpeed: 70,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+
+  <script src="/lib/anchor/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "false",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script src="/lib/fancybox/jquery.fancybox.min.js" ></script>
+  <script>
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+      function () {
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "images");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      }
+    );
+  </script>
+
+
+
+
+
+
+
+</body>
 </html>
