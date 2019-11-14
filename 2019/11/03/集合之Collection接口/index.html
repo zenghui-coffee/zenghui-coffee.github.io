@@ -15,7 +15,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>集合之Collection接口 ~ Hexo</title>
+  <title>集合之Collection接口 ~ 小辉辉的博客</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
@@ -40,7 +40,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="/">&nbsp;<strong>Hexo</strong>&nbsp;</a>
+       href="/">&nbsp;<strong>小辉辉的博客</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -173,21 +173,28 @@ Set：元素无序、不可重复的集合</code></pre><h6 id="Map接口：双�
 <p>JDK不提供此接口的任何直接实现，而是提供更具体的子接口(如：Set和List)<br>实现。  </p>
 <p>在 Java5 之前，Java 集合会丢失容器中所有对象的数据类型，把所有对象都<br>当成 Object 类型处理；从 JDK 5.0 增加了泛型以后，Java 集合可以记住容<br>器中对象的数据类型。<br><img src="https://pic.superbed.cn/item/5dbd50b3bd461d945af074b1.png" srcset="undefined" alt=""><br><img src="https://pic.superbed.cn/item/5dbd50bcbd461d945af07604.png" srcset="undefined" alt=""></p>
 <h6 id="代码演示"><a href="#代码演示" class="headerlink" title="代码演示"></a>代码演示</h6><p><img src="https://pic.superbed.cn/item/5dbd50c5bd461d945af077ac.png" srcset="undefined" alt=""><br><img src="https://pic.superbed.cn/item/5dbd50d1bd461d945af07840.png" srcset="undefined" alt=""><br><img src="https://pic.superbed.cn/item/5dbd50d7bd461d945af07898.png" srcset="undefined" alt=""></p>
-<h1 id="Iterator迭代器接口"><a href="#Iterator迭代器接口" class="headerlink" title="Iterator迭代器接口"></a>Iterator迭代器接口</h1><h3 id="使用-Iterator-接口遍历集合元素"><a href="#使用-Iterator-接口遍历集合元素" class="headerlink" title="使用 Iterator 接口遍历集合元素"></a>使用 Iterator 接口遍历集合元素</h3><pre><code>Iterator对象称为迭代器(设计模式的一种)，主要用于遍历Collection集合中的元素。   
+<h1 id="Iterator迭代器接口"><a href="#Iterator迭代器接口" class="headerlink" title="Iterator迭代器接口"></a>Iterator迭代器接口</h1><h3 id="使用-Iterator-接口遍历集合元素"><a href="#使用-Iterator-接口遍历集合元素" class="headerlink" title="使用 Iterator 接口遍历集合元素"></a>使用 Iterator 接口遍历集合元素</h3><pre><code>    Iterator对象称为迭代器(设计模式的一种)，主要用于遍历Collection集合中的元素。   
 
-GOF给迭代器模式的定义为：提供一种方法访问一个容器(container)对象中各个元素，而又不需暴露该对象的内部细节。迭代器模式，就是为容器而生。类似于“公交车上的售票员”、“火车上的乘务员”、“空姐”。 
+    GOF给迭代器模式的定义为：提供一种方法访问一个容器(container)对象中各个元素，而又不需暴露该对象的内部细节。迭代器模式，就是为容器而生。类似于“公交车上的售票员”、“火车上的乘务员”、“空姐”。 
 
-Collection接口继承了java.lang.Iterable接口，该接口有一个iterator()方法，那么所有实现了Collection接口的集合类都有一个iterator()方法，用以返回一个实现了Iterator接口的对象。
+    Collection接口继承了java.lang.Iterable接口，该接口有一个iterator()方法，那么所有实现了Collection接口的集合类都有一个iterator()方法，用以返回一个实现了Iterator接口的对象。
 
-Iterator 仅用于遍历集合，Iterator本身并不提供承装对象的能力。如果需要创建Iterator对象，则必须有一个被迭代的集合.    
+    Iterator 仅用于遍历集合，Iterator本身并不提供承装对象的能力。如果需要创建Iterator对象，则必须有一个被迭代的集合.    
 
-集合对象每次调用iterator()方法都得到一个全新的迭代器对象，默认游标都在集合的第一个元素之前。</code></pre><h3 id="Iterator接口的方法"><a href="#Iterator接口的方法" class="headerlink" title="Iterator接口的方法"></a>Iterator接口的方法</h3><p><img src="https://pic.superbed.cn/item/5dbd557bbd461d945af0c7df.png" srcset="undefined" alt=""><br><img src="https://pic.superbed.cn/item/5dbd5584bd461d945af0c864.png" srcset="undefined" alt=""><br><img src="https://pic.superbed.cn/item/5dbd7c47bd461d945af295e1.png" srcset="undefined" alt=""></p>
+    集合对象每次调用iterator()方法都得到一个全新的迭代器对象，默认游标都在集合的第一个元素之前。</code></pre><h3 id="Iterator接口的方法"><a href="#Iterator接口的方法" class="headerlink" title="Iterator接口的方法"></a>Iterator接口的方法</h3><p><img src="https://pic.superbed.cn/item/5dbd557bbd461d945af0c7df.png" srcset="undefined" alt=""><br><img src="https://pic.superbed.cn/item/5dbd5584bd461d945af0c864.png" srcset="undefined" alt=""><br><img src="https://pic.superbed.cn/item/5dbd7c47bd461d945af295e1.png" srcset="undefined" alt=""></p>
 <h2 id="Iterator接口remove-方法"><a href="#Iterator接口remove-方法" class="headerlink" title="Iterator接口remove()方法"></a>Iterator接口remove()方法</h2><p><img src="https://pic.superbed.cn/item/5dbd6c1bbd461d945af1d675.png" srcset="undefined" alt=""></p>
 <h3 id="使用-foreach-循环遍历集合元素"><a href="#使用-foreach-循环遍历集合元素" class="headerlink" title="使用 foreach 循环遍历集合元素"></a>使用 foreach 循环遍历集合元素</h3><pre><code>1.Java 5.0 提供了 foreach 循环迭代访问 Collection和数组。
 2.遍历操作不需获取Collection或数组的长度，无需使用索引访问元素。
 3.遍历集合的底层调用Iterator完成操作。
-4.foreach还可以用来遍历数组。</code></pre><h6 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public static void main(String[] args) &#123;</span><br><span class="line">String[] str = new String[5];</span><br><span class="line">for (String myStr : str) &#123;</span><br><span class="line">myStr = &quot;atguigu&quot;;</span><br><span class="line">System.out.println(myStr);</span><br><span class="line">&#125;</span><br><span class="line">for (int i = 0; i &lt; str.length; i++) &#123;</span><br><span class="line">System.out.println(str[i]);</span><br><span class="line">&#125; &#125;</span><br></pre></td></tr></table></figure>
-<p><img src="https://pic.superbed.cn/item/5dbd6e3fbd461d945af1efee.png" srcset="undefined" alt=""></p>
+4.foreach还可以用来遍历数组。</code></pre><h6 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h6><pre><code>public static void main(String[] args) {
+String[] str = new String[5];
+for (String myStr : str) {
+myStr = &quot;atguigu&quot;;
+System.out.println(myStr);
+}
+for (int i = 0; i &lt; str.length; i++) {
+System.out.println(str[i]);
+} }</code></pre><p><img src="https://pic.superbed.cn/item/5dbd6e3fbd461d945af1efee.png" srcset="undefined" alt=""></p>
 <h1 id="Collection子接口之一：List接口"><a href="#Collection子接口之一：List接口" class="headerlink" title="Collection子接口之一：List接口"></a>Collection子接口之一：List接口</h1><h3 id="List接口概述"><a href="#List接口概述" class="headerlink" title="List接口概述"></a>List接口概述</h3><p>1.鉴于Java中数组用来存储数据的局限性，我们通常使用List替代数组<br>2.list集合类中元素有序、且可重复，集合中的每个元素都有其对应的顺序索引。<br>3.List容器中的元素都对应一个整数型的序号记载其在容器中的位置，可以根据序号存取容器中的元素。<br>4.JDK API中List接口的实现类常用的有：ArrayList、LinkedList和Vector。</p>
 <p><img src="https://pic.superbed.cn/item/5dbd70a9bd461d945af214c6.png" srcset="undefined" alt=""><br><img src="https://pic.superbed.cn/item/5dbd7decbd461d945af2a746.png" srcset="undefined" alt=""><br><img src="https://pic.superbed.cn/item/5dbd7df7bd461d945af2a82d.png" srcset="undefined" alt=""><br><img src="https://pic.superbed.cn/item/5dbd7dffbd461d945af2a8b2.png" srcset="undefined" alt=""></p>
 <h2 id="List实现类之一：ArrayList"><a href="#List实现类之一：ArrayList" class="headerlink" title="List实现类之一：ArrayList"></a>List实现类之一：ArrayList</h2><h6 id="ArrayList-是-List-接口的典型实现类、主要实现类"><a href="#ArrayList-是-List-接口的典型实现类、主要实现类" class="headerlink" title="ArrayList 是 List 接口的典型实现类、主要实现类"></a>ArrayList 是 List 接口的典型实现类、主要实现类</h6><h6 id="本质上，ArrayList是对象引用的一个”变长”数组"><a href="#本质上，ArrayList是对象引用的一个”变长”数组" class="headerlink" title="本质上，ArrayList是对象引用的一个”变长”数组"></a>本质上，ArrayList是对象引用的一个”变长”数组</h6><h6 id="ArrayList的JDK1-8之前与之后的实现区别？"><a href="#ArrayList的JDK1-8之前与之后的实现区别？" class="headerlink" title="ArrayList的JDK1.8之前与之后的实现区别？"></a>ArrayList的JDK1.8之前与之后的实现区别？</h6><pre><code>JDK1.7：ArrayList像饿汉式，直接创建一个初始容量为10的数组  

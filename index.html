@@ -15,7 +15,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>Hexo</title>
+  <title>小辉辉的博客</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
@@ -40,7 +40,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="/">&nbsp;<strong>Hexo</strong>&nbsp;</a>
+       href="/">&nbsp;<strong>小辉辉的博客</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -133,6 +133,12 @@
   <div class="row mb-4 mx-auto">
     
     
+      <div class="col-12 col-md-4 m-auto">
+        <a href="/2019/11/14/%E9%9B%86%E5%90%88%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97-%E4%BA%8C/" target="_self">
+          <img src="/img/cat1.jpg" srcset="undefined" alt="集合学习系列(二)" class="img-fluid rounded z-depth-3 index-thumbnails">
+        </a>
+      </div>
+    
     <div class="col-12 col-md-8 m-auto">
       <a href="/2019/11/14/%E9%9B%86%E5%90%88%E5%AD%A6%E4%B9%A0%E7%B3%BB%E5%88%97-%E4%BA%8C/">
         <p class="h4 index-header">集合学习系列(二)</p>
@@ -143,7 +149,12 @@
         <div class="index-excerpt" >
           <div class="index-text mb-1">1. HashMap 概述：HashMap 是基于哈希表的 Map 接口的非同步实现。此实现提供所有可选的映射操作， 并允许使用 null 值和null键。此类不保证映射的顺序，特别是它不保证该顺序恒久不变。
 2. HashMap 的数据结构：在 java 编程语言中，最基本的结构就是两种，一个是数组，另外一个是模拟指针（引用），所有的数据结构都可以用这两个基本结构来构造的，HashMap 也不例外。HashMap实际上是一个“链表散列”的数据结构，即数组和链表的结合体。从上图中可以看出，HashMap 底层就是一个数组结构，数组中的每一项又是一个链表。 当新建一个 HashMap 的时候，就会初始化一个数组。
-源码如下：1234567891011121. /**2. * The table, resized as necessary. Length MUST Always be a power of two.3. */4. transient Entry[] table;5.6. static class Entry&lt;K,V&gt; implements Map.Entry&l</div>
+源码如下：    1. /**
+    2. * The table, resized as necessary. Length MUST Always be a power of two.
+    3. */
+    4. transient Entry[] table;
+    5.
+    6. static class Entry&lt;K,V&gt; implemen</div>
         </div>
       </a>
 
@@ -203,13 +214,14 @@ Collections常用方法
           
         
         <div class="index-excerpt" >
-          <div class="index-text mb-1">Collection子接口之二： Set接口Set 接口概述123Set接口是Collection的子接口，set接口没有提供额外的方法  Set 集合不允许包含相同的元素，如果试把两个相同的元素加入同一个 Set 集合中，则添加操作失败。  Set 判断两个对象是否相同不是使用 == 运算符，而是根据equals() 方法
-
+          <div class="index-text mb-1">Collection子接口之二： Set接口Set 接口概述Set接口是Collection的子接口，set接口没有提供额外的方法  
+Set 集合不允许包含相同的元素，如果试把两个相同的元素加入同一个 Set 集合中，则添加操作失败。  
+Set 判断两个对象是否相同不是使用 == 运算符，而是根据equals() 方法
 Set实现类之一：HashSetHashSet 是 Set 接口的典型实现，大多数时候使用 Set 集合时都使用这个实现类。HashSet 按 Hash算法来存储集合中的元素，因此具有很好的存取、查找、删除 性能。 
 HashSet 具有以下特点：不能保证元素的排列顺序   
 HashSet 不是线程安全的  
 集合元素可以是 null ==HashSet 集合判断两个元素相等的标准==：两个对象通过hashCode() 方法比较相等，并且两个对象的equals()方法返回值也相等。 
-对于存放在Set容器中的对象，对应的类一定要重写equals()和hashCode(Objectobj)方法，以实现对象相等规则。即：“相等的对象必须具有相等的散列码”。Set实</div>
+对于存放在Set容器中的对象，对应的类一定要重写equals()和hashCode(Objectobj)方法，以实现对象相等规则。即：“相等的对象必须具有相等的散列码”。Set实现类</div>
         </div>
       </a>
 

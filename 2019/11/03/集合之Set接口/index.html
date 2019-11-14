@@ -15,7 +15,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>集合之Set接口 ~ Hexo</title>
+  <title>集合之Set接口 ~ 小辉辉的博客</title>
 
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
 <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
@@ -40,7 +40,7 @@
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
-       href="/">&nbsp;<strong>Hexo</strong>&nbsp;</a>
+       href="/">&nbsp;<strong>小辉辉的博客</strong>&nbsp;</a>
 
     <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent"
@@ -161,8 +161,9 @@
       <div class="py-5 z-depth-3" id="board">
         <div class="post-content mx-auto" id="post">
           <div class="markdown-body">
-            <h2 id="Collection子接口之二：-Set接口"><a href="#Collection子接口之二：-Set接口" class="headerlink" title="Collection子接口之二： Set接口"></a>Collection子接口之二： Set接口</h2><h3 id="Set-接口概述"><a href="#Set-接口概述" class="headerlink" title="Set 接口概述"></a>Set 接口概述</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Set接口是Collection的子接口，set接口没有提供额外的方法  </span><br><span class="line">Set 集合不允许包含相同的元素，如果试把两个相同的元素加入同一个 Set 集合中，则添加操作失败。  </span><br><span class="line">Set 判断两个对象是否相同不是使用 == 运算符，而是根据equals() 方法</span><br></pre></td></tr></table></figure>
-
+            <h2 id="Collection子接口之二：-Set接口"><a href="#Collection子接口之二：-Set接口" class="headerlink" title="Collection子接口之二： Set接口"></a>Collection子接口之二： Set接口</h2><h3 id="Set-接口概述"><a href="#Set-接口概述" class="headerlink" title="Set 接口概述"></a>Set 接口概述</h3><pre><code class="java">Set接口是Collection的子接口，set接口没有提供额外的方法  
+Set 集合不允许包含相同的元素，如果试把两个相同的元素加入同一个 Set 集合中，则添加操作失败。  
+Set 判断两个对象是否相同不是使用 == 运算符，而是根据equals() 方法</code></pre>
 <h3 id="Set实现类之一：HashSet"><a href="#Set实现类之一：HashSet" class="headerlink" title="Set实现类之一：HashSet"></a>Set实现类之一：HashSet</h3><p>HashSet 是 Set 接口的典型实现，大多数时候使用 Set 集合时都使用这个实现类。<br>HashSet 按 Hash算法来存储集合中的元素，因此具有很好的存取、查找、删除 性能。 </p>
 <h5 id="HashSet-具有以下特点："><a href="#HashSet-具有以下特点：" class="headerlink" title="HashSet 具有以下特点："></a>HashSet 具有以下特点：</h5><pre><code>不能保证元素的排列顺序   
 HashSet 不是线程安全的  
@@ -173,9 +174,31 @@ HashSet 不是线程安全的
 <p><img src="https://pic.superbed.cn/item/5dbe3c5f8e0e2e3ee9d3e562.png" srcset="undefined" alt=""><br><img src="https://pic.superbed.cn/item/5dbe3c6e8e0e2e3ee9d3e655.png" srcset="undefined" alt=""></p>
 <h2 id="Set实现类之三：TreeSet"><a href="#Set实现类之三：TreeSet" class="headerlink" title="Set实现类之三：TreeSet"></a>Set实现类之三：TreeSet</h2><p>TreeSet 是 SortedSet 接口的实现类，TreeSet 可以确保集合元素处于排序状态 。<br>TreeSet底层使用红黑树结构存储数据。<br>新增的方法如下： (了解)<br><img src="https://pic.superbed.cn/item/5dbe3ceb8e0e2e3ee9d3eca0.png" srcset="undefined" alt=""><br>TreeSet 两种排序方法：自然排序和定制排序。默认情况下，TreeSet采用自然排序。  </p>
 <p><img src="https://pic.superbed.cn/item/5dbe3d168e0e2e3ee9d3f013.png" srcset="undefined" alt=""></p>
-<h6 id="再具体就不说了，可以参看http-www-cnblogs-com-yangecnu-p-Introduce-Red-Black-Tree-html，对红黑树的讲解写得不错。"><a href="#再具体就不说了，可以参看http-www-cnblogs-com-yangecnu-p-Introduce-Red-Black-Tree-html，对红黑树的讲解写得不错。" class="headerlink" title="再具体就不说了，可以参看http://www.cnblogs.com/yangecnu/p/Introduce-Red-Black-Tree.html，对红黑树的讲解写得不错。"></a>再具体就不说了，可以参看<a href="http://www.cnblogs.com/yangecnu/p/Introduce-Red-Black-Tree.html，对红黑树的讲解写得不错。" target="_blank" rel="noopener">http://www.cnblogs.com/yangecnu/p/Introduce-Red-Black-Tree.html，对红黑树的讲解写得不错。</a></h6><h3 id="排-序—自然排序"><a href="#排-序—自然排序" class="headerlink" title="排 序—自然排序"></a>排 序—自然排序</h3><h6 id="自然排序：TreeSet-会调用集合元素的-compareTo-Object-obj-方法来比较元素之间的大小关系，然后将集合元素按升序-默认情况-排列"><a href="#自然排序：TreeSet-会调用集合元素的-compareTo-Object-obj-方法来比较元素之间的大小关系，然后将集合元素按升序-默认情况-排列" class="headerlink" title="自然排序：TreeSet 会调用集合元素的 compareTo(Object obj) 方法来比较元素之间的大小关系，然后将集合元素按升序(默认情况)排列"></a>自然排序：TreeSet 会调用集合元素的 compareTo(Object obj) 方法来比较元素之间的大小关系，然后将集合元素按升序(默认情况)排列</h6><h6 id="如果试图把一个对象添加到-TreeSet-时，则该对象的类必须实现-Comparable-接口。"><a href="#如果试图把一个对象添加到-TreeSet-时，则该对象的类必须实现-Comparable-接口。" class="headerlink" title="如果试图把一个对象添加到 TreeSet 时，则该对象的类必须实现 Comparable 接口。"></a>如果试图把一个对象添加到 TreeSet 时，则该对象的类必须实现 Comparable 接口。</h6><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">实现 Comparable 的类必须实现 compareTo(Object obj) 方法，两个对象即通过</span><br><span class="line">compareTo(Object obj) 方法的返回值来比较大小。</span><br><span class="line"></span><br><span class="line">向 TreeSet 中添加元素时，只有第一个元素无须比较compareTo()方法，后面添</span><br><span class="line">加的所有元素都会调用compareTo()方法进行比较。  </span><br><span class="line">因为只有相同类的两个实例才会比较大小，所以向 TreeSet 中添加的应该是同</span><br><span class="line">一个类的对象。  </span><br><span class="line">对于 TreeSet 集合而言，它判断两个对象是否相等的唯一标准是：两个对象通</span><br><span class="line">过 compareTo(Object obj) 方法比较返回值。  </span><br><span class="line">当需要把一个对象放入 TreeSet 中，重写该对象对应的 equals() 方法时，应保</span><br><span class="line">证该方法与 compareTo(Object obj) 方法有一致的结果：如果两个对象通过</span><br><span class="line">equals() 方法比较返回 <span class="keyword">true</span>，则通过 compareTo(Object obj) 方法比较应返回 <span class="number">0</span>。否则，让人难以理解。</span><br></pre></td></tr></table></figure>
+<h6 id="再具体就不说了，可以参看http-www-cnblogs-com-yangecnu-p-Introduce-Red-Black-Tree-html，对红黑树的讲解写得不错。"><a href="#再具体就不说了，可以参看http-www-cnblogs-com-yangecnu-p-Introduce-Red-Black-Tree-html，对红黑树的讲解写得不错。" class="headerlink" title="再具体就不说了，可以参看http://www.cnblogs.com/yangecnu/p/Introduce-Red-Black-Tree.html，对红黑树的讲解写得不错。"></a>再具体就不说了，可以参看<a href="http://www.cnblogs.com/yangecnu/p/Introduce-Red-Black-Tree.html，对红黑树的讲解写得不错。" target="_blank" rel="noopener">http://www.cnblogs.com/yangecnu/p/Introduce-Red-Black-Tree.html，对红黑树的讲解写得不错。</a></h6><h3 id="排-序—自然排序"><a href="#排-序—自然排序" class="headerlink" title="排 序—自然排序"></a>排 序—自然排序</h3><h6 id="自然排序：TreeSet-会调用集合元素的-compareTo-Object-obj-方法来比较元素之间的大小关系，然后将集合元素按升序-默认情况-排列"><a href="#自然排序：TreeSet-会调用集合元素的-compareTo-Object-obj-方法来比较元素之间的大小关系，然后将集合元素按升序-默认情况-排列" class="headerlink" title="自然排序：TreeSet 会调用集合元素的 compareTo(Object obj) 方法来比较元素之间的大小关系，然后将集合元素按升序(默认情况)排列"></a>自然排序：TreeSet 会调用集合元素的 compareTo(Object obj) 方法来比较元素之间的大小关系，然后将集合元素按升序(默认情况)排列</h6><h6 id="如果试图把一个对象添加到-TreeSet-时，则该对象的类必须实现-Comparable-接口。"><a href="#如果试图把一个对象添加到-TreeSet-时，则该对象的类必须实现-Comparable-接口。" class="headerlink" title="如果试图把一个对象添加到 TreeSet 时，则该对象的类必须实现 Comparable 接口。"></a>如果试图把一个对象添加到 TreeSet 时，则该对象的类必须实现 Comparable 接口。</h6><pre><code class="java">
+实现 Comparable 的类必须实现 compareTo(Object obj) 方法，两个对象即通过
+compareTo(Object obj) 方法的返回值来比较大小。
+
+向 TreeSet 中添加元素时，只有第一个元素无须比较compareTo()方法，后面添
+加的所有元素都会调用compareTo()方法进行比较。  
+因为只有相同类的两个实例才会比较大小，所以向 TreeSet 中添加的应该是同
+一个类的对象。  
+对于 TreeSet 集合而言，它判断两个对象是否相等的唯一标准是：两个对象通
+过 compareTo(Object obj) 方法比较返回值。  
+当需要把一个对象放入 TreeSet 中，重写该对象对应的 equals() 方法时，应保
+证该方法与 compareTo(Object obj) 方法有一致的结果：如果两个对象通过
+equals() 方法比较返回 true，则通过 compareTo(Object obj) 方法比较应返回 0。否则，让人难以理解。</code></pre>
 <p><img src="https://pic.superbed.cn/item/5dbe3ffe8e0e2e3ee9d41841.png" srcset="undefined" alt=""><br><img src="https://pic.superbed.cn/item/5dbe400e8e0e2e3ee9d419c9.png" srcset="undefined" alt=""></p>
-<h3 id="排-序—定制排序"><a href="#排-序—定制排序" class="headerlink" title="排 序—定制排序"></a>排 序—定制排序</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">TreeSet的自然排序要求元素所属的类实现Comparable接口，如果元素所属的类没</span><br><span class="line">有实现Comparable接口，或不希望按照升序(默认情况)的方式排列元素或希望按照</span><br><span class="line">其它属性大小进行排序，则考虑使用定制排序。定制排序，通过Comparator接口来</span><br><span class="line">实现。需要重写compare(T o1,T o2)方法。  </span><br><span class="line">利用<span class="function"><span class="keyword">int</span> <span class="title">compare</span><span class="params">(T o1,To2)</span>方法，比较o1和o2的大小：如果方法返回正整数，则表</span></span><br><span class="line"><span class="function">示o1大于o2；如果返回0，表示相等；返回负整数，表示o1小于o2。  </span></span><br><span class="line"><span class="function">要实现定制排序，需要将实现Comparator接口的实例作为形参传递给TreeSet的构</span></span><br><span class="line"><span class="function">造器。  </span></span><br><span class="line"><span class="function">此时，仍然只能向TreeSet中添加类型相同的对象。否则发生ClassCastException异</span></span><br><span class="line"><span class="function">常。  </span></span><br><span class="line"><span class="function">使用定制排序判断两个元素相等的标准是：通过Comparator比较两个元素返回了0</span></span><br></pre></td></tr></table></figure>
+<h3 id="排-序—定制排序"><a href="#排-序—定制排序" class="headerlink" title="排 序—定制排序"></a>排 序—定制排序</h3><pre><code class="java">TreeSet的自然排序要求元素所属的类实现Comparable接口，如果元素所属的类没
+有实现Comparable接口，或不希望按照升序(默认情况)的方式排列元素或希望按照
+其它属性大小进行排序，则考虑使用定制排序。定制排序，通过Comparator接口来
+实现。需要重写compare(T o1,T o2)方法。  
+利用int compare(T o1,To2)方法，比较o1和o2的大小：如果方法返回正整数，则表
+示o1大于o2；如果返回0，表示相等；返回负整数，表示o1小于o2。  
+要实现定制排序，需要将实现Comparator接口的实例作为形参传递给TreeSet的构
+造器。  
+此时，仍然只能向TreeSet中添加类型相同的对象。否则发生ClassCastException异
+常。  
+使用定制排序判断两个元素相等的标准是：通过Comparator比较两个元素返回了0</code></pre>
 <p><img src="https://pic.superbed.cn/item/5dbe40508e0e2e3ee9d41cfd.png" srcset="undefined" alt=""><br><img src="https://pic.superbed.cn/item/5dbe40a18e0e2e3ee9d42196.png" srcset="undefined" alt=""><br><img src="https://pic.superbed.cn/item/5dbe40ab8e0e2e3ee9d423f7.png" srcset="undefined" alt=""><br>==核心讲解：remove()方法通过元素的哈希值来判断位置==<br>            ==add()方法添加元素，手下比较哈希值，然后是equals()方法==</p>
 
             <hr>
